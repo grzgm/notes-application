@@ -76,6 +76,7 @@
         <Collapsed>False</Collapsed>
         <Member type="Field">private int id</Member>
         <Member type="Field">private string name</Member>
+        <Member type="Field">private string email</Member>
         <Member type="Field">public int amountOfNotes</Member>
         <Member type="Field">private string password</Member>
         <Member type="Field">private int maxAmountOfNotes</Member>
@@ -100,14 +101,14 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -115,38 +116,32 @@
         <EndRole>-notes</EndRole>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
