@@ -13,7 +13,9 @@
         <Member type="Field">public static int amountOfUsers</Member>
         <Member type="Field">public static int amountOfPremiumUsers</Member>
         <Member type="Field">public static int amountOfAdmins</Member>
-        <Member type="Field">public static int globalAmountOfNotes</Member>
+        <Member type="Method">public static int amountOfUsers()</Member>
+        <Member type="Method">public static int amountOfPremiumUsers()</Member>
+        <Member type="Method">public static int amountOfAdmins()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -101,17 +103,24 @@
       <Entity type="Class">
         <Name>NoteManager</Name>
         <Access>Public</Access>
-        <Location left="1781" top="147" />
-        <Size width="162" height="216" />
+        <Location left="1710" top="135" />
+        <Size width="202" height="247" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void HowManyNotes()</Member>
+        <Member type="Field">private static int amountOfNotes</Member>
+        <Member type="Field">private int amountPinnedNotes</Member>
+        <Member type="Field">int AmountPremiumNotes</Member>
+        <Member type="Field">List&lt;string, string&gt; ListOfNotes</Member>
+        <Member type="Method">public int AmountOfNotes()</Member>
+        <Member type="Method">public int AmountPinnedNotes()</Member>
+        <Member type="Method">public int AmountPremiumNotes()</Member>
+        <Member type="Method">public List&lt;string, string&gt; ListOfNotes()</Member>
+        <Member type="Method">public List&lt;string&gt; ListOfUserNotes(int userId)</Member>
+        <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -126,22 +135,24 @@
         <EndRole>- notes</EndRole>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="1">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -149,13 +160,9 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="4" second="1">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="1" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -173,6 +180,14 @@
       <Relationship type="Generalization" first="3" second="2">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="8" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>
