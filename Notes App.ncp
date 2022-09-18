@@ -19,7 +19,7 @@
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1078" top="1000" />
+        <Location left="1078" top="966" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public string Title</Member>
@@ -31,7 +31,7 @@
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="1040" top="499" />
+        <Location left="1041" top="499" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void GetPremium()</Member>
@@ -59,7 +59,7 @@
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1078" top="1283" />
+        <Location left="1078" top="1249" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public string Title</Member>
@@ -71,7 +71,7 @@
       <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="323" top="99" />
+        <Location left="301" top="100" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int id</Member>
@@ -93,41 +93,57 @@
       <Entity type="Interface">
         <Name>IUser</Name>
         <Access>Public</Access>
-        <Location left="1714" top="148" />
+        <Location left="1530" top="135" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void NewMethod()</Member>
       </Entity>
+      <Entity type="Class">
+        <Name>NoteManager</Name>
+        <Access>Public</Access>
+        <Location left="1781" top="147" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void HowManyNotes()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="2">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="2" second="1">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
-        <EndRole>-notes</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="2" second="1">
+        <Label>- pinned notes</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- notes</EndRole>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -140,8 +156,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
