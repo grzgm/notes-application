@@ -5,28 +5,28 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>AdminMenager</Name>
+        <Name>AdminManager</Name>
         <Access>Public</Access>
-        <Location left="413" top="519" />
-        <Size width="236" height="315" />
+        <Location left="535" top="509" />
+        <Size width="236" height="168" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void ChangePremiumStatus(int id)</Member>
+        <Member type="Method">public void ShowAdmin(int id)</Member>
+        <Member type="Method">public void ShowAllAdmins()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>NoteManager</Name>
         <Access>Public</Access>
-        <Location left="1730" top="155" />
-        <Size width="202" height="247" />
+        <Location left="1463" top="509" />
+        <Size width="262" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static int amountOfNotes</Member>
         <Member type="Field">private int amountPinnedNotes</Member>
-        <Member type="Field">int AmountPremiumNotes</Member>
-        <Member type="Field">List&lt;string, string&gt; ListOfNotes</Member>
+        <Member type="Field">int amountPremiumNotes</Member>
+        <Member type="Field">List&lt;string, string&gt; listOfNotes</Member>
         <Member type="Method">public int AmountOfNotes()</Member>
         <Member type="Method">public int AmountPinnedNotes()</Member>
         <Member type="Method">public int AmountPremiumNotes()</Member>
-        <Member type="Method">public List&lt;string, string&gt; ListOfNotes()</Member>
         <Member type="Method">public List&lt;string&gt; ListOfUserNotes(int userId)</Member>
         <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
         <Modifier>None</Modifier>
@@ -34,7 +34,7 @@
       <Entity type="Interface">
         <Name>IUser</Name>
         <Access>Public</Access>
-        <Location left="603" top="152" />
+        <Location left="1664" top="151" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void NewMethod()</Member>
@@ -42,29 +42,34 @@
       <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="321" top="120" />
-        <Size width="236" height="315" />
+        <Location left="535" top="907" />
+        <Size width="236" height="400" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int id</Member>
         <Member type="Field">private string name</Member>
         <Member type="Field">private string email</Member>
-        <Member type="Field">public int amountOfNotes</Member>
+        <Member type="Field">private int amountOfNotes</Member>
         <Member type="Field">private string password</Member>
         <Member type="Field">private int maxAmountOfNotes</Member>
         <Member type="Field">private int maxLengthOfNote</Member>
         <Member type="Field">private bool isPremium</Member>
+        <Member type="Field">private List&lt;Note&gt; notes</Member>
         <Member type="Property">public int Id { get; private set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Email { get; set; }</Member>
+        <Member type="Property">public abstract bool IsPremium { get; set; }</Member>
+        <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
+        <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
         <Member type="Method">public void CreateNote()</Member>
         <Member type="Method">public void ReadNote()</Member>
         <Member type="Method">public void UpdateNote(int id, string newText)</Member>
         <Member type="Method">public void DeleteNote(int id)</Member>
-        <Member type="Property">public abstract bool IsPremium { get; set; }</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1098" top="1269" />
+        <Location left="1513" top="1698" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public string Title</Member>
@@ -76,16 +81,17 @@
       <Entity type="Class">
         <Name>Admin</Name>
         <Access>Public</Access>
-        <Location left="722" top="519" />
+        <Location left="245" top="1104" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void ChangePremiumStatus()</Member>
+        <Member type="Method">public void GetUserInfo(int id)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>PremiumUser</Name>
         <Access>Public</Access>
-        <Location left="1387" top="519" />
+        <Location left="1253" top="1104" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int daysOfPremiumLeft</Member>
@@ -95,7 +101,7 @@
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="1061" top="519" />
+        <Location left="821" top="1104" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void GetPremium()</Member>
@@ -104,9 +110,10 @@
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1098" top="986" />
+        <Location left="1513" top="1427" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private int id</Member>
         <Member type="Field">public string Title</Member>
         <Member type="Field">public DateTime date</Member>
         <Member type="Field">public string text</Member>
@@ -116,24 +123,59 @@
       <Entity type="Class">
         <Name>Administration</Name>
         <Access>Public</Access>
-        <Location left="1032" top="55" />
+        <Location left="1003" top="60" />
         <Size width="294" height="320" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">public static int amountOfUsers</Member>
-        <Member type="Field">public static int amountOfPremiumUsers</Member>
-        <Member type="Field">public static int amountOfAdmins</Member>
-        <Member type="Method">public static int amountOfUsers()</Member>
-        <Member type="Method">public static int amountOfPremiumUsers()</Member>
-        <Member type="Method">public static int amountOfAdmins()</Member>
+        <Member type="Method">public int amountOfAdmins()</Member>
         <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserManager</Name>
+        <Access>Public</Access>
+        <Location left="1032" top="509" />
+        <Size width="236" height="168" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int amountofUsers</Member>
+        <Member type="Field">private int amountOfPremiumUsers</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUserManager</Name>
+        <Access>Public</Access>
+        <Location left="535" top="716" />
+        <Size width="236" height="157" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void ChangePremiumStatus(int id)</Member>
+        <Member type="Method">void ChangeMaxAmountOfNotes(int id)</Member>
+        <Member type="Method">void ChangeMaxLengthOfNotes(int id)</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>INoteManager</Name>
+        <Access>Public</Access>
+        <Location left="1182" top="705" />
+        <Size width="236" height="157" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;Note&gt; GetListOfNotes()</Member>
+        <Member type="Method">Note GetNote()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUserStatistics</Name>
+        <Access>Public</Access>
+        <Location left="338" top="255" />
+        <Size width="236" height="157" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">int AmountOfUsers()</Member>
+        <Member type="Method">int AmountOfPremiumUsers()</Member>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1593</X>
+          <Y>1402</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
@@ -142,61 +184,124 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Generalization" first="7" second="3">
-        <StartOrientation>Vertical</StartOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Generalization" first="5" second="3">
-        <StartOrientation>Vertical</StartOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="8" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
-        <EndRole>-lastEdit</EndRole>
+        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
       </Relationship>
       <Relationship type="Association" first="5" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="9" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="9" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
         <Label>- pinned notes</Label>
         <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;Note&gt; notes</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
-        <EndRole>- notes</EndRole>
+        <EndRole>- List&lt;Admin&gt; admins</EndRole>
       </Relationship>
-      <Relationship type="Association" first="9" second="7">
+      <Relationship type="Association" first="9" second="0">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndRole>- AdminManager adminManager</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="9" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- NoteManager noteManager</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="10" second="7">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;User&gt; users</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="10" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;PremiumUser&gt; premiumUsers</EndRole>
+      </Relationship>
+      <Relationship type="Realization" first="10" second="11">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="5" second="11">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="12">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1438</X>
+          <Y>667</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="3" second="12">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>796</X>
+          <Y>974</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1022</X>
+          <Y>817</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;Note&gt; notes</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="9" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- UserManager userManager</EndRole>
+      </Relationship>
+      <Relationship type="Realization" first="10" second="13">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>

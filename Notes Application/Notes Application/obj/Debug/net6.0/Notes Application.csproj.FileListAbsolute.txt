@@ -24,3 +24,29 @@ C:\Users\Grzegorz Malisz\source\repos\OOD\week2\Notes Application\Notes Applicat
 C:\Users\Grzegorz Malisz\source\repos\OOD\week2\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.pdb
 C:\Users\Grzegorz Malisz\source\repos\OOD\week2\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.genruntimeconfig.cache
 C:\Users\Grzegorz Malisz\source\repos\OOD\week2\Notes Application\Notes Application\obj\Debug\net6.0\ref\Notes Application.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\appsettings.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.staticwebassets.runtime.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.exe
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.deps.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.runtimeconfig.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.pdb
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.csproj.AssemblyReference.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.AssemblyInfoInputs.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.AssemblyInfo.cs
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.csproj.CoreCompileInputs.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.RazorAssemblyInfo.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.RazorAssemblyInfo.cs
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\bundle\Notes Application.styles.css
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\projectbundle\Notes Application.bundle.scp.css
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\refint\Notes Application.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.pdb
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.genruntimeconfig.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\ref\Notes Application.dll
