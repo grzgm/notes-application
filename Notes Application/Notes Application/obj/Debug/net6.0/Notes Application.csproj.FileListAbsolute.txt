@@ -50,3 +50,32 @@ C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Note
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.pdb
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.genruntimeconfig.cache
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\ref\Notes Application.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.csproj.AssemblyReference.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.AssemblyInfoInputs.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.AssemblyInfo.cs
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.csproj.CoreCompileInputs.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.RazorAssemblyInfo.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.RazorAssemblyInfo.cs
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\refint\Notes Application.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.pdb
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\appsettings.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.staticwebassets.runtime.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.exe
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.deps.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.runtimeconfig.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\Notes Application.pdb
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\LogicLayer.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\bin\Debug\net6.0\LogicLayer.pdb
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\bundle\Notes Application.styles.css
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\scopedcss\projectbundle\Notes Application.bundle.scp.css
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.csproj.CopyComplete
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\Notes Application.genruntimeconfig.cache
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\Notes Application\obj\Debug\net6.0\ref\Notes Application.dll

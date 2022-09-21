@@ -17,13 +17,14 @@
       <Entity type="Class">
         <Name>NoteManager</Name>
         <Access>Public</Access>
-        <Location left="1463" top="509" />
+        <Location left="1462" top="509" />
         <Size width="262" height="315" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private static int amountOfNotes</Member>
+        <Member type="Field">private int amountOfNotes</Member>
         <Member type="Field">private int amountPinnedNotes</Member>
+        <Member type="Field">private static int noteIdCounter</Member>
         <Member type="Field">int amountPremiumNotes</Member>
-        <Member type="Field">List&lt;string, string&gt; listOfNotes</Member>
+        <Member type="Field">private List&lt;List&lt;Note&gt;&gt; usersNotes</Member>
         <Member type="Method">public int AmountOfNotes()</Member>
         <Member type="Method">public int AmountPinnedNotes()</Member>
         <Member type="Method">public int AmountPremiumNotes()</Member>
@@ -113,6 +114,7 @@
         <Location left="1513" top="1427" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private int userId</Member>
         <Member type="Field">private int id</Member>
         <Member type="Field">public string Title</Member>
         <Member type="Field">public DateTime date</Member>
@@ -153,10 +155,14 @@
         <Name>INoteManager</Name>
         <Access>Public</Access>
         <Location left="1182" top="705" />
-        <Size width="236" height="157" />
+        <Size width="236" height="163" />
         <Collapsed>False</Collapsed>
         <Member type="Method">List&lt;Note&gt; GetListOfNotes()</Member>
         <Member type="Method">Note GetNote()</Member>
+        <Member type="Method">List&lt;Note&gt; CreateNote()</Member>
+        <Member type="Method">List&lt;Note&gt; RemoveNote()</Member>
+        <Member type="Method">List&lt;Note&gt; UpdateNote()</Member>
+        <Member type="Method">List&lt;Note&gt; DeleteNote()</Member>
       </Entity>
       <Entity type="Interface">
         <Name>IUserStatistics</Name>
@@ -170,6 +176,8 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -178,6 +186,7 @@
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;List&lt;Note&gt;&gt; notes</EndRole>
       </Relationship>
       <Relationship type="Generalization" first="6" second="7">
         <StartOrientation>Horizontal</StartOrientation>
@@ -269,7 +278,7 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1438</X>
+          <X>1437</X>
           <Y>667</Y>
         </BendPoint>
       </Relationship>
