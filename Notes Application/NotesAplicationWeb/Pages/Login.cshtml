@@ -1,0 +1,21 @@
+﻿@page
+@model NotesAplicationWeb.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login - Notes";
+    ViewData["Css"] = "~/css/login.css";
+}
+
+<div class="login">
+    <div id="image">
+        <span class="material-symbols-outlined" style="font-size: 150px;">
+            sticky_note_2
+        </span>
+    </div>
+    <form>
+        <label>Name: </label>
+        <input type="text" name="name">
+        <input type="password" name="password">
+        <label>:Password</label>
+        <button type="submit">Manage your notes!</button>
+    </form>
+</div>
