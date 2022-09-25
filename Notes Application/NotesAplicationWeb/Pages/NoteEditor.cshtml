@@ -1,4 +1,4 @@
-﻿@page "{title}/{text}/{id}"
+﻿@page "{id:int}/{title}/{text}"
 @model NotesAplicationWeb.Pages.NoteEditorModel
 @{
     ViewData["Title"] = "Notes Editor";
@@ -6,12 +6,15 @@
 }
 
 <div class="editor">
-    <form method="post" autocomplete="on" asp-route-title="@Model.Note.title" asp-route-text="@Model.Note.text" asp-route-id="Note.Id">
-        <label asp-for="Note.title">Title: </label>
-        <input asp-for="Note.title" type="text">
-        <textarea>@Model.Note.text</textarea>
-        <label class="textVertical" asp-for="Note.text">Text: </label>
-        <button type="submit">Save!</button>
+    <form method="post" autocomplete="on">
+        <label asp-for="Note.Title">Title: </label>
+        <input asp-for="Note.Title" type="text">
+        @*<input asp-for="Note.Title" type="text" value="@Model.Note.Title">*@
+        <textarea asp-for="Note.Text">@*@Model.Note.Text*@</textarea>
+        <label class="textVertical" asp-for="Note.Text">Text: </label>
+        <input asp-for="Note.Id" type="hidden" value="3">
+        <button asp-page-handler="save" type="submit" type="submit">Save!</button>
+        @*<button asp-page-handler="save" type="submit" type="submit" asp-route-title="@Model.Note.Title" asp-route-text="@Model.Note.Text" asp-route-id="Note.Id">Save!</button>*@
 @*        <div class="validation">
             @Model.mess
             <span class="feedback" asp-validation-for="User.Name"></span>
@@ -19,6 +22,13 @@
         </div>*@
     </form>
 </div>
+
+@*<div class="editor">
+    <form method="post" autocomplete="on">
+
+        <input asp-for="Note2.Title" type="text">
+
+</div>*@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

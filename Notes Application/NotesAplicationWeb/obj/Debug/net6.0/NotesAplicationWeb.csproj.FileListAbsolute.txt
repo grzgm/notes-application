@@ -6,6 +6,8 @@ C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\NotesAplicationWeb.runtimeconfig.json
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\NotesAplicationWeb.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\NotesAplicationWeb.pdb
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\LogicLayer.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\LogicLayer.pdb
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.csproj.AssemblyReference.cache
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.AssemblyInfoInputs.cache
@@ -19,11 +21,9 @@ C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\scopedcss\bundle\NotesAplicationWeb.styles.css
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\scopedcss\projectbundle\NotesAplicationWeb.bundle.scp.css
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.csproj.CopyComplete
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\refint\NotesAplicationWeb.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.pdb
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.genruntimeconfig.cache
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\ref\NotesAplicationWeb.dll
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\LogicLayer.dll
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\LogicLayer.pdb
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.csproj.CopyComplete

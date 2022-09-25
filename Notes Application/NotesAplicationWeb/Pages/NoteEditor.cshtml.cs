@@ -6,39 +6,28 @@ namespace NotesAplicationWeb.Pages
 {
     public class NoteEditorModel : PageModel
     {
-        [BindProperty]
-        public User User { get; set; }
-        public string mess { get; private set; }
-        [BindProperty(SupportsGet = true)]
-        public string Title { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string Text { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public int Id { get; set; }
+        //[BindProperty]
+        //public string Title { get; set; }
+        //[BindProperty]
+        //public string Text { get; set; }
+        //[BindProperty]
+        //public int Id { get; set; }
 
+        [BindProperty(SupportsGet = true)]
         public Note Note { get; set; }
-        public NoteEditorModel()
-        {
-            Note = new Note(Title, Text, Id);
-        }
         public void OnGet()
         {
-            Note = new Note(Title, Text, Id);
+            //Note = new Note(Title, Text, Id);
         }
 
-        public IActionResult OnPost(string Title)
+        public void OnPost()
         {
-            Note.title = Title;
-            Note.text = Text;
-            return RedirectToPage("Content", new { Title = this.Title, Text = this.Text, this.Id });
-            //return RedirectToPage("Content", new { Title = "huj", Text = "huj", Id = 3 });
         }
 
-        public IActionResult OnPostDelete()
+        public IActionResult OnPostSave()
         {
-            Note.title = Title;
-            Note.text = Text;
-            return RedirectToPage("Content", new { Title = this.Title, Text = this.Text, this.Id });
+            // Note cannot Bind id as it is 
+            return RedirectToPage("Content", new { Title = Note.Title, Text = Note.Text, Id = RouteData.Values["id"] });
         }
     }
 }

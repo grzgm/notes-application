@@ -17,13 +17,21 @@ namespace NotesAplicationWeb.Pages
         {
             for(int i = 0; i < 2; i++)
             {
-                Notes.Add(new Note("tytul["+i.ToString()+"]", "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate beatae. i tak dalej[" + i.ToString() + "]", i));
+                Notes.Add(new Note(i, "tytul["+i.ToString()+"]", "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate beatae. i tak dalej[" + i.ToString() + "]"));
             }
         }
         public void OnGet()
         {
-            if(Id != 0)
-                Notes.Add(new Note(Title, Text, Id));
+            if (Id != 0)
+            {
+                for(int i = 0; i < Notes.Count; i++)
+                {
+                    if(Notes[i].Id == Id)
+                    {
+                        Notes[i] = new Note(Id, Title, Text);
+                    }
+                }
+            }
         }
     }
 }

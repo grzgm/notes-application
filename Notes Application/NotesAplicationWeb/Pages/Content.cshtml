@@ -1,4 +1,4 @@
-﻿@page "{title?}/{text?}/{id?}"
+﻿@page "{id:int?}/{title?}/{text?}"
 @model NotesAplicationWeb.Pages.ContentModel
 @{
     ViewData["Title"] = "Best Notes App!";
@@ -15,10 +15,10 @@
     @for(int i=0; i<Model.Notes.Count(); i++)
     {
         <div class="note">
-        <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].title" asp-route-text="@Model.Notes[i].text" asp-route-id="@i">
+        <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-id="@i">
                 <div class="noteTextPosition">
-                    <h4 class="noteText">@Model.Notes[i].title</h4>
-                    <p class="noteText">@Model.Notes[i].text</p>
+                    <h4 class="noteText">@Model.Notes[i].Title</h4>
+                    <p class="noteText">@Model.Notes[i].Text</p>
                 </div>
             </a>
         </div>

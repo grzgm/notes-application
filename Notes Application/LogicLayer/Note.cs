@@ -10,31 +10,31 @@ namespace LogicLayer
 	{
 		private int userId;
 		private int id;
-		public string title;
-		public DateTime date;
-		public string text;
-		public DateTime editDate;
+        private string title;
+        private string text;
+        private DateTime date;
+        private DateTime editDate;
 
 		public Note()
-		{
-
-		}
-		public Note(string title, string text, int id)
+		{}
+		public Note(int id, string title, string text)
         {
-            this.title = title;
-            this.text = text;
+            this.Title = title;
+            this.Text = text;
 			this.Id = id;
         }
-		public Note(int userId, int id, string title, DateTime date, string text, DateTime editDate)
+		public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)
 		{
 			this.userId = userId;
 			this.Id = id;
-			this.title = title;
-			this.date = date;
-			this.text = text;
-			this.editDate = editDate;
+			this.Title = title;
+			this.Text = text;
+            this.date = date;
+            this.editDate = editDate;
 		}
 
-		public int Id { get; private set; }
-	}
+        public int Id { get; private set; }
+        public string Title { get; set; }
+        public string Text { get; set; }
+    }
 }
