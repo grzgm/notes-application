@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notes Application", "Notes 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{B4A8ED08-CAEE-48C0-B99F-2B0A074BCF53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesAplicationWeb", "NotesAplicationWeb\NotesAplicationWeb.csproj", "{10E1B7C2-A764-471F-A540-C2E1EA763416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotesAplicationWeb", "NotesAplicationWeb\NotesAplicationWeb.csproj", "{10E1B7C2-A764-471F-A540-C2E1EA763416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

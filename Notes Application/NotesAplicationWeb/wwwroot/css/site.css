@@ -66,17 +66,18 @@ input {
     box-shadow: 5px 5px 5px #393E46;
 }
 
-    input:hover {
-        background-color: #7D9D9C;
-        transition: 0.5s;
-    }
+input:hover {
+    background-color: #7D9D9C;
+    transition: 0.5s;
+}
 
-    input:focus {
-        background-color: #7D9D9C;
-        transition: 0.5s;
-    }
+input:focus {
+    background-color: #7D9D9C;
+    transition: 0.5s;
+}
 
 button {
+    height: 60px;
     padding: 15px;
     border-radius: 30px;
     background-color: #576F72;
@@ -84,15 +85,15 @@ button {
     box-shadow: 5px 5px 5px #393E46;
 }
 
-    button:hover {
-        background-color: #7D9D9C;
-        transition: 0.5s;
-    }
+button:hover {
+    background-color: #7D9D9C;
+    transition: 0.5s;
+}
 
-    button:focus {
-        background-color: #7D9D9C;
-        transition: 0.5s;
-    }
+button:focus {
+    background-color: #7D9D9C;
+    transition: 0.5s;
+}
 
 footer {
     justify-content: center;

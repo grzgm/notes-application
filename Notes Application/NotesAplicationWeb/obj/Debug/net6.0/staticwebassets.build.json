@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fD/U6Wgqoq9Oc09dYGofP5TPoUFcrxVm1m+0s/aJyME=",
+  "Hash": "CspEiJbMpD0JaDK4OaAKuB/j3aI4sTWPy8VZiFQ7fa0=",
   "Source": "NotesAplicationWeb",
   "BasePath": "_content/NotesAplicationWeb",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\g.malisz\\Desktop\\Informatyka\\Fontys\\notes-aplication\\Notes Application\\NotesAplicationWeb\\wwwroot\\css\\noteEditor.css",
+      "SourceId": "NotesAplicationWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\g.malisz\\Desktop\\Informatyka\\Fontys\\notes-aplication\\Notes Application\\NotesAplicationWeb\\wwwroot\\",
+      "BasePath": "_content/NotesAplicationWeb",
+      "RelativePath": "css/noteEditor.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\noteEditor.css"
     },
     {
       "Identity": "C:\\Users\\g.malisz\\Desktop\\Informatyka\\Fontys\\notes-aplication\\Notes Application\\NotesAplicationWeb\\wwwroot\\css\\site.css",

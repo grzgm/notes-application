@@ -12,15 +12,19 @@
         </span>
     </div>
     <form method="post" autocomplete="on">
-        <label for="name">Name: </label>
-        <input asp-for="User.Name" type="text" name="name">
-        <input asp-for="User.Email" type="text" name="email">
-        <label asp-for="User.Email" for="email">:E-Mail</label>
-        <label for="password">Password: </label>
-        <input asp-for="User.Id" type="password" name="password">
+        <label asp-for="User.Name">Name: </label>
+        <input asp-for="User.Name" type="text">
+        <input asp-for="User.Email" type="text">
+        <label asp-for="User.Email">:E-Mail</label>
+        <label asp-for="User.Password">Password: </label>
+        <input asp-for="User.Password" type="password">
         <button type="submit">Manage your notes!</button>
-        <span class="feedback" asp-validation-for="User.Email"></span>
-        <span class="feedback" asp-validation-for="User.Name">@Model.mess</span>
+        <div class="validation">
+            @Model.mess
+            <span class="feedback" asp-validation-for="User.Name"></span>
+            <span class="feedback" asp-validation-for="User.Email"></span>
+            <span class="feedback" asp-validation-for="User.Password"></span>
+        </div>
     </form>
 </div>
 

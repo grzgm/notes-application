@@ -22,6 +22,11 @@ namespace LogicLayer
             MaxAmountOfNotes = maxAmountOfNotes;
             MaxLengthOfNotes = maxLengthOfNotes;
         }
+        public bool IsPremium
+        {
+            get;
+            set;
+        }
         public void GetPremium()
         {
             throw new NotImplementedException();

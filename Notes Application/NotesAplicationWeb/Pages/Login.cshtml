@@ -11,11 +11,20 @@
             sticky_note_2
         </span>
     </div>
-    <form>
-        <label>Name: </label>
-        <input type="text" name="name">
-        <input type="password" name="password">
-        <label>:Password</label>
+    <form method="post" autocomplete="on">
+        <label asp-for="User.Name">Name: </label>
+        <input asp-for="User.Name" type="text">
+        <input asp-for="User.Password" type="password">
+        <label asp-for="User.Password">Password: </label>
         <button type="submit">Manage your notes!</button>
+        <div class="validation">
+            @Model.mess
+            <span class="feedback" asp-validation-for="User.Name"></span>
+            <span class="feedback" asp-validation-for="User.Password"></span>
+        </div>
     </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

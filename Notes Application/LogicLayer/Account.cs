@@ -12,9 +12,9 @@ namespace LogicLayer
 		protected int id;
 		protected string name;
 		protected string email;
-		protected int amountOfNotes;
 		protected string password;
-		protected int maxAmountOfNotes;
+        protected int amountOfNotes;
+        protected int maxAmountOfNotes;
 		protected int maxLengthOfNote;
 
         public int Id
@@ -23,21 +23,28 @@ namespace LogicLayer
             set;
         }
 
-        [Required, MinLength(6)]
-        public string? Name
+        [Required, MinLength(6), MaxLength(15)]
+        public string Name
         {
             get;
             set;
         }
 
-        [EmailAddress(ErrorMessage = "Email")]
+        [Required, EmailAddress]
         public string Email
         {
             get;
             set;
         }
 
-        public bool IsPremium
+        [Required, RegularExpression("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,10}$", ErrorMessage = "Password mus have minimum 6 characters and maximum 10, at least 1 letter and 1 number")]
+        public string Password
+        {
+            get;
+            set;
+        }
+
+        public int AmountOfNotes
         {
             get;
             set;
