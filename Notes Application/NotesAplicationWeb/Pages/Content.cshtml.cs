@@ -15,7 +15,7 @@ namespace NotesAplicationWeb.Pages
         public List<Note> Notes { get; set; } = new List<Note>();
         public ContentModel()
         {
-            for(int i = 0; i < 2; i++)
+            for(int i = 0; i < 4; i++)
             {
                 Notes.Add(new Note(i, "tytul["+i.ToString()+"]", "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate bt consectetur adipisicing elit. Accusantium perferendis voluptate beatae. i tak dalej[" + i.ToString() + "]"));
             }
@@ -24,13 +24,15 @@ namespace NotesAplicationWeb.Pages
         {
             if (Id != 0)
             {
-                for(int i = 0; i < Notes.Count; i++)
+                if (Id < Notes.Count())
                 {
-                    if(Notes[i].Id == Id)
-                    {
-                        Notes[i] = new Note(Id, Title, Text);
-                    }
+                    Notes[Id] = new Note(Id, Title, Text);
                 }
+                else if (Id == Notes.Count())
+                {
+                    Notes.Add(new Note(Id, Title, Text));
+                }
+
             }
         }
     }
