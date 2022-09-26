@@ -15,7 +15,7 @@
     @for(int i=0; i<Model.Notes.Count(); i++)
     {
         <div class="note">
-        <a id="X">aaaaa</a>
+        <a class="X">X</a>
         <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-id="@i">
                 <div class="noteTextPosition">
                     <h4 class="noteText">@Model.Notes[i].Title</h4>
@@ -68,13 +68,7 @@
         item.addEventListener('mouseover', event => {
             //item.append(div);
             console.log("co jest kuraw over");
-            //
-            /
-
-            /               ICH JEST KILA WIĘC KLASA TY TEMPA PIZDO
-            /
-            /
-            document.getElementById('X').style.display = "initial";
+            item.querySelectorAll('.X')[0].style.display = "initial";
         });
         //item.addEventListener('mouseenter', event => {
         //    console.log("co jest kuraw enter");
@@ -82,7 +76,7 @@
         item.addEventListener('mouseout', event => {
             //document.querySelector('#X').remove();
             console.log("co jest kuraw out");
-            document.getElementById('X').style.display = "none";
+            item.querySelectorAll('.X')[0].style.display = "none";
         });
     })
 </script>

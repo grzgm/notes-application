@@ -60,9 +60,10 @@
     color: #393E46;
 }
 
-#X
+.X
 {
     width: 40px;
+    line-height: 40px;
     font-size: 30px;
     position: absolute;
     top: 0;
@@ -70,4 +71,5 @@
     background-color: #4cff00;
     color: white;
     display: none;
+    text-align: center;
 }
