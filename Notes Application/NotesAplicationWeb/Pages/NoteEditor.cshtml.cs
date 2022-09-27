@@ -26,6 +26,7 @@ namespace NotesAplicationWeb.Pages
 
         public IActionResult OnPostSave()
         {
+            string i = RouteData.Values["id"].ToString();
             // Note cannot Bind id as it is 
             return RedirectToPage("Content", new { Title = Note.Title, Text = Note.Text, Id = RouteData.Values["id"] });
         }
