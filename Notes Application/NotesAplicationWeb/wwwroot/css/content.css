@@ -19,6 +19,10 @@
     padding: 20px;
 }
 
+    #content * {
+        color: #393E46;
+    }
+
 #sidebar ul {
     list-style-type: disc;
     padding-left: 30px;
@@ -53,11 +57,11 @@
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
-    color: #393E46;
 }
 
 .noteText {
-    color: #393E46;
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        zobaczyc czy nie mogę wywalić przypatkiem tej klasy, ale może js po niej szukać nwm
 }
 
 .X

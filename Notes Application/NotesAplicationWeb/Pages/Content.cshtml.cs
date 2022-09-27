@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LogicLayer;
 using static System.Net.Mime.MediaTypeNames;
+using DataLayer
 
 namespace NotesAplicationWeb.Pages
 {

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer.DTOs;
 
 namespace LogicLayer
 {
-	public class Note
+    public class Note
 	{
 		private int userId;
 		private int id;
@@ -15,9 +16,16 @@ namespace LogicLayer
         private DateTime date;
         private DateTime editDate;
 
-		public Note()
-		{}
-		public Note(int id, string title, string text)
+        public Note()
+        { }
+        public Note(NoteDTO noteDTO)
+        {
+            this.UserId = noteDTO.UserId;
+            this.Id = noteDTO.Id;
+            this.Title = noteDTO.Title;
+            this.Text = noteDTO.Text;
+        }
+        public Note(int id, string title, string text)
         {
             this.Title = title;
             this.Text = text;
@@ -33,6 +41,7 @@ namespace LogicLayer
             this.editDate = editDate;
 		}
 
+        public int UserId { get; private set; }
         public int Id { get; private set; }
         public string Title { get; set; }
         public string Text { get; set; }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer;
 
 namespace LogicLayer
 {
@@ -14,6 +15,20 @@ namespace LogicLayer
 		int amountPremiumNotes;
 		private List<List<Note>> usersNotes;
 
+		private readonly NoteRepository noteRepository; //MÓJ dal ale tylko dla notes
+
+
+		public NoteManager(NoteRepository noteRepository)
+		{
+			this.noteRepository = noteRepository
+				?? throw new ArgumentNullException(nameof(noteRepository));
+		}
+
+		public IEnumerable<Note> GetAll()
+		{
+
+		}
+		 
 		public int AmountOfNotes()
 		{
 			throw new NotImplementedException();
