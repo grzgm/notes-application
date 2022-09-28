@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using DataLayer.DTOs;
 
 
 namespace LogicLayer
@@ -34,6 +34,7 @@ namespace LogicLayer
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
 
             conn = new SqlConnection(constr);
             conn.Open();

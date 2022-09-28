@@ -7,7 +7,6 @@ namespace NotesAplicationWeb.Pages
 {
     public class ContentModel : PageModel
     {
-        DALold dalOld = new DALold();
         [BindProperty(SupportsGet = true)]
         public string Title { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -45,29 +44,29 @@ namespace NotesAplicationWeb.Pages
             //    }
 
             //}
-            dalOld.Connect();
 
-            List<List<string>> DBNotes;
-            DBNotes = dalOld.ReadNotes();
-            foreach (List<string> note in DBNotes)
+            NoteManager noteManager = new NoteManager();
+
+            List<Note> lLNotes = noteManager.ReadNotes();
+            foreach (Note note in lLNotes)
             {
-                Notes.Add(new Note(int.Parse(note[0]), note[1], note[2]));
+                Notes.Add(note);
             }
 
             if (Id != 0)
             {
-                if (Id < (Notes.Count()+1))
+                if (Id < (Notes.Count() + 1))
                 {
-                    dalOld.UpdateNote(Id, Title, Text);
-                    Notes[Id-1] = new Note(Id, Title, Text);
+                    noteManager.UpdateNote(1,Id, Title, Text);
+                    Notes[Id - 1] = new Note(Id, Title, Text);
                 }
-                else if (Id == Notes.Count())
+                else if (Id == (Notes.Count()+1))
                 {
+                    noteManager.CreateNote(1, Title, Text);
                     Notes.Add(new Note(Id, Title, Text));
                 }
 
             }
-            dalOld.Disconnet();
         }
     }
 }

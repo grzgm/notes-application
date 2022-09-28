@@ -1,15 +1,3 @@
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.dll
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.pdb
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.csproj.AssemblyReference.cache
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfoInputs.cache
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfo.cs
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CoreCompileInputs.cache
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.dll
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\refint\DataLayer.dll
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.pdb
-C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.pdb
@@ -22,3 +10,15 @@ C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\refint\DataLayer.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.pdb
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\bin\Debug\net6.0\DataLayer.pdb
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.csproj.AssemblyReference.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfo.cs
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\refint\DataLayer.dll
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\DataLayer.pdb
+C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll

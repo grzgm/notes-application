@@ -18,20 +18,20 @@
         <a class="X">X</a>
         <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-id="@Model.Notes[i].Id">
                 <div class="noteTextPosition">
-                    <h4 class="noteText">@Model.Notes[i].Title // @Model.Notes[i].Id</h4>
+                    <h4 class="noteText">@Model.Notes[i].Title // NoteId @Model.Notes[i].Id</h4>
                     <p class="noteText">@Model.Notes[i].Text</p>
                 </div>
             </a>
         </div>
     }
     <div class="note">
-        <div class="noteTextPosition">
-            [OLD]Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis
-            voluptate beatae.
-        </div>
+            <div class="noteTextPosition">
+                [OLD]Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis
+                voluptate beatae.
+            </div>
     </div>
     <div class="note">
-        <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="" asp-route-id="@Model.Notes.Count()">
+        <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="" asp-route-id="@(Model.Notes.Count()+1)">
             <div class="noteTextPosition">
                 +
             </div>

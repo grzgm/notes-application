@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DataLayer.DTOs;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LogicLayer
 {
-	public class NoteManager : INoteManagerDesktop, INoteManagerWeb
-	{
+	public class NoteManager : INoteManagerWeb, INoteManagerDesktop
+    {
 		private int amountOfNotes;
 		private int amountPinnedNotes;
 		private static int noteIdCounter;
@@ -18,10 +20,12 @@ namespace LogicLayer
 		private readonly NoteRepository noteRepository; //MÓJ dal ale tylko dla notes
 
 
-		public NoteManager(NoteRepository noteRepository)
+		//public NoteManager(NoteRepository noteRepository)
+		public NoteManager()
 		{
-			this.noteRepository = noteRepository
-				?? throw new ArgumentNullException(nameof(noteRepository));
+			this.noteRepository = new NoteRepository();
+/*			this.noteRepository = noteRepository
+				?? throw new ArgumentNullException(nameof(noteRepository));*/
 		}
 
 		public IEnumerable<Note> GetAll()
@@ -29,7 +33,7 @@ namespace LogicLayer
 			return new List<Note>();
 		}
 		 
-		public int AmountOfNotes()
+/*		public int AmountOfNotes()
 		{
 			throw new NotImplementedException();
 		}
@@ -52,6 +56,54 @@ namespace LogicLayer
 		public List<string> ListOfPremiumNotes(int userId)
 		{
 			throw new NotImplementedException();
+		}*/
+
+		public Note GetNote()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CreateNote(int userId, string title, string text)
+        {
+            noteRepository.Connect();
+
+            noteRepository.CreateNote(title, text);
+
+            noteRepository.Disconnet();
+        }
+
+		public List<Note> ReadNote(int userId, int noteId)
+		{
+			throw new NotImplementedException();
+		}
+		public List<Note> ReadNotes()
+        {
+            noteRepository.Connect();
+
+            List<Note> lLNotes = new List<Note>();
+            List<NoteDTO> dLNotes = noteRepository.ReadNotes();
+            foreach (NoteDTO note in dLNotes)
+            {
+                lLNotes.Add(new Note(note));
+            }
+
+            noteRepository.Disconnet();
+
+            return lLNotes;
+        }
+
+        public void UpdateNote(int userId, int noteId, string title, string text)
+        {
+            noteRepository.Connect();
+
+			noteRepository.UpdateNote(noteId, title, text);
+
+            noteRepository.Disconnet();
+        }
+
+		public List<Note> DeleteNote(int userId, int noteId)
+		{
+			throw new NotImplementedException();
 		}
 
 		public List<Note> GetListOfUserNotes(int userId)
@@ -64,47 +116,7 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public List<Note> ReadNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
-
 		public List<Note> UpdateNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> DeleteNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> GetListOfNotes()
-		{
-			throw new NotImplementedException();
-		}
-
-		public Note GetNote()
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> CreateNote()
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> ReadNote()
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> UpdateNote()
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Note> DeleteNote()
 		{
 			throw new NotImplementedException();
 		}

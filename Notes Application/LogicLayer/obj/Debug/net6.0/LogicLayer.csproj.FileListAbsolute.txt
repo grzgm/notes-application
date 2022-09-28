@@ -10,6 +10,9 @@ C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\refint\LogicLayer.dll
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\LogicLayer.pdb
 C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\ref\LogicLayer.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\DataLayer.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\DataLayer.pdb
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\LogicLayer.csproj.CopyComplete
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\LogicLayer.deps.json
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\LogicLayer.dll
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\LogicLayer.pdb
@@ -25,6 +28,3 @@ C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Logi
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\refint\LogicLayer.dll
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\LogicLayer.pdb
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\ref\LogicLayer.dll
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\DataLayer.dll
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\bin\Debug\net6.0\DataLayer.pdb
-C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\LogicLayer\obj\Debug\net6.0\LogicLayer.csproj.CopyComplete

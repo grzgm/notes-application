@@ -1,15 +1,16 @@
-﻿using DataLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer.DTOs;
+
 
 namespace DataLayer
 {
-    public class NoteRepository
-    {
+	public class NoteRepository
+	{
         private SqlConnection conn;
         private string serverName;
         private string databaseName;
@@ -33,6 +34,7 @@ namespace DataLayer
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
 
             conn = new SqlConnection(constr);
             conn.Open();
@@ -44,22 +46,22 @@ namespace DataLayer
             conn.Close();
         }
 
-        public void CreateNote()
+        public void CreateNote(string title, string text)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = "insert into demo values(3, 'Python')";
+            string sql = "INSERT INTO notes VALUES(@title, @text)";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }
 
-        public List<List<string>> ReadNotes()
+        public List<NoteDTO> ReadNotes()
         {
             SqlCommand cmd;
             SqlDataReader dreader;
@@ -70,39 +72,15 @@ namespace DataLayer
 
             dreader = cmd.ExecuteReader();
 
-            List<List<string>> output = new List<List<string>>();
+            List<NoteDTO> noteDTO = new List<NoteDTO>();
 
             while (dreader.Read())
             {
-                output.Add(new List<string> { dreader.GetValue(0).ToString(), dreader.GetValue(1).ToString(), dreader.GetValue(2).ToString() });
-            }
-
-            dreader.Close();
-            cmd.Dispose();
-            return output;
-        }
-
-        public NoteDTO ReadNotes2()
-        {
-            SqlCommand cmd;
-            SqlDataReader dreader;
-
-            string sql = "SELECT Id,Title,[Text] FROM notes";
-
-            cmd = new SqlCommand(sql, conn);
-
-            dreader = cmd.ExecuteReader();
-
-            List<List<string>> output = new List<List<string>>();
-            NoteDTO noteDTO = new NoteDTO();
-
-            while (dreader.Read())
-            {
-                noteDTO = new NoteDTO { 
-                    UserId = 111,
-                    Id = int.Parse(dreader.GetValue(0).ToString()), 
-                    Title = dreader.GetValue(1).ToString(), 
-                    Text = dreader.GetValue(2).ToString() };
+                noteDTO.Add(new NoteDTO {
+                UserId = 0,
+                Id = int.Parse(dreader.GetValue(0).ToString()),
+                Title = dreader.GetValue(1).ToString().Trim(),
+                Text = dreader.GetValue(2).ToString().Trim()}); ;
             }
 
             dreader.Close();
@@ -110,31 +88,31 @@ namespace DataLayer
             return noteDTO;
         }
 
-        public void UpdateNote(int id, string title, string text)
+        public void UpdateNote( int id, string title, string text)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = $"UPDATE notes set Title='{title}',[Text]='{text}' WHERE Id={id}";
+            string sql = "UPDATE notes set Title= @title,[Text]= @text WHERE Id= @id";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }
-        public void Delete()
+        public void Delete(int id)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = "delete from demo where articleID=3";
+            string sql = "DELETE FROM notes WHERE @id";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }
