@@ -26,7 +26,7 @@ namespace LogicLayer
 
 		public IEnumerable<Note> GetAll()
 		{
-
+			return new List<Note>();
 		}
 		 
 		public int AmountOfNotes()

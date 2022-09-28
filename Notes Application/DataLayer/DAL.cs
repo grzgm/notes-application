@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace LogicLayer
+namespace DataLayer
 {
 	public class DAL
 	{

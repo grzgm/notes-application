@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace LogicLayer
@@ -44,17 +45,17 @@ namespace LogicLayer
             conn.Close();
         }
 
-        public void CreateNote()
+        public void CreateNote(string title, string text)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = "insert into demo values(3, 'Python')";
+            string sql = "INSERT INTO notes VALUES(@title, @text)";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }
@@ -74,7 +75,7 @@ namespace LogicLayer
 
             while (dreader.Read())
             {
-                output.Add(new List<string> { dreader.GetValue(0).ToString(), dreader.GetValue(1).ToString(), dreader.GetValue(2).ToString() });
+                output.Add(new List<string> { dreader.GetValue(0).ToString(), dreader.GetValue(1).ToString().Trim(), dreader.GetValue(2).ToString().Trim()});
             }
 
             dreader.Close();
@@ -85,28 +86,32 @@ namespace LogicLayer
         public void UpdateNote( int id, string title, string text)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
+            //SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = $"UPDATE notes set Title='{title}',[Text]='{text}' WHERE Id={id}";
+            string sql = "UPDATE notes set Title= @title,[Text]= @text WHERE Id= @id";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            //adap.InsertCommand = new SqlCommand(sql, conn);
+            //adap.InsertCommand.ExecuteNonQuery();
+
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }
-        public void Delete()
+        public void Delete(int id)
         {
             SqlCommand cmd;
-            SqlDataAdapter adap = new SqlDataAdapter();
 
-            string sql = "delete from demo where articleID=3";
+            string sql = "DELETE FROM notes WHERE @id";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
 
-            adap.InsertCommand = new SqlCommand(sql, conn);
-            adap.InsertCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             cmd.Dispose();
         }

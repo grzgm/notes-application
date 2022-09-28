@@ -2,13 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LogicLayer;
 using static System.Net.Mime.MediaTypeNames;
-using DataLayer
 
 namespace NotesAplicationWeb.Pages
 {
     public class ContentModel : PageModel
     {
-        DAL dal = new DAL();
+        DALold dalOld = new DALold();
         [BindProperty(SupportsGet = true)]
         public string Title { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -46,10 +45,10 @@ namespace NotesAplicationWeb.Pages
             //    }
 
             //}
-            dal.Connect();
+            dalOld.Connect();
 
             List<List<string>> DBNotes;
-            DBNotes = dal.ReadNotes();
+            DBNotes = dalOld.ReadNotes();
             foreach (List<string> note in DBNotes)
             {
                 Notes.Add(new Note(int.Parse(note[0]), note[1], note[2]));
@@ -57,9 +56,9 @@ namespace NotesAplicationWeb.Pages
 
             if (Id != 0)
             {
-                if (Id < Notes.Count())
+                if (Id < (Notes.Count()+1))
                 {
-                    dal.UpdateNote(Id, Title, Text);
+                    dalOld.UpdateNote(Id, Title, Text);
                     Notes[Id-1] = new Note(Id, Title, Text);
                 }
                 else if (Id == Notes.Count())
@@ -68,7 +67,7 @@ namespace NotesAplicationWeb.Pages
                 }
 
             }
-            dal.Disconnet();
+            dalOld.Disconnet();
         }
     }
 }

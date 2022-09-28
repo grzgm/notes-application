@@ -70,3 +70,5 @@ C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\Note
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.pdb
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\NotesAplicationWeb.genruntimeconfig.cache
 C:\Users\Grzegorz Malisz\Documents\Repos\notes-aplication\Notes Application\NotesAplicationWeb\obj\Debug\net6.0\ref\NotesAplicationWeb.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\DataLayer.dll
+C:\Users\g.malisz\Desktop\Informatyka\Fontys\notes-aplication\Notes Application\NotesAplicationWeb\bin\Debug\net6.0\DataLayer.pdb
