@@ -1,0 +1,9 @@
+CREATE TABLE dbo.Table_1
+	(
+	Id int NOT NULL IDENTITY (1, 1),
+	UserId int NOT NULL,
+	Title nchar(15) NULL,
+	Text nchar(100) NULL,
+	Date datetime2(7) NULL,
+	EditDate datetime2(7) NULL
+	)  ON [PRIMARY]

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,8 +34,10 @@ namespace DataLayer
         public void Connect()
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
+            // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
-            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            // LAPTOP
+            //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
 
             conn = new SqlConnection(constr);
             conn.Open();
@@ -50,11 +53,13 @@ namespace DataLayer
         {
             SqlCommand cmd;
 
-            string sql = "INSERT INTO notes VALUES(@title, @text)";
+            string sql = "INSERT INTO notes VALUES(1, @title, @text, @date, @editdate)";
 
             cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@date", Value = DateTime.Now });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
 
             cmd.ExecuteNonQuery();
 
@@ -92,12 +97,13 @@ namespace DataLayer
         {
             SqlCommand cmd;
 
-            string sql = "UPDATE notes set Title= @title,[Text]= @text WHERE Id= @id";
+            string sql = "UPDATE notes set Title=@title, [Text]=@text, EditDate=@editdate WHERE Id= @id";
 
             cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
 
             cmd.ExecuteNonQuery();
 
