@@ -28,7 +28,7 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		Account CreateAdminr(string name, string email, string password)
+		Account CreateAdmin(string name, string email, string password)
 		{
 			throw new NotImplementedException();
 		}

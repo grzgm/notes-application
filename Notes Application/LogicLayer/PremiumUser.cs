@@ -10,11 +10,6 @@ namespace LogicLayer
 	{
 		private int daysOfPremiumLeft;
 
-		public void ProlongPremium()
-		{
-			throw new NotImplementedException();
-		}
-
 		public PremiumUser()
 		{
 			throw new NotImplementedException();
@@ -23,6 +18,11 @@ namespace LogicLayer
 		public PremiumUser(int id, string name, string email, bool isPremium, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
 		{
 			throw new NotImplementedException();
-		}
-	}
+        }
+
+        public void ProlongPremium()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

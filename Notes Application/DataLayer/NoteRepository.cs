@@ -13,20 +13,20 @@ namespace DataLayer
 	public class NoteRepository
 	{
         private SqlConnection conn;
-        private string serverName;
-        private string databaseName;
-        private string username;
-        private string password;
+        //private string serverName;
+        //private string databaseName;
+        //private string username;
+        //private string password;
         private string constr;
 
-        public NoteRepository(string serverName, string databaseName, string username, string password)
-        {
-            this.serverName = serverName;
-            this.databaseName = databaseName;
-            this.username = username;
-            this.password = password;
+        //public NoteRepository(string serverName, string databaseName, string username, string password)
+        //{
+        //    this.serverName = serverName;
+        //    this.databaseName = databaseName;
+        //    this.username = username;
+        //    this.password = password;
 
-        }
+        //}
         public NoteRepository()
         {
         }

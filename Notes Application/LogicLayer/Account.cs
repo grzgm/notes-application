@@ -13,9 +13,31 @@ namespace LogicLayer
 		protected string name;
 		protected string email;
 		protected string password;
-        protected int amountOfNotes;
         protected int maxAmountOfNotes;
 		protected int maxLengthOfNote;
+
+        protected Account()
+        {
+
+        }
+        protected Account(int id, string name, string email, string password)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            Password = password;
+            MaxAmountOfNotes = maxAmountOfNotes;
+            this.maxLengthOfNote = maxLengthOfNote;
+        }
+        protected Account(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNote)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            Password = password;
+            MaxAmountOfNotes = maxAmountOfNotes;
+            this.maxLengthOfNote = maxLengthOfNote;
+        }
 
         public int Id
         {

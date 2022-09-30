@@ -210,6 +210,8 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -230,6 +232,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="8" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -238,6 +242,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -246,6 +252,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="10" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -254,6 +262,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="10" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -266,6 +276,8 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="5" second="11">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -281,6 +293,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="3" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -296,6 +310,8 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="5" second="13">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -307,6 +323,8 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="10" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -568,6 +586,8 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="8" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -584,6 +604,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="1" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -595,6 +617,8 @@
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="1" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -602,6 +626,8 @@
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="5" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -626,6 +652,8 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="0" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -633,6 +661,8 @@
         <EndRole>- List&lt;Accounts&gt; users</EndRole>
       </Relationship>
       <Relationship type="Association" first="14" second="13">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -641,6 +671,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="12" second="14">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -657,6 +689,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="1" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -664,8 +698,6 @@
         <EndRole>1</EndRole>
       </Relationship>
       <Relationship type="Association" first="15" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -687,13 +719,13 @@
         <Member type="Method">public void ShowAllAdmins()</Member>
         <Member type="Method">public int AmountOfAdmins()</Member>
         <Member type="Method">Account SearchAdmin(string name, string password)</Member>
-        <Member type="Method">Account CreateAdminr(string name, string email, string password)</Member>
+        <Member type="Method">Account CreateAdmin(string name, string email, string password)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Desktop_Presentation</Name>
         <Access>Public</Access>
-        <Location left="502" top="25" />
+        <Location left="502" top="24" />
         <Size width="163" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -701,7 +733,7 @@
       <Entity type="Class">
         <Name>Web_Presentation</Name>
         <Access>Public</Access>
-        <Location left="1950" top="25" />
+        <Location left="1863" top="24" />
         <Size width="163" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -729,7 +761,7 @@
       <Entity type="Interface">
         <Name>IUserManager</Name>
         <Access>Public</Access>
-        <Location left="1300" top="629" />
+        <Location left="1109" top="665" />
         <Size width="298" height="153" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Account SearchUser(string name, string password)</Member>
@@ -762,7 +794,7 @@
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public Admin()</Member>
-        <Member type="Constructor">public Admin(int id, string name, string email, bool isPremium, int maxAmountOfNotes, int maxLengthOfNotes)</Member>
+        <Member type="Constructor">public Admin(int id, string name, string email, string password)</Member>
         <Member type="Method">public void ChangeUserPremiumStatus()</Member>
         <Member type="Method">public void GetUserInfo(int id)</Member>
         <Modifier>None</Modifier>
@@ -776,8 +808,8 @@
         <Member type="Field">protected bool isPremium</Member>
         <Member type="Constructor">public User()</Member>
         <Member type="Constructor">public User(int id, string name, string email, bool isPremium, int maxAmountOfNotes, int maxLengthOfNotes)</Member>
-        <Member type="Method">public void GetPremium()</Member>
         <Member type="Property">public bool IsPremium { get; set; }</Member>
+        <Member type="Method">public void GetPremium()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -795,51 +827,37 @@
       <Entity type="Class">
         <Name>NoteManager</Name>
         <Access>Public</Access>
-        <Location left="1704" top="974" />
+        <Location left="1617" top="972" />
         <Size width="262" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int amountOfNotes</Member>
         <Member type="Field">private int amountPinnedNotes</Member>
-        <Member type="Field">private static int noteIdCounter</Member>
         <Member type="Field">int amountPremiumNotes</Member>
-        <Member type="Field">private List&lt;List&lt;Note&gt;&gt; usersNotes</Member>
+        <Member type="Field">private readonly NoteRepository noteRepository</Member>
+        <Member type="Constructor">public NoteManager()</Member>
         <Member type="Method">public int AmountOfNotes()</Member>
         <Member type="Method">public int AmountPinnedNotes()</Member>
         <Member type="Method">public int AmountPremiumNotes()</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfUserNotes(int userId)</Member>
         <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
         <Name>INoteManagerWeb</Name>
         <Access>Public</Access>
-        <Location left="1913" top="392" />
+        <Location left="1827" top="390" />
         <Size width="236" height="163" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfNotes()</Member>
-        <Member type="Method">Note GetNote()</Member>
-        <Member type="Method">List&lt;Note&gt; CreateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote()</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote()</Member>
+        <Member type="Method">void CreateNote(int userId, string title, string text)</Member>
+        <Member type="Method">Note ReadNote()</Member>
+        <Member type="Method">List&lt;Note&gt; ReadNotes()</Member>
+        <Member type="Method">void UpdateNote(int userId, int noteId, string title, string text)</Member>
+        <Member type="Method">void DeleteNote(int userId, int noteId)</Member>
       </Entity>
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1939" top="1631" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="1939" top="1335" />
-        <Size width="162" height="216" />
+        <Location left="1935" top="1172" />
+        <Size width="162" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int userId</Member>
         <Member type="Field">private int id</Member>
@@ -847,6 +865,14 @@
         <Member type="Field">public DateTime date</Member>
         <Member type="Field">public string text</Member>
         <Member type="Field">public DateTime editDate</Member>
+        <Member type="Constructor">public Note()</Member>
+        <Member type="Constructor">public Note(NoteDTO noteDTO)</Member>
+        <Member type="Constructor">public Note(int userId, int id, string title, string text)</Member>
+        <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)</Member>
+        <Member type="Property">public int UserId { get; private set; }</Member>
+        <Member type="Property">public int Id { get; private set; }</Member>
+        <Member type="Property">public string Title { get; set; }</Member>
+        <Member type="Property">public string Text { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -859,9 +885,11 @@
         <Member type="Field">protected string name</Member>
         <Member type="Field">protected string email</Member>
         <Member type="Field">protected string password</Member>
-        <Member type="Field">protected int amountOfNotes</Member>
         <Member type="Field">protected int maxAmountOfNotes</Member>
         <Member type="Field">protected int maxLengthOfNote</Member>
+        <Member type="Constructor">protected Account()</Member>
+        <Member type="Constructor">protected Account(int id, string name, string email, string password)</Member>
+        <Member type="Constructor">protected Account(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNote)</Member>
         <Member type="Property">public int Id { get; private set; }</Member>
         <Member type="Property">public string Name { get; set; }</Member>
         <Member type="Property">public string Email { get; set; }</Member>
@@ -871,12 +899,63 @@
         <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>Note</Name>
+        <Access>Public</Access>
+        <Location left="1935" top="1540" />
+        <Size width="162" height="315" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int userId</Member>
+        <Member type="Field">private int id</Member>
+        <Member type="Field">public string Title</Member>
+        <Member type="Field">public DateTime date</Member>
+        <Member type="Field">public string text</Member>
+        <Member type="Field">public DateTime editDate</Member>
+        <Member type="Constructor">public Note()</Member>
+        <Member type="Constructor">public Note(NoteDTO noteDTO)</Member>
+        <Member type="Constructor">public Note(int userId, int id, string title, string text)</Member>
+        <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)</Member>
+        <Member type="Property">public int UserId { get; private set; }</Member>
+        <Member type="Property">public int Id { get; private set; }</Member>
+        <Member type="Property">public string Title { get; set; }</Member>
+        <Member type="Property">public string Text { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NoteRepository</Name>
+        <Access>Public</Access>
+        <Location left="1227" top="1914" />
+        <Size width="163" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private SqlConnection conn</Member>
+        <Member type="Field">private string constr</Member>
+        <Member type="Constructor">public NoteRepository()</Member>
+        <Member type="Method">public void Connect()</Member>
+        <Member type="Method">public void Disconnet()</Member>
+        <Member type="Method">public void CreateNote(string title, string text)</Member>
+        <Member type="Method">public List&lt;NoteDTO&gt; ReadNotes()</Member>
+        <Member type="Method">public void UpdateNote(int id, string title, string text)</Member>
+        <Member type="Method">public void Delete(int id)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NoteDTO</Name>
+        <Access>Public</Access>
+        <Location left="1664" top="1921" />
+        <Size width="163" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="5">
         <Label>Asks about details of specific User</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1144</X>
+          <Y>633</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
@@ -888,6 +967,8 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -913,6 +994,10 @@
         <Label>Asks to check if account is in the system or asks to create new account</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1374</X>
+          <Y>634</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
@@ -924,6 +1009,8 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -943,6 +1030,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -959,6 +1048,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="7" second="9">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -975,6 +1066,8 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="7" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -990,15 +1083,9 @@
         <EndRole>- List&lt;Account&gt; users</EndRole>
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="14" second="13">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="11" second="14">
+      <Relationship type="Association" first="11" second="13">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1009,20 +1096,30 @@
       <Relationship type="Realization" first="11" second="10">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1711</X>
+          <Y>941</Y>
+        </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="11" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1792</X>
+          <Y>943</Y>
+        </BendPoint>
       </Relationship>
-      <Relationship type="Generalization" first="9" second="15">
+      <Relationship type="Generalization" first="9" second="14">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Generalization" first="8" second="15">
+      <Relationship type="Generalization" first="8" second="14">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="8" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1048,6 +1145,46 @@
         <Label>Asks for notes of specific Account</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="15">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="16" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1415</X>
+          <Y>2036</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1477</X>
+          <Y>1967</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="17" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1628</X>
+          <Y>2036</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1538</X>
+          <Y>1967</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>

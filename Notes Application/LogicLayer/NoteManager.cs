@@ -13,9 +13,7 @@ namespace LogicLayer
     {
 		private int amountOfNotes;
 		private int amountPinnedNotes;
-		private static int noteIdCounter;
 		int amountPremiumNotes;
-		private List<List<Note>> usersNotes;
 
 		private readonly NoteRepository noteRepository; //MÓJ dal ale tylko dla notes
 
@@ -48,20 +46,10 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public List<string> ListOfUserNotes(int userId)
-		{
-			throw new NotImplementedException();
-		}
-
 		public List<string> ListOfPremiumNotes(int userId)
 		{
 			throw new NotImplementedException();
 		}*/
-
-		public Note GetNote()
-		{
-			throw new NotImplementedException();
-		}
 
 		public void CreateNote(int userId, string title, string text)
         {
@@ -72,11 +60,11 @@ namespace LogicLayer
             noteRepository.Disconnet();
         }
 
-		public List<Note> ReadNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
-		public List<Note> ReadNotes()
+        public Note ReadNote()
+        {
+            throw new NotImplementedException();
+        }
+        public List<Note> ReadNotes()
         {
             noteRepository.Connect();
 
@@ -101,7 +89,7 @@ namespace LogicLayer
             noteRepository.Disconnet();
         }
 
-		public List<Note> DeleteNote(int userId, int noteId)
+		public void DeleteNote(int userId, int noteId)
 		{
 			throw new NotImplementedException();
 		}
@@ -116,7 +104,17 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
+		public List<Note> ReadNote(int userId, int noteId)
+		{
+			throw new NotImplementedException();
+		}
+
 		public List<Note> UpdateNote(int userId, int noteId)
+		{
+			throw new NotImplementedException();
+		}
+
+		List<Note> INoteManagerDesktop.DeleteNote(int userId, int noteId)
 		{
 			throw new NotImplementedException();
 		}

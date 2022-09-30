@@ -45,7 +45,7 @@ namespace NotesAplicationWeb.Pages
 
             //}
 
-            NoteManager noteManager = new NoteManager();
+            INoteManagerWeb noteManager = new NoteManager();
 
             List<Note> lLNotes = noteManager.ReadNotes();
             foreach (Note note in lLNotes)
