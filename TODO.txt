@@ -1,2 +1,1 @@
-add try and catch to NoteRepository
-change NoteManger in Content.html.cs to INoteManagerWeb
+Data route between content and NoteEditor

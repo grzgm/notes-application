@@ -30,6 +30,17 @@ namespace NotesAplicationWeb.Pages
             //}
             //dal.Disconnet();
         }
+
+        private void RetriveNotes()
+        {
+            INoteManagerWeb noteManager = new NoteManager();
+
+            List<Note> lLNotes = noteManager.ReadNotes();
+            foreach (Note note in lLNotes)
+            {
+                Notes.Add(note);
+            }
+        }
         public void OnGet()
         {
             //if (Id != 0)
@@ -53,20 +64,31 @@ namespace NotesAplicationWeb.Pages
                 Notes.Add(note);
             }
 
-            if (Id != 0)
-            {
-                if (Id < (Notes.Count() + 1))
-                {
-                    noteManager.UpdateNote(1,Id, Title, Text);
-                    Notes[Id - 1] = new Note(Id, Title, Text);
-                }
-                else if (Id == (Notes.Count()+1))
-                {
-                    noteManager.CreateNote(1, Title, Text);
-                    Notes.Add(new Note(Id, Title, Text));
-                }
+            //if (Id != 0)
+            //{
+            //    if (Id < (Notes.Count() + 1))
+            //    {
+            //        noteManager.UpdateNote(1,Id, Title, Text);
+            //        Notes[Id - 1] = new Note(Id, Title, Text);
+            //    }
+            //    else if (Id == (Notes.Count()+1))
+            //    {
+            //        noteManager.CreateNote(1, Title, Text);
+            //        Notes.Add(new Note(Id, Title, Text));
+            //    }
 
-            }
+            //}
+        }
+
+        public void OnGetDelete()
+        {
+            INoteManagerWeb noteManager = new NoteManager();
+            noteManager.DeleteNote(1, Id);
+            this.RetriveNotes();
+        }
+        public IActionResult OnPostDelete()
+        {
+            return RedirectToPage("Content");
         }
     }
 }

@@ -90,9 +90,13 @@ namespace LogicLayer
         }
 
 		public void DeleteNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
+        {
+            noteRepository.Connect();
+
+            noteRepository.DeleteNote(noteId);
+
+            noteRepository.Disconnet();
+        }
 
 		public List<Note> GetListOfUserNotes(int userId)
 		{

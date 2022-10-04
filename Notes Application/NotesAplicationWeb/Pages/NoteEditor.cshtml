@@ -13,7 +13,7 @@
         <textarea asp-for="Note.Text">@*@Model.Note.Text*@</textarea>
         <label class="textVertical" asp-for="Note.Text">Text: </label>
         <input asp-for="Note.Id" type="hidden" value="3">
-        <button asp-page-handler="save" type="submit" type="submit">Save!</button>
+        <button type="submit">Save!</button>
         @*<button asp-page-handler="save" type="submit" type="submit" asp-route-title="@Model.Note.Title" asp-route-text="@Model.Note.Text" asp-route-id="Note.Id">Save!</button>*@
 @*        <div class="validation">
             @Model.mess

@@ -37,11 +37,17 @@ namespace DataLayer
             // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
-            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
 
-            conn = new SqlConnection(constr);
-            conn.Open();
+            try
+            {
+                conn = new SqlConnection(constr);
+                conn.Open();
+            }
+            catch(Exception ex)
+            {
 
+            }
         }
 
         public void Disconnet()
@@ -61,9 +67,18 @@ namespace DataLayer
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@date", Value = DateTime.Now });
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
-            cmd.Dispose();
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
         }
 
         public List<NoteDTO> ReadNotes()
@@ -75,22 +90,35 @@ namespace DataLayer
 
             cmd = new SqlCommand(sql, conn);
 
-            dreader = cmd.ExecuteReader();
+            List<NoteDTO> notesDTO = new List<NoteDTO>();
 
-            List<NoteDTO> noteDTO = new List<NoteDTO>();
-
-            while (dreader.Read())
+            try
             {
-                noteDTO.Add(new NoteDTO {
-                UserId = 0,
-                Id = int.Parse(dreader.GetValue(0).ToString()),
-                Title = dreader.GetValue(1).ToString().Trim(),
-                Text = dreader.GetValue(2).ToString().Trim()}); ;
+                dreader = cmd.ExecuteReader();
+
+                while (dreader.Read())
+                {
+                    notesDTO.Add(new NoteDTO
+                    {
+                        UserId = 0,
+                        Id = int.Parse(dreader.GetValue(0).ToString()),
+                        Title = dreader.GetValue(1).ToString().Trim(),
+                        Text = dreader.GetValue(2).ToString().Trim()
+                    }); ;
+                }
+
+                dreader.Close();
+            }
+            catch (Exception ex)
+            {
+                return new List<NoteDTO>();
+            }
+            finally
+            {
+                cmd.Dispose();
             }
 
-            dreader.Close();
-            cmd.Dispose();
-            return noteDTO;
+            return notesDTO;
         }
 
         public void UpdateNote( int id, string title, string text)
@@ -105,22 +133,40 @@ namespace DataLayer
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
-            cmd.Dispose();
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
         }
-        public void Delete(int id)
+        public void DeleteNote(int id)
         {
             SqlCommand cmd;
 
-            string sql = "DELETE FROM notes WHERE @id";
+            string sql = "DELETE FROM notes WHERE Id=@id";
 
             cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
-            cmd.Dispose();
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
         }
     }
 }

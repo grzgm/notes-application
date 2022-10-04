@@ -6,10 +6,12 @@ namespace NotesAplicationWeb.Pages
 {
     public class NoteEditorModel : PageModel
     {
-        //[BindProperty]
-        //public string Title { get; set; }
-        //[BindProperty]
-        //public string Text { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Title { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Text { get; set; }
         //[BindProperty]
         //public int Id { get; set; }
 
@@ -17,11 +19,29 @@ namespace NotesAplicationWeb.Pages
         public Note Note { get; set; }
         public void OnGet()
         {
-            //Note = new Note(Title, Text, Id);
+            Title = Note.Title;
+            Text = Note.Text;
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
+            //if ((Note.Title == String.Empty) && (Note.Text == String.Empty))
+            //{
+            //    INoteManagerWeb noteManager = new NoteManager();
+            //    noteManager.DeleteNote(1, int.Parse(RouteData.Values["id"].ToString()));
+            //}
+            if ((Title == null) && (Text == null))
+            {
+                INoteManagerWeb noteManager = new NoteManager();
+                noteManager.CreateNote(1, Note.Title, Note.Text);
+            }
+            else if ((Title != Note.Title) || (Text != Note.Text))
+            {
+                INoteManagerWeb noteManager = new NoteManager();
+                noteManager.UpdateNote(1, int.Parse(RouteData.Values["id"].ToString()), Note.Title, Note.Text);
+            }
+
+            return RedirectToPage("Content");
         }
 
         public IActionResult OnPostSave()
