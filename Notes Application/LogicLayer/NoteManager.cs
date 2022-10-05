@@ -53,11 +53,7 @@ namespace LogicLayer
 
 		public void CreateNote(int userId, string title, string text)
         {
-            noteRepository.Connect();
-
             noteRepository.CreateNote(title, text);
-
-            noteRepository.Disconnet();
         }
 
         public Note ReadNote()
@@ -66,8 +62,6 @@ namespace LogicLayer
         }
         public List<Note> ReadNotes()
         {
-            noteRepository.Connect();
-
             List<Note> lLNotes = new List<Note>();
             List<NoteDTO> dLNotes = noteRepository.ReadNotes();
             foreach (NoteDTO note in dLNotes)
@@ -75,27 +69,17 @@ namespace LogicLayer
                 lLNotes.Add(new Note(note));
             }
 
-            noteRepository.Disconnet();
-
             return lLNotes;
         }
 
         public void UpdateNote(int userId, int noteId, string title, string text)
         {
-            noteRepository.Connect();
-
 			noteRepository.UpdateNote(noteId, title, text);
-
-            noteRepository.Disconnet();
         }
 
 		public void DeleteNote(int userId, int noteId)
         {
-            noteRepository.Connect();
-
             noteRepository.DeleteNote(noteId);
-
-            noteRepository.Disconnet();
         }
 
 		public List<Note> GetListOfUserNotes(int userId)

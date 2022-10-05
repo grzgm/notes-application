@@ -19,7 +19,7 @@
     padding: 20px;
 }
 
-    #content * {
+    #content p,h4,div {
         color: #393E46;
     }
 
@@ -34,6 +34,8 @@
     padding: 10px;
     aspect-ratio: 1/1;
     background-color: #E4DCCF;
+    border-radius: 25px;
+    cursor: text;
     /*    position: relative;*/
     -webkit-transition: -webkit-transform 0.2s;
     transition: -webkit-transform 0.2s;
@@ -47,33 +49,29 @@
     }
 
 .noteTextPosition {
-/*    position: absolute;*/
+    /*    position: absolute;*/
     width: inherit;
     height: 100%;
-/*    top: 0;
+    /*    top: 0;
     bottom: 0;*/
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
+    cursor: text;
 }
 
-.noteText {
-    aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        zobaczyc czy nie mogę wywalić przypatkiem tej klasy, ale może js po niej szukać nwm
-}
-
-.X
-{
+.X {
     width: 40px;
     line-height: 40px;
     font-size: 30px;
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #4cff00;
-    color: white;
+    top: 10px;
+    right: 10px;
+    background-color: #576F72;
+    color: #E4DCCF;
     display: none;
     text-align: center;
+    border-radius: 15px;
 }

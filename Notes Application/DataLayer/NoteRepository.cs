@@ -29,34 +29,17 @@ namespace DataLayer
         //}
         public NoteRepository()
         {
-        }
-
-        public void Connect()
-        {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
             // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
             //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
-
-            try
-            {
-                conn = new SqlConnection(constr);
-                conn.Open();
-            }
-            catch(Exception ex)
-            {
-
-            }
-        }
-
-        public void Disconnet()
-        {
-            conn.Close();
         }
 
         public void CreateNote(string title, string text)
         {
+            conn = new SqlConnection(constr);
+            conn.Open();
             SqlCommand cmd;
 
             string sql = "INSERT INTO notes VALUES(1, @title, @text, @date, @editdate)";
@@ -78,11 +61,14 @@ namespace DataLayer
             finally
             {
                 cmd.Dispose();
+                conn.Close();
             }
         }
 
         public List<NoteDTO> ReadNotes()
         {
+            conn = new SqlConnection(constr);
+            conn.Open();
             SqlCommand cmd;
             SqlDataReader dreader;
 
@@ -116,6 +102,7 @@ namespace DataLayer
             finally
             {
                 cmd.Dispose();
+                conn.Close();
             }
 
             return notesDTO;
@@ -123,6 +110,8 @@ namespace DataLayer
 
         public void UpdateNote( int id, string title, string text)
         {
+            conn = new SqlConnection(constr);
+            conn.Open();
             SqlCommand cmd;
 
             string sql = "UPDATE notes set Title=@title, [Text]=@text, EditDate=@editdate WHERE Id= @id";
@@ -144,10 +133,13 @@ namespace DataLayer
             finally
             {
                 cmd.Dispose();
+                conn.Close();
             }
         }
         public void DeleteNote(int id)
         {
+            conn = new SqlConnection(constr);
+            conn.Open();
             SqlCommand cmd;
 
             string sql = "DELETE FROM notes WHERE Id=@id";
@@ -166,6 +158,7 @@ namespace DataLayer
             finally
             {
                 cmd.Dispose();
+                conn.Close();
             }
         }
     }
