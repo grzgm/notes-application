@@ -28,8 +28,9 @@ namespace NotesAplicationWeb.Pages
         {
             //if ((Note.Title == String.Empty) && (Note.Text == String.Empty))
             //{
-            //    INoteManagerWeb noteManager = new NoteManager();
-            //    noteManager.DeleteNote(1, int.Parse(RouteData.Values["id"].ToString()));
+            //    NoteRepository noteRepository = new NoteRepository();
+            //    INoteManagerWeb noteManager = new NoteManager(noteRepository);
+            //    noteManager.DeleteNote(1, int.Parse(RouteData.Values["noteId"].ToString()));
             //}
             if ((Title == null) && (Text == null))
             {
@@ -41,17 +42,10 @@ namespace NotesAplicationWeb.Pages
             {
                 NoteRepository noteRepository = new NoteRepository();
                 INoteManagerWeb noteManager = new NoteManager(noteRepository);
-                noteManager.UpdateNote(1, int.Parse(RouteData.Values["id"].ToString()), Note.Title, Note.Text);
+                noteManager.UpdateNote(1, int.Parse(RouteData.Values["noteId"].ToString()), Note.Title, Note.Text);
             }
 
             return RedirectToPage("Content");
-        }
-
-        public IActionResult OnPostSave()
-        {
-            string i = RouteData.Values["id"].ToString();
-            // Note cannot Bind id as it is 
-            return RedirectToPage("Content", new { Title = Note.Title, Text = Note.Text, Id = RouteData.Values["id"] });
         }
     }
 }

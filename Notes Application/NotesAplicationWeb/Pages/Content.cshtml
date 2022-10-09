@@ -1,4 +1,4 @@
-﻿@page "{id:int?}/{title?}/{text?}"
+﻿@page
 @model NotesAplicationWeb.Pages.ContentModel
 @{
     ViewData["Title"] = "Best Notes App!";
@@ -9,6 +9,8 @@
     <ul>
         <li>Main Folder</li>
         <li><a href="#">+ New Folder</a></li>
+        <li><a href="#">Route AccountId: @RouteData.Values["accountId"]</a></li>
+        <li><a href="#">Model AccountId: @Model.AccountId</a></li>
     </ul>
 </div>
 <div id="content">
@@ -16,7 +18,7 @@
     {
         <div class="note">
             <a asp-page-handler="delete" asp-route-id="@Model.Notes[i].Id" class="X">X</a>
-        <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-id="@Model.Notes[i].Id">
+        <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-noteid="@Model.Notes[i].Id">
                 <div class="noteTextPosition">
                     <h4 class="noteText">@Model.Notes[i].Title // NoteId @Model.Notes[i].Id</h4>
                     <p class="noteText">@Model.Notes[i].Text</p>
@@ -31,7 +33,7 @@
             </div>
     </div>*@
     <div class="note">
-        <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="" asp-route-id="@(Model.Notes.Count()+1)">
+        <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="" asp-route-noteid="@(Model.Notes.Count()+1)">
             <div class="noteTextPosition">
                 +
             </div>

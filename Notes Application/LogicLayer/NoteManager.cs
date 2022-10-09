@@ -15,7 +15,6 @@ namespace LogicLayer
 		private int amountPinnedNotes;
 		int amountPremiumNotes;
 
-
         private readonly NoteRepository noteRepository;
 
 
@@ -24,17 +23,6 @@ namespace LogicLayer
             this.noteRepository = noteRepository
                 ?? throw new ArgumentNullException(nameof(noteRepository));
         }
-		//public NoteManager()
-		//{
-		//	this.noteRepository = new NoteRepository();
-		//	this.noteRepository = noteRepository
-		//		?? throw new ArgumentNullException(nameof(noteRepository));
-		//}
-
-		public IEnumerable<Note> GetAll()
-		{
-			return new List<Note>();
-		}
 		 
 /*		public int AmountOfNotes()
 		{

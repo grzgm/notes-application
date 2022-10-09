@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using LogicLayer;
+using DataLayer;
 
 namespace NotesAplicationWeb.Pages
 {
     public class RegisterModel : PageModel
     {
+        public int id;
         [BindProperty]
         public User User { get; set; }
         public string mess { get; private set; }
@@ -20,8 +22,20 @@ namespace NotesAplicationWeb.Pages
         {
             if (ModelState.IsValid)
             {
+                AccountRepository accountRepository = new AccountRepository();
+                IUserManager userManager = new UserManager(accountRepository);
+
+                try
+                {
+                    id = userManager.CreateUser(User.Name, User.Email, User.Password);
+                }
+                catch (Exception ex)
+                {
+                    return Page();
+                }
+
                 //Which one is better?
-                return RedirectToPage("Content");
+                return RedirectToPage("Content", new { accountId = id });
                 return new RedirectToPageResult("Content");
             }
             else
@@ -29,6 +43,11 @@ namespace NotesAplicationWeb.Pages
                 mess = "notValid";
                 return Page();
             }
+        }
+
+        public IActionResult OnPostSave()
+        {
+            return RedirectToPage("Content", new { accountId = 555 });
         }
     }
 }

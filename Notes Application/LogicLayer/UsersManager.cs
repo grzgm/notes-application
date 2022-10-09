@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer;
 
 namespace LogicLayer
 {
-	public class UsersManager : IUserManager, IUserManagerAdmin
-	{
-		public int AmountOfPremiumUsers()
+	public class UserManager : IUserManager, IUserManagerAdmin
+    {
+        private readonly AccountRepository accountRepository;
+
+		public UserManager(AccountRepository accountRepository)
+        {
+            this.accountRepository = accountRepository
+                ?? throw new ArgumentNullException(nameof(accountRepository));
+        }
+        public int AmountOfPremiumUsers()
 		{
 			throw new NotImplementedException();
 		}
@@ -33,9 +41,9 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public Account CreateUser(string name, string email, string password)
+		public int CreateUser(string name, string email, string password)
 		{
-			throw new NotImplementedException();
+			return accountRepository.CreateUser(name, email, password);
 		}
 
 		public Account SearchUser(string name, string password)

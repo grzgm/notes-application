@@ -10,6 +10,6 @@ namespace LogicLayer
 	{
 		Account SearchUser(string name, string password);
 
-		Account CreateUser(string name, string email, string password);
+		int CreateUser(string name, string email, string password);
 	}
 }
