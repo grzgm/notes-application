@@ -15,8 +15,7 @@ namespace LogicLayer
 
 		public Admin(int id, string name, string email, string password) : base(id, name, email, password)
         {
-            this.maxAmountOfNotes = 20;
-            this.maxLengthOfNote = 200;
+
         }
         public void ChangeUserPremiumStatus()
         {

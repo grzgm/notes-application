@@ -13,8 +13,6 @@ namespace LogicLayer
 		protected string name;
 		protected string email;
 		protected string password;
-        protected int maxAmountOfNotes;
-		protected int maxLengthOfNote;
 
         protected Account()
         {
@@ -26,8 +24,6 @@ namespace LogicLayer
             Name = name;
             Email = email;
             Password = password;
-            MaxAmountOfNotes = maxAmountOfNotes;
-            this.maxLengthOfNote = maxLengthOfNote;
         }
         protected Account(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNote)
         {
@@ -35,8 +31,6 @@ namespace LogicLayer
             Name = name;
             Email = email;
             Password = password;
-            MaxAmountOfNotes = maxAmountOfNotes;
-            this.maxLengthOfNote = maxLengthOfNote;
         }
 
         public int Id
@@ -45,7 +39,7 @@ namespace LogicLayer
             set;
         }
 
-        [Required, MinLength(6), MaxLength(15)]
+        [Required, MinLength(3), MaxLength(15)]
         public string Name
         {
             get;
@@ -67,18 +61,6 @@ namespace LogicLayer
         }
 
         public int AmountOfNotes
-        {
-            get;
-            set;
-        }
-
-        public int MaxAmountOfNotes
-        {
-            get;
-            set;
-        }
-
-        public int MaxLengthOfNotes
         {
             get;
             set;

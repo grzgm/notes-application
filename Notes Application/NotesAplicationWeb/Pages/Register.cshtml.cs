@@ -10,6 +10,7 @@ namespace NotesAplicationWeb.Pages
     public class RegisterModel : PageModel
     {
         public int id;
+
         [BindProperty]
         public User User { get; set; }
         public string mess { get; private set; }

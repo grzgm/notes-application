@@ -1,11 +1,5 @@
 ﻿using DataLayer.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -83,39 +77,53 @@ namespace DataLayer
             return id;
         }
 
-        public List<NoteDTO> ReadUser()
+        public AccountDTO ReadAccount(string name, string password)
         {
             conn = new SqlConnection(constr);
             conn.Open();
             SqlCommand cmd;
             SqlDataReader dreader;
 
-            string sql = "SELECT Id,Title,[Text] FROM notes";
+            string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
+                "account.[MaxAmountOfNotes], account.[MaxLengthOfNote], userTable.[IsBool], " +
+                "[StartPremiumDate], [EndPremiumDate] FROM account " +
+                "LEFT JOIN userTable ON account.Id = userTable.Id " +
+                "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
+                "LEFT JOIN AdminTable ON account.Id = AdminTable.Id " +
+                "WHERE [Name] = @name AND [Password] = @password;";
 
             cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = name });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
 
-            List<NoteDTO> notesDTO = new List<NoteDTO>();
+            AccountDTO accountDTO;
 
             try
             {
                 dreader = cmd.ExecuteReader();
 
-                while (dreader.Read())
+                dreader.Read();
+                accountDTO = new AccountDTO
                 {
-                    notesDTO.Add(new NoteDTO
-                    {
-                        UserId = 0,
-                        Id = int.Parse(dreader.GetValue(0).ToString()),
-                        Title = dreader.GetValue(1).ToString().Trim(),
-                        Text = dreader.GetValue(2).ToString().Trim()
-                    }); ;
-                }
+                    Id = dreader.GetInt32(0),
+                    Name = dreader.GetString(1).Trim(),
+                    Email = dreader.GetString(2).Trim(),
+                    Password = dreader.GetString(3).Trim(),
+                    MaxAmountOfNotes = dreader.GetInt32(4),
+                    MaxLengthOfNotes = dreader.GetInt32(5)
+                };
 
+                if (!DBNull.Value.Equals(dreader.GetValue(6)))
+                    accountDTO.IsPremium = dreader.GetBoolean(6);
+                if (!DBNull.Value.Equals(dreader.GetValue(7)))
+                    accountDTO.StartPremiumDate = dreader.GetDateTime(7);
+                if (!DBNull.Value.Equals(dreader.GetValue(8)))
+                    accountDTO.EndPremiumDate = dreader.GetDateTime(8);
                 dreader.Close();
             }
             catch (Exception ex)
             {
-                return new List<NoteDTO>();
+                return new AccountDTO();
             }
             finally
             {
@@ -123,7 +131,7 @@ namespace DataLayer
                 conn.Close();
             }
 
-            return notesDTO;
+            return accountDTO;
         }
 
         public void UpdateUser(int id, string title, string text)

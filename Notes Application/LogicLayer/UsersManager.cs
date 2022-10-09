@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DataLayer.DTOs;
 
 namespace LogicLayer
 {
@@ -46,9 +47,24 @@ namespace LogicLayer
 			return accountRepository.CreateUser(name, email, password);
 		}
 
-		public Account SearchUser(string name, string password)
+		public Account ReadAccount(string name, string password)
 		{
-			throw new NotImplementedException();
+			AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
+			Account account;
+			if(accountDTO.IsPremium != null)
+			{
+                account = new User(accountDTO);
+			}
+			else if (accountDTO.StartPremiumDate == null)
+			{
+                account = new PremiumUser();
+			}
+			else
+			{
+				account = new Admin();
+			}
+
+			return account;
 		}
 	}
 }

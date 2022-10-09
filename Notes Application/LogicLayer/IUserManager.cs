@@ -8,7 +8,7 @@ namespace LogicLayer
 {
 	public interface IUserManager
 	{
-		Account SearchUser(string name, string password);
+		Account ReadAccount(string name, string password);
 
 		int CreateUser(string name, string email, string password);
 	}
