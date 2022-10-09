@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LogicLayer;
 using static System.Net.Mime.MediaTypeNames;
+using DataLayer;
 
 namespace NotesAplicationWeb.Pages
 {
@@ -33,7 +34,8 @@ namespace NotesAplicationWeb.Pages
 
         private void RetriveNotes()
         {
-            INoteManagerWeb noteManager = new NoteManager();
+            NoteRepository noteRepository = new NoteRepository();
+            INoteManagerWeb noteManager = new NoteManager(noteRepository);
 
             List<Note> lLNotes = noteManager.ReadNotes();
             foreach (Note note in lLNotes)
@@ -56,7 +58,8 @@ namespace NotesAplicationWeb.Pages
 
             //}
 
-            INoteManagerWeb noteManager = new NoteManager();
+            NoteRepository noteRepository = new NoteRepository();
+            INoteManagerWeb noteManager = new NoteManager(noteRepository);
 
             List<Note> lLNotes = noteManager.ReadNotes();
             foreach (Note note in lLNotes)
@@ -82,7 +85,8 @@ namespace NotesAplicationWeb.Pages
 
         public void OnGetDelete()
         {
-            INoteManagerWeb noteManager = new NoteManager();
+            NoteRepository noteRepository = new NoteRepository();
+            INoteManagerWeb noteManager = new NoteManager(noteRepository);
             noteManager.DeleteNote(1, Id);
             this.RetriveNotes();
         }

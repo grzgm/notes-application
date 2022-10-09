@@ -48,6 +48,14 @@
         transform: scale(1.05);
     }
 
+    .note:last-child {
+        cursor: pointer;
+    }
+
+        .note:last-child .noteTextPosition {
+            cursor: pointer;
+        }
+
 .noteTextPosition {
     /*    position: absolute;*/
     width: inherit;

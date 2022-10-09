@@ -1,3 +1,4 @@
+using DataLayer;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -32,12 +33,14 @@ namespace NotesAplicationWeb.Pages
             //}
             if ((Title == null) && (Text == null))
             {
-                INoteManagerWeb noteManager = new NoteManager();
+                NoteRepository noteRepository = new NoteRepository();
+                INoteManagerWeb noteManager = new NoteManager(noteRepository);
                 noteManager.CreateNote(1, Note.Title, Note.Text);
             }
             else if ((Title != Note.Title) || (Text != Note.Text))
             {
-                INoteManagerWeb noteManager = new NoteManager();
+                NoteRepository noteRepository = new NoteRepository();
+                INoteManagerWeb noteManager = new NoteManager(noteRepository);
                 noteManager.UpdateNote(1, int.Parse(RouteData.Values["id"].ToString()), Note.Title, Note.Text);
             }
 
