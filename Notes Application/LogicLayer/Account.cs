@@ -25,13 +25,6 @@ namespace LogicLayer
             Email = email;
             Password = password;
         }
-        protected Account(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNote)
-        {
-            Id = id;
-            Name = name;
-            Email = email;
-            Password = password;
-        }
 
         public int Id
         {

@@ -85,7 +85,7 @@ namespace DataLayer
             SqlDataReader dreader;
 
             string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
-                "account.[MaxAmountOfNotes], account.[MaxLengthOfNote], userTable.[IsBool], " +
+                "account.[MaxAmountOfNotes], account.[MaxLengthOfNote], userTable.[IsPremium], " +
                 "[StartPremiumDate], [EndPremiumDate] FROM account " +
                 "LEFT JOIN userTable ON account.Id = userTable.Id " +
                 "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +

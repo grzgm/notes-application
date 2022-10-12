@@ -34,12 +34,12 @@ CREATE TABLE dbo.account
 CREATE TABLE dbo.userTable
 (
 	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
-	IsBool bit NULL
+	IsPremium bit NULL
 );
 
 CREATE TABLE dbo.premiumUserTable
 (
-	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1) NOT FOR REPLICATION,
+	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
 	StartPremiumDate datetime2(0) NULL,
 	EndPremiumDate datetime2(0) NULL
 );

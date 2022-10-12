@@ -55,9 +55,9 @@ namespace LogicLayer
 			{
                 account = new User(accountDTO);
 			}
-			else if (accountDTO.StartPremiumDate == null)
+			else if (accountDTO.StartPremiumDate != null)
 			{
-                account = new PremiumUser();
+                account = new PremiumUser(accountDTO);
 			}
 			else
 			{
