@@ -3,6 +3,7 @@ using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
 
 namespace NotesAplicationWeb.Pages
 {
@@ -38,7 +39,9 @@ namespace NotesAplicationWeb.Pages
                 {
                     return Page();
                 }
-                return RedirectToPage("Content", new { accountId = account.Id });
+                string accountJson = JsonSerializer.Serialize(account);
+                HttpContext.Session.SetString(accountJson, "account");
+                return RedirectToPage("Content", new { accountJson = accountJson, accountType = account.GetType().ToString() });
             }
             else
             {

@@ -3,11 +3,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using LogicLayer;
 using static System.Net.Mime.MediaTypeNames;
 using DataLayer;
+using System.Text.Json;
 
 namespace NotesAplicationWeb.Pages
 {
     public class ContentModel : PageModel
     {
+        public Account account;
+
         [BindProperty(SupportsGet = true)]
         public string Title { get; set; }
 
@@ -18,7 +21,11 @@ namespace NotesAplicationWeb.Pages
         public int NoteId { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int AccountId { get; set; }
+        public string accountJson { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string accountType { get; set; }
+
         public List<Note> Notes { get; set; } = new List<Note>();
 
         private void RetriveNotes()
@@ -35,6 +42,7 @@ namespace NotesAplicationWeb.Pages
 
         public void OnGet()
         {
+            account = JsonSerializer.Deserialize(accountJson, Type.GetType(accountType)) as Account;
             this.RetriveNotes();
         }
 
