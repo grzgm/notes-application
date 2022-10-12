@@ -44,11 +44,6 @@ namespace DataLayer.DTOs
             get;
             set;
         }
-        public bool? IsPremium
-        {
-            get;
-            set;
-        }
         public DateTime? StartPremiumDate
         {
             get;

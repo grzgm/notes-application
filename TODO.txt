@@ -11,3 +11,6 @@ ile DTO do pobierania konta z bazy
                             }
                         }
                     } 
+
+Turning PremiumUser to User when times comes
+Notes of right user are displayed

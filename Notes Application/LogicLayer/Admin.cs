@@ -1,3 +1,4 @@
+using DataLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,21 @@ namespace LogicLayer
 	{
 		public Admin()
 		{
-			throw new NotImplementedException();
-		}
 
-		public Admin(int id, string name, string email, string password) : base(id, name, email, password)
+        }
+        public Admin(AccountDTO accountDTO)
         {
-
+            Id = accountDTO.Id;
+            Name = accountDTO.Name;
+            Email = accountDTO.Email;
+            Password = accountDTO.Password;
+        }
+        public Admin(int id, string name, string email, string password) : base(id, name, email, password)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            Password = password;
         }
         public void ChangeUserPremiumStatus()
         {

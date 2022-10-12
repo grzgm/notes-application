@@ -13,7 +13,7 @@ namespace LogicLayer
 
 		public PremiumUser()
 		{
-			throw new NotImplementedException();
+
         }
         public PremiumUser(AccountDTO accountDTO)
         {
@@ -21,7 +21,6 @@ namespace LogicLayer
             Name = accountDTO.Name;
             Email = accountDTO.Email;
             Password = accountDTO.Password;
-            //IsPremium = accountDTO.IsPremium.Value;
             MaxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
             MaxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
             TimeSpan timeSpan = accountDTO.EndPremiumDate.Value - accountDTO.StartPremiumDate.Value;

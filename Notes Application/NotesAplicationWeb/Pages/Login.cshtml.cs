@@ -39,9 +39,13 @@ namespace NotesAplicationWeb.Pages
                 {
                     return Page();
                 }
+
                 string accountJson = JsonSerializer.Serialize(account);
-                HttpContext.Session.SetString(accountJson, "account");
-                return RedirectToPage("Content", new { accountJson = accountJson, accountType = account.GetType().ToString() });
+
+                HttpContext.Session.SetString("accountJson", accountJson);
+                HttpContext.Session.SetString("accountType", account.GetType().ToString());
+
+                return RedirectToPage("Content");
             }
             else
             {

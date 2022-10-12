@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using LogicLayer;
 using DataLayer;
+using System.Security.Principal;
+using System.Text.Json;
 
 namespace NotesAplicationWeb.Pages
 {
@@ -26,17 +28,25 @@ namespace NotesAplicationWeb.Pages
                 AccountRepository accountRepository = new AccountRepository();
                 IUserManager userManager = new UserManager(accountRepository);
 
+                Account account;
+
                 try
                 {
-                    id = userManager.CreateUser(User.Name, User.Email, User.Password);
+                    account = userManager.CreateUser(User.Name, User.Email, User.Password);
                 }
                 catch (Exception ex)
                 {
                     return Page();
                 }
 
+                string accountJson = JsonSerializer.Serialize(account);
+
+                HttpContext.Session.SetString("accountJson", accountJson);
+                HttpContext.Session.SetString("accountType", account.GetType().ToString());
+
+
                 //Which one is better?
-                return RedirectToPage("Content", new { accountId = id });
+                return RedirectToPage("Content");
                 return new RedirectToPageResult("Content");
             }
             else

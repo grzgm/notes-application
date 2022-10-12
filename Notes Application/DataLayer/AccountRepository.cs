@@ -1,5 +1,6 @@
 ﻿using DataLayer.DTOs;
 using System.Data.SqlClient;
+using System.Security.Principal;
 
 namespace DataLayer
 {
@@ -29,7 +30,7 @@ namespace DataLayer
             //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
         }
 
-        public int CreateUser(string name, string email, string password)
+        public AccountDTO CreateUser(string name, string email, string password)
         {
             conn = new SqlConnection(constr);
             conn.Open();
@@ -37,10 +38,10 @@ namespace DataLayer
             SqlDataReader dreader;
 
             string sql = "BEGIN TRANSACTION;" +
-                        "INSERT INTO account VALUES (@name, @email, @password, 5, 100);" +
+                        "INSERT INTO account VALUES (@name, @email, @password);" +
                         "DECLARE @id INT;" +
                         "SET @id = IDENT_CURRENT('account')" +
-                        "INSERT INTO userTable VALUES (@id, 0);" +
+                        "INSERT INTO userTable VALUES (@id, 5, 100);" +
                         "COMMIT;";
             int id = 0;
             string sqlId = "SELECT IDENT_CURRENT('account')";
@@ -74,7 +75,15 @@ namespace DataLayer
                 cmd.Dispose();
                 conn.Close();
             }
-            return id;
+            return new AccountDTO()
+            {
+                Id = id,
+                Name = name,
+                Email = email,
+                Password = password,
+                MaxAmountOfNotes = 5,
+                MaxLengthOfNotes = 100
+            };
         }
 
         public AccountDTO ReadAccount(string name, string password)
@@ -85,11 +94,11 @@ namespace DataLayer
             SqlDataReader dreader;
 
             string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
-                "account.[MaxAmountOfNotes], account.[MaxLengthOfNote], userTable.[IsPremium], " +
+                "userTable.[MaxAmountOfNotes], userTable.[MaxLengthOfNote], " +
                 "[StartPremiumDate], [EndPremiumDate] FROM account " +
                 "LEFT JOIN userTable ON account.Id = userTable.Id " +
                 "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
-                "LEFT JOIN AdminTable ON account.Id = AdminTable.Id " +
+                "LEFT JOIN adminTable ON account.Id = adminTable.Id " +
                 "WHERE [Name] = @name AND [Password] = @password;";
 
             cmd = new SqlCommand(sql, conn);
@@ -108,17 +117,18 @@ namespace DataLayer
                     Id = dreader.GetInt32(0),
                     Name = dreader.GetString(1).Trim(),
                     Email = dreader.GetString(2).Trim(),
-                    Password = dreader.GetString(3).Trim(),
-                    MaxAmountOfNotes = dreader.GetInt32(4),
-                    MaxLengthOfNotes = dreader.GetInt32(5)
+                    Password = dreader.GetString(3).Trim()
                 };
 
+                if (!DBNull.Value.Equals(dreader.GetValue(4)))
+                    accountDTO.MaxAmountOfNotes = dreader.GetInt32(4);
+                if (!DBNull.Value.Equals(dreader.GetValue(5)))
+                    accountDTO.MaxLengthOfNotes = dreader.GetInt32(5);
+
                 if (!DBNull.Value.Equals(dreader.GetValue(6)))
-                    accountDTO.IsPremium = dreader.GetBoolean(6);
+                    accountDTO.StartPremiumDate = dreader.GetDateTime(6);
                 if (!DBNull.Value.Equals(dreader.GetValue(7)))
-                    accountDTO.StartPremiumDate = dreader.GetDateTime(7);
-                if (!DBNull.Value.Equals(dreader.GetValue(8)))
-                    accountDTO.EndPremiumDate = dreader.GetDateTime(8);
+                    accountDTO.EndPremiumDate = dreader.GetDateTime(7);
                 dreader.Close();
             }
             catch (Exception ex)

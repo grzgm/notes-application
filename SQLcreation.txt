@@ -25,26 +25,31 @@ CREATE TABLE dbo.account
 (
 	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1) NOT FOR REPLICATION,
 	[Name] nchar(15) NOT NULL,
-	Email nchar(50) NULL,
-	[Password] nchar(10) NULL,
-	MaxAmountOfNotes int NULL,
-	MaxLengthOfNote int NULL
+	Email nchar(50) NOT NULL,
+	[Password] nchar(10) NOT NULL
 );
 
 CREATE TABLE dbo.userTable
 (
 	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
-	IsPremium bit NULL
+	MaxAmountOfNotes int NOT NULL,
+	MaxLengthOfNote int NOT NULL
 );
 
 CREATE TABLE dbo.premiumUserTable
 (
 	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
-	StartPremiumDate datetime2(0) NULL,
-	EndPremiumDate datetime2(0) NULL
+	StartPremiumDate datetime2(0) NOT NULL,
+	EndPremiumDate datetime2(0) NOT NULL
 );
 
-CREATE TABLE dbo.AdminTable
+CREATE TABLE dbo.adminTable
 (
-	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1) NOT FOR REPLICATION,
+	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
 );
+
+INSERT INTO account VALUES ('grzegorz', 'g@g', 'zaq12wsx');
+INSERT INTO userTable VALUES (1, 5, 100);
+INSERT INTO premiumUserTable VALUES (1, '2022-10-01 0:03:06', '2022-11-01 00:03:06');
+INSERT INTO account VALUES ('jan', 'j@j', 'zaq12wsx');
+INSERT INTO userTable VALUES (2, 5, 100);

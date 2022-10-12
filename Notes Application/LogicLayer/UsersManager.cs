@@ -42,29 +42,35 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public int CreateUser(string name, string email, string password)
+		public Account CreateUser(string name, string email, string password)
 		{
-			return accountRepository.CreateUser(name, email, password);
-		}
+            AccountDTO accountDTO = accountRepository.CreateUser(name, email, password);
+            return ConvertAccountDTO(accountDTO);
+        }
 
 		public Account ReadAccount(string name, string password)
 		{
 			AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
-			Account account;
-			if(accountDTO.IsPremium != null)
-			{
-                account = new User(accountDTO);
-			}
-			else if (accountDTO.StartPremiumDate != null)
-			{
-                account = new PremiumUser(accountDTO);
-			}
-			else
-			{
-				account = new Admin();
-			}
-
-			return account;
+            return ConvertAccountDTO(accountDTO);
 		}
+
+		private Account ConvertAccountDTO(AccountDTO accountDTO)
+        {
+            Account account;
+            if (accountDTO.MaxLengthOfNotes == null)
+            {
+                account = new Admin();
+            }
+            else if (accountDTO.StartPremiumDate == null)
+            {
+                account = new User(accountDTO);
+            }
+            else
+            {
+                account = new PremiumUser(accountDTO);
+            }
+
+            return account;
+        }
 	}
 }

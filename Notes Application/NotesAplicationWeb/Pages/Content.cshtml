@@ -9,11 +9,8 @@
     <ul>
         <li>Main Folder</li>
         <li><a href="#">+ New Folder</a></li>
-        <li><a href="#">Model AccountId: @Model.</a></li>
-@*        @{
-            if(typeof(Model.User) == )
-            <li><a href="#">Model AccountId: @Model.AccountId</a></li>
-        }*@
+        <li><a href="#">Model AccountId: @Model.account.Id</a></li>
+        <li><a href="#">Account Type: @Model.account.ToString().Substring(@Model.account.ToString().IndexOf('.') + 1)</a></li>
     </ul>
 </div>
 <div id="content">

@@ -9,7 +9,6 @@ namespace LogicLayer
 {
 	public class User : Account
 	{
-		protected bool isPremium;
         protected int maxAmountOfNotes;
         protected int maxLengthOfNotes;
 
@@ -22,7 +21,6 @@ namespace LogicLayer
             Name = accountDTO.Name;
             Email = accountDTO.Email;
             Password = accountDTO.Password;
-            IsPremium = accountDTO.IsPremium.Value;
             MaxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
             MaxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
         }
@@ -35,12 +33,6 @@ namespace LogicLayer
             Password = password;
             MaxAmountOfNotes = maxAmountOfNotes;
             MaxLengthOfNotes = maxLengthOfNotes;
-            IsPremium = isPremium;
-        }
-        public bool IsPremium
-        {
-            get;
-            set;
         }
 
         public int MaxAmountOfNotes
