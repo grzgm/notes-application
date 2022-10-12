@@ -1,0 +1,20 @@
+﻿@page "{noteId:int}"
+@model NotesAplicationWeb.Pages.NoteEditorModel
+@{
+    ViewData["Title"] = "Notes Editor";
+    ViewData["Css"] = "~/css/noteEditor.css";
+}
+
+<div class="editor">
+    <form method="post" autocomplete="on">
+        <label asp-for="Note.Title">Title: </label>
+        <input asp-for="Note.Title" type="text">
+        <textarea asp-for="Note.Text"></textarea>
+        <label class="textVertical" asp-for="Note.Text">Text: </label>
+        <button type="submit">Save!</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
