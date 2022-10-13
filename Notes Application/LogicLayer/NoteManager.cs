@@ -46,17 +46,17 @@ namespace LogicLayer
 
 		public void CreateNote(int userId, string title, string text)
         {
-            noteRepository.CreateNote(title, text);
+            noteRepository.CreateNote(userId, title, text);
         }
 
-        public Note ReadNote()
+        public Note ReadNote(int noteId, int userId)
         {
             throw new NotImplementedException();
         }
-        public List<Note> ReadNotes()
+        public List<Note> ReadNotes(int userId)
         {
             List<Note> lLNotes = new List<Note>();
-            List<NoteDTO> dLNotes = noteRepository.ReadNotes();
+            List<NoteDTO> dLNotes = noteRepository.ReadNotes(userId);
             foreach (NoteDTO note in dLNotes)
             {
                 lLNotes.Add(new Note(note));
@@ -65,14 +65,14 @@ namespace LogicLayer
             return lLNotes;
         }
 
-        public void UpdateNote(int userId, int noteId, string title, string text)
+        public void UpdateNote(int noteId, int userId, string title, string text)
         {
-			noteRepository.UpdateNote(noteId, title, text);
+			noteRepository.UpdateNote(noteId, userId, title, text);
         }
 
-		public void DeleteNote(int userId, int noteId)
+		public void DeleteNote(int noteId, int userId)
         {
-            noteRepository.DeleteNote(noteId);
+            noteRepository.DeleteNote(noteId, userId);
         }
 
 		public List<Note> GetListOfUserNotes(int userId)
@@ -80,22 +80,17 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public Note GetUserNote(int userId, int noteId)
-		{
+		public Note GetUserNote(int noteId, int userId)
+        {
 			throw new NotImplementedException();
 		}
 
-		public List<Note> ReadNote(int userId, int noteId)
-		{
+		public List<Note> UpdateNote(int noteId, int userId)
+        {
 			throw new NotImplementedException();
 		}
 
-		public List<Note> UpdateNote(int userId, int noteId)
-		{
-			throw new NotImplementedException();
-		}
-
-		List<Note> INoteManagerDesktop.DeleteNote(int userId, int noteId)
+		List<Note> INoteManagerDesktop.DeleteNote(int noteId, int userId)
 		{
 			throw new NotImplementedException();
 		}

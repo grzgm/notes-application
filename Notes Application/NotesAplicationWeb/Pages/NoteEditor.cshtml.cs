@@ -18,6 +18,8 @@ namespace NotesAplicationWeb.Pages
 
         [BindProperty(SupportsGet = true)]
         public Note Note { get; set; }
+
+        private int accountId { get; set; }
         public void OnGet()
         {
             Title = Note.Title;
@@ -26,6 +28,10 @@ namespace NotesAplicationWeb.Pages
 
         public IActionResult OnPost()
         {
+            if (HttpContext.Session.Get("accountJson") == null)
+                return RedirectToPage("Index");
+
+            accountId = HttpContext.Session.GetInt32("accountId").Value;
             //if ((Note.Title == String.Empty) && (Note.Text == String.Empty))
             //{
             //    NoteRepository noteRepository = new NoteRepository();
@@ -36,13 +42,13 @@ namespace NotesAplicationWeb.Pages
             {
                 NoteRepository noteRepository = new NoteRepository();
                 INoteManagerWeb noteManager = new NoteManager(noteRepository);
-                noteManager.CreateNote(1, Note.Title, Note.Text);
+                noteManager.CreateNote(accountId, Note.Title, Note.Text);
             }
             else if ((Title != Note.Title) || (Text != Note.Text))
             {
                 NoteRepository noteRepository = new NoteRepository();
                 INoteManagerWeb noteManager = new NoteManager(noteRepository);
-                noteManager.UpdateNote(1, int.Parse(RouteData.Values["noteId"].ToString()), Note.Title, Note.Text);
+                noteManager.UpdateNote(int.Parse(RouteData.Values["noteId"].ToString()), accountId, Note.Title, Note.Text);
             }
 
             return RedirectToPage("Content");

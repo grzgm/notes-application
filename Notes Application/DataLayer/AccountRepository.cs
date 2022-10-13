@@ -36,7 +36,7 @@ namespace DataLayer
             conn.Open();
             SqlCommand cmd;
             SqlDataReader dreader;
-
+            
             string sql = "BEGIN TRANSACTION;" +
                         "INSERT INTO account VALUES (@name, @email, @password);" +
                         "DECLARE @id INT;" +
@@ -59,10 +59,8 @@ namespace DataLayer
 
                 dreader = cmd.ExecuteReader();
 
-                while (dreader.Read())
-                {
-                    id = int.Parse(dreader.GetValue(0).ToString());
-                }
+                dreader.Read();
+                id = int.Parse(dreader.GetValue(0).ToString());
 
                 dreader.Close();
             }

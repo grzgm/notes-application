@@ -34,7 +34,7 @@ namespace NotesAplicationWeb.Pages
             NoteRepository noteRepository = new NoteRepository();
             INoteManagerWeb noteManager = new NoteManager(noteRepository);
 
-            List<Note> lLNotes = noteManager.ReadNotes();
+            List<Note> lLNotes = noteManager.ReadNotes(account.Id);
             foreach (Note note in lLNotes)
             {
                 Notes.Add(note);
@@ -43,9 +43,31 @@ namespace NotesAplicationWeb.Pages
 
         public IActionResult OnGet()
         {
-            if (HttpContext.Session.Get("accountJson") == null)
+            GetJsonAccount();
+            if(account == null)
                 return RedirectToPage("Index");
-            string test = HttpContext.Session.GetString("accountJson");
+            this.RetriveNotes();
+            return Page();
+        }
+
+        public void OnGetDelete()
+        {
+            GetJsonAccount();
+            NoteRepository noteRepository = new NoteRepository();
+            INoteManagerWeb noteManager = new NoteManager(noteRepository);
+            noteManager.DeleteNote(NoteId, account.Id);
+            this.RetriveNotes();
+        }
+
+        public IActionResult OnPostDelete()
+        {
+            return RedirectToPage("Content");
+        }
+
+        public void GetJsonAccount()
+        {
+            if (HttpContext.Session.Get("accountJson") == null)
+                return;
 
             switch (HttpContext.Session.GetString("accountType"))
             {
@@ -63,25 +85,6 @@ namespace NotesAplicationWeb.Pages
                     break;
             }
             //account = JsonSerializer.Deserialize(accountJson, Type.GetType(accountType)) as Account;
-            this.RetriveNotes();
-            return Page();
-        }
-
-        public void OnGetDelete()
-        {
-            NoteRepository noteRepository = new NoteRepository();
-            INoteManagerWeb noteManager = new NoteManager(noteRepository);
-            noteManager.DeleteNote(1, NoteId);
-            this.RetriveNotes();
-        }
-
-        public IActionResult OnPostDelete()
-        {
-            return RedirectToPage("Content");
-        }
-        public IActionResult Exit()
-        {
-            return RedirectToPage("Register");
         }
     }
 }

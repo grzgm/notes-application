@@ -43,6 +43,7 @@ namespace NotesAplicationWeb.Pages
                 string accountJson = JsonSerializer.Serialize(account);
 
                 HttpContext.Session.SetString("accountJson", accountJson);
+                HttpContext.Session.SetInt32("accountId", account.Id);
                 HttpContext.Session.SetString("accountType", account.GetType().ToString());
 
                 return RedirectToPage("Content");

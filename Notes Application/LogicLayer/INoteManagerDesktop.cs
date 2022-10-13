@@ -10,12 +10,12 @@ namespace LogicLayer
 	{
 		List<Note> GetListOfUserNotes(int userId);
 
-		Note GetUserNote(int userId, int noteId);
+		Note GetUserNote(int noteId, int userId);
 
-		List<Note> ReadNote(int userId, int noteId);
+        Note ReadNote(int noteId, int userId);
 
-		List<Note> UpdateNote(int userId, int noteId);
+		List<Note> UpdateNote(int noteId, int userId);
 
-		List<Note> DeleteNote(int userId, int noteId);
-	}
+        List<Note> DeleteNote(int noteId, int userId);
+    }
 }
