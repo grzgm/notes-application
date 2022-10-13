@@ -50,13 +50,16 @@ namespace NotesAplicationWeb.Pages
             return Page();
         }
 
-        public void OnGetDelete()
+        public IActionResult OnGetDelete()
         {
             GetJsonAccount();
+            if (account == null)
+                return RedirectToPage("Index");
             NoteRepository noteRepository = new NoteRepository();
             INoteManagerWeb noteManager = new NoteManager(noteRepository);
             noteManager.DeleteNote(NoteId, account.Id);
             this.RetriveNotes();
+            return Page();
         }
 
         public IActionResult OnPostDelete()
@@ -85,6 +88,9 @@ namespace NotesAplicationWeb.Pages
                     break;
             }
             //account = JsonSerializer.Deserialize(accountJson, Type.GetType(accountType)) as Account;
+
+            // Disabling Nav Links
+            ViewData["accountJson"] = accountJson;
         }
     }
 }

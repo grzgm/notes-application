@@ -23,7 +23,7 @@ namespace LogicLayer
             Password = accountDTO.Password;
             MaxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
             MaxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
-            TimeSpan timeSpan = accountDTO.EndPremiumDate.Value - accountDTO.StartPremiumDate.Value;
+            TimeSpan timeSpan = accountDTO.EndPremiumDate.Value - DateTime.Now;
             DaysOfPremiumLeft = timeSpan.Days;
         }
 

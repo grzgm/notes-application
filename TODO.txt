@@ -1,4 +1,4 @@
-czy Account potrzebuje AmountOfNotes
+czy Account potrzebuje AmountOfNotes tak, tam będzie to obliczał
 ile DTO do pobierania konta z bazy
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -21,3 +21,11 @@ Relation between notes and account
 Turning PremiumUser to User when times comes
 
 changed delete date route id to noteid
+
+when no notes add something to css like if has one child// or if note+ is first child then
+
+combined key for name and email in account
+
+combined key for noteId and userId in notes
+
+LOG OUT

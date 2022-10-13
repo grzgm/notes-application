@@ -15,6 +15,9 @@ namespace NotesAplicationWeb.Pages
         public void OnGet()
         {
 
+            // Disabling Nav Links
+            ViewData["accountJson"] = HttpContext.Session.Get("accountJson");
+
         }
     }
 }

@@ -7,10 +7,20 @@
 
 <div id="sidebar">
     <ul>
-        <li>Main Folder</li>
-        <li><a href="#">+ New Folder</a></li>
-        <li>Model AccountId: @Model.account.Id</li>
+        <li>AccountId: @Model.account.Id</li>
+        <li>AccountId: @Model.account.Name</li>
         <li>Account Type: @Model.account.ToString().Substring(@Model.account.ToString().IndexOf('.') + 1)</li>
+        @{
+            if(Model.account is LogicLayer.User)
+            {
+                <li>MaxAmountOfNotes: @(((LogicLayer.User)Model.account).MaxAmountOfNotes)</li>
+                <li>MaxLengthOfNotes: @(((LogicLayer.User)Model.account).MaxLengthOfNotes)</li>
+            }
+            if (Model.account is LogicLayer.PremiumUser)
+            {
+                <li>DaysOfPremiumLeft: @(((LogicLayer.PremiumUser)Model.account).DaysOfPremiumLeft)</li>
+            }
+        }
     </ul>
 </div>
 <div id="content">

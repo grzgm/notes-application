@@ -40,11 +40,30 @@ namespace NotesAplicationWeb.Pages
                     return Page();
                 }
 
-                string accountJson = JsonSerializer.Serialize(account);
+                string accountJson;
+
+                switch (account.GetType().ToString())
+                {
+                    case "LogicLayer.User":
+                        accountJson = JsonSerializer.Serialize((User)account);
+                        break;
+                    case "LogicLayer.PremiumUser":
+                        accountJson = JsonSerializer.Serialize((PremiumUser)account);
+                        break;
+                    case "LogicLayer.Admin":
+                        accountJson = JsonSerializer.Serialize((Admin)account);
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                        break;
+                }
 
                 HttpContext.Session.SetString("accountJson", accountJson);
                 HttpContext.Session.SetInt32("accountId", account.Id);
                 HttpContext.Session.SetString("accountType", account.GetType().ToString());
+
+                // Disabling Nav Links
+                ViewData["accountJson"] = accountJson;
 
                 return RedirectToPage("Content");
             }

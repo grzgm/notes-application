@@ -24,6 +24,9 @@ namespace NotesAplicationWeb.Pages
         {
             Title = Note.Title;
             Text = Note.Text;
+
+            // Disabling Nav Links
+            ViewData["accountJson"] = HttpContext.Session.Get("accountJson");
         }
 
         public IActionResult OnPost()
