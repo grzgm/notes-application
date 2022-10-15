@@ -27,6 +27,11 @@ form {
     gap: 10px;
 }
 
+form :nth-child(4)
+{
+    text-align: right;
+}
+
 form button {
     grid-column: 1/3;
 }

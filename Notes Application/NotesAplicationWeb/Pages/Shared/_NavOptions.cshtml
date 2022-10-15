@@ -1,0 +1,17 @@
+﻿
+<div id="menu">
+    <ul>
+        @{
+            if (Context.Session.GetString("accountJson") == null)
+            {
+                <li><a asp-page="/Login">Login</a></li>
+                <li><a asp-page="/Register">Register</a></li>
+            }
+            else
+            {
+                <li><a asp-page="/Content">Content</a></li>
+                <li><a asp-page="/LogOut">Log Out</a></li>
+            }
+        }
+    </ul>
+</div>

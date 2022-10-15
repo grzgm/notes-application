@@ -58,10 +58,5 @@ namespace NotesAplicationWeb.Pages
                 return Page();
             }
         }
-
-        public IActionResult OnPostSave()
-        {
-            return RedirectToPage("Content", new { accountId = 555 });
-        }
     }
 }

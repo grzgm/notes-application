@@ -18,21 +18,7 @@
     <div id="container">
         <nav class="bar">
             <div id="logo"><a asp-page="/Index">Notes</a></div>
-            <div id="menu">
-                <ul>
-                    @{
-                        if (ViewData["accountJson"] == null)
-                        {
-                            <li><a asp-page="/Login">Login</a></li>
-                            <li><a asp-page="/Register">Register</a></li>
-                        }
-                        else
-                        {
-                            <li><a asp-page="/Content">Content</a></li>
-                        }
-                    }
-                </ul>
-            </div>
+            <partial name="_NavOptions"/>
         </nav>
         <main>
             @RenderBody()
