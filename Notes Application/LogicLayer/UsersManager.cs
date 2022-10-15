@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using DataLayer;
 using DataLayer.DTOs;
 
@@ -17,17 +18,13 @@ namespace LogicLayer
             this.accountRepository = accountRepository
                 ?? throw new ArgumentNullException(nameof(accountRepository));
         }
-        public int AmountOfPremiumUsers()
-		{
-			throw new NotImplementedException();
-		}
 
-		public int AmountOfUsers()
-		{
-			throw new NotImplementedException();
-		}
+        public void ChangePremiumStatus(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-		public void ChangeMaxAmountOfNotes(int id)
+        public void ChangeMaxAmountOfNotes(int id)
 		{
 			throw new NotImplementedException();
 		}
@@ -35,26 +32,34 @@ namespace LogicLayer
 		public void ChangeMaxLengthOfNotes(int id)
 		{
 			throw new NotImplementedException();
-		}
+        }
 
-		public void ChangePremiumStatus(int id)
-		{
-			throw new NotImplementedException();
-		}
+        public int AmountOfUsers()
+        {
+            throw new NotImplementedException();
+        }
+        public int AmountOfPremiumUsers()
+        {
+            throw new NotImplementedException();
+        }
 
-		public Account CreateUser(string name, string email, string password)
+        public Account CreateUser(string name, string email, string password)
 		{
             AccountDTO accountDTO = accountRepository.CreateUser(name, email, password);
             return ConvertAccountDTO(accountDTO);
         }
 
-		public Account ReadAccount(string name, string password)
-		{
-			AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
+        public Account ReadAccount(string name, string password)
+        {
+            AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
             return ConvertAccountDTO(accountDTO);
-		}
+        }
+        public void CreatePremiumRequest(int userId)
+        {
+            accountRepository.CreatePremiumRequest(userId);
+        }
 
-		private Account ConvertAccountDTO(AccountDTO accountDTO)
+        private Account ConvertAccountDTO(AccountDTO accountDTO)
         {
             Account account;
             if (accountDTO.MaxLengthOfNotes == null)

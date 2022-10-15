@@ -5,6 +5,7 @@ using static System.Net.Mime.MediaTypeNames;
 using DataLayer;
 using System.Text.Json;
 using System.Linq.Expressions;
+using System.Reflection.Metadata;
 
 namespace NotesAplicationWeb.Pages
 {
@@ -55,15 +56,32 @@ namespace NotesAplicationWeb.Pages
             GetJsonAccount();
             if (account == null)
                 return RedirectToPage("Index");
+
             NoteRepository noteRepository = new NoteRepository();
             INoteManagerWeb noteManager = new NoteManager(noteRepository);
+
             noteManager.DeleteNote(NoteId, account.Id);
+
             this.RetriveNotes();
             return Page();
         }
 
-        public IActionResult OnPostDelete()
+        public IActionResult OnGetPremium()
         {
+            GetJsonAccount();
+            if (account == null)
+                return RedirectToPage("Index");
+
+            CookieOptions cookieOptions = new CookieOptions();
+            //cookieOptions.Secure = true;
+            cookieOptions.Expires = DateTime.Now.AddDays(7);
+            Response.Cookies.Append(account.Id+"premiumRequest", "yes", cookieOptions);
+
+            AccountRepository accountRepository = new AccountRepository();
+            IUserManager userManager = new UserManager(accountRepository);
+
+            userManager.CreatePremiumRequest(account.Id);
+
             return RedirectToPage("Content");
         }
 

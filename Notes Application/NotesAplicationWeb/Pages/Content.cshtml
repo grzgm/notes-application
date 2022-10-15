@@ -16,6 +16,10 @@
                 <li>MaxAmountOfNotes: @(((LogicLayer.User)Model.account).MaxAmountOfNotes)</li>
                 <li>MaxLengthOfNotes: @(((LogicLayer.User)Model.account).MaxLengthOfNotes)</li>
             }
+            if ((Model.account.GetType() == typeof(LogicLayer.User)) && (!Request.Cookies.ContainsKey(Model.account.Id + "premiumRequest")))
+            {
+                <li><a asp-page-handler="premium">Get premium</a></li>
+            }
             if (Model.account is LogicLayer.PremiumUser)
             {
                 <li>DaysOfPremiumLeft: @(((LogicLayer.PremiumUser)Model.account).DaysOfPremiumLeft)</li>

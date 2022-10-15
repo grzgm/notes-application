@@ -46,7 +46,7 @@ namespace LogicLayer
             get;
             set;
         }
-        public void GetPremium()
+        private void GetPremium()
         {
             throw new NotImplementedException();
         }

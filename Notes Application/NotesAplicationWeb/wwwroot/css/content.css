@@ -1,6 +1,6 @@
 ﻿main {
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: max(15%, 250px) auto;
 }
 
 #sidebar {
@@ -8,7 +8,7 @@
     background-color: #576F72;
     margin: 10px 0;
     padding: 20px 0;
-    border-radius: 0 25px 35px 0;
+    border-radius: 0 25px 25px 0;
 }
 
 #content {
@@ -26,13 +26,15 @@
     }
 
 #sidebar ul {
-    list-style-type: disc;
-    padding-left: 30px;
+    list-style-type: none;
+    padding-left: 20px;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .note {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     box-sizing: border-box;
     padding: 10px;
     aspect-ratio: 1/1;
@@ -85,4 +87,17 @@
     display: none;
     text-align: center;
     border-radius: 15px;
+}
+
+@media only screen and (max-width: 625px) {
+    main {
+        grid-template-columns: auto;
+    }
+
+    #sidebar {
+        display: block;
+        background-color: #576F72;
+        margin: 10px 20px;
+        border-radius: 25px;
+    }
 }

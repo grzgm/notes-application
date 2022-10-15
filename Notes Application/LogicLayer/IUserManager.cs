@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace LogicLayer
 {
 	public interface IUserManager
-	{
-		Account ReadAccount(string name, string password);
-
+    {
         Account CreateUser(string name, string email, string password);
-	}
+        Account ReadAccount(string name, string password);
+        void CreatePremiumRequest(int userId);
+
+    }
 }

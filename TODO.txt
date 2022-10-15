@@ -1,17 +1,14 @@
 czy Account potrzebuje AmountOfNotes tak, tam będzie to obliczał
 
-Left side displaying user info
-
-getting premium account form web
-
-Relation between notes and account
-
 Turning PremiumUser to User when times comes
 
-changed delete date route id to noteid
+
+//WEB
 
 combined key for name and email in account
 
-combined key for noteId and userId in notes
+media query for index
 
-LOG OUT
+index button
+
+validation when there is no user

@@ -195,5 +195,46 @@ namespace DataLayer
                 conn.Close();
             }
         }
+        public void CreatePremiumRequest(int userId)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataReader dreader;
+
+            string sqlCheck = "SELECT COUNT(UserId) FROM premiumRequests WHERE UserId = @id;";
+            int amount = 0;
+            string sqlInsert = "INSERT INTO premiumRequests VALUES (@id, @date);";
+
+            cmd = new SqlCommand(sqlCheck, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = userId });
+
+            try
+            {
+                dreader = cmd.ExecuteReader();
+
+                dreader.Read();
+                amount = int.Parse(dreader.GetValue(0).ToString());
+
+                dreader.Close();
+
+                if (amount == 0)
+                {
+                    cmd = new SqlCommand(sqlInsert, conn);
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = userId });
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@date", Value = DateTime.Now });
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 -- Note Table
 CREATE TABLE dbo.notes
 	(
-	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1) NOT FOR REPLICATION,
-	UserId int NOT NULL,
+	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1),
+	UserId int NOT NULL FOREIGN KEY REFERENCES [account]([id]),
 	Title nchar(15) NULL,
 	[Text] nchar(100) NULL,
 	[Date] datetime2(0) NULL,
@@ -12,9 +12,9 @@ CREATE TABLE dbo.notes
 -- HistoryNote Table
 CREATE TABLE dbo.historyNotes
 	(
-	NoteId int NOT NULL,
+	NoteId int NOT NULL FOREIGN KEY REFERENCES [notes]([id]),
 	EditId int NOT NULL,
-	UserId int NOT NULL,
+	UserId int NOT NULL FOREIGN KEY REFERENCES [account]([id]),
 	Title nchar(15) NULL,
 	[Text] nchar(100) NULL,
 	[Date] datetime2(0) NULL,
@@ -23,7 +23,7 @@ CREATE TABLE dbo.historyNotes
 
 CREATE TABLE dbo.account
 (
-	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1) NOT FOR REPLICATION,
+	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1),
 	[Name] nchar(15) NOT NULL,
 	Email nchar(50) NOT NULL,
 	[Password] nchar(10) NOT NULL
@@ -31,21 +31,27 @@ CREATE TABLE dbo.account
 
 CREATE TABLE dbo.userTable
 (
-	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
+	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) UNIQUE,
 	MaxAmountOfNotes int NOT NULL,
 	MaxLengthOfNote int NOT NULL
 );
 
 CREATE TABLE dbo.premiumUserTable
 (
-	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
+	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) UNIQUE,
 	StartPremiumDate datetime2(0) NOT NULL,
 	EndPremiumDate datetime2(0) NOT NULL
 );
 
 CREATE TABLE dbo.adminTable
 (
-	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) NOT FOR REPLICATION,
+	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) UNIQUE,
+);
+
+CREATE TABLE dbo.premiumRequests
+(
+	UserId int NOT NULL FOREIGN KEY REFERENCES [userTable]([id]) UNIQUE,
+	Date datetime2(0) NOT NULL,
 );
 
 INSERT INTO account VALUES ('grzegorz', 'g@g', 'zaq12wsx');
