@@ -20,7 +20,16 @@
         margin-bottom: 20px;
     }
 
-button:hover {
+.fakeButton {
+    appearance: button;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: #576F72;
+    border: 5px solid #E4DCCF;
+    box-shadow: 5px 5px 5px #393E46;
+}
+
+.fakeButton:hover {
     background-color: #7D9D9C;
     transition: 0.5s;
 }
@@ -40,4 +49,14 @@ button:hover {
 
 footer {
     justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .welcome {
+        flex-direction: column;
+    }
+    #welcometext {
+        width: auto;
+        text-align: center;
+    }
 }

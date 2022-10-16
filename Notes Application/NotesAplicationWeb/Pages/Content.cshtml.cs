@@ -106,9 +106,6 @@ namespace NotesAplicationWeb.Pages
                     break;
             }
             //account = JsonSerializer.Deserialize(accountJson, Type.GetType(accountType)) as Account;
-
-            // Disabling Nav Links
-            ViewData["accountJson"] = accountJson;
         }
     }
 }

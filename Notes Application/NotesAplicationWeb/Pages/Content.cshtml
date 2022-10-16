@@ -7,14 +7,14 @@
 
 <div id="sidebar">
     <ul>
-        <li>AccountId: @Model.account.Id</li>
-        <li>AccountId: @Model.account.Name</li>
+        @*<li>AccountId: @Model.account.Id</li>*@
+        <li>Name: @Model.account.Name</li>
         <li>Account Type: @Model.account.ToString().Substring(@Model.account.ToString().IndexOf('.') + 1)</li>
         @{
             if(Model.account is LogicLayer.User)
             {
-                <li>MaxAmountOfNotes: @(((LogicLayer.User)Model.account).MaxAmountOfNotes)</li>
-                <li>MaxLengthOfNotes: @(((LogicLayer.User)Model.account).MaxLengthOfNotes)</li>
+                <li>Max Amount Of Notes: @(((LogicLayer.User)Model.account).MaxAmountOfNotes)</li>
+                <li>Max Length Of Notes: @(((LogicLayer.User)Model.account).MaxLengthOfNotes)</li>
             }
             if ((Model.account.GetType() == typeof(LogicLayer.User)) && (!Request.Cookies.ContainsKey(Model.account.Id + "premiumRequest")))
             {
@@ -22,7 +22,7 @@
             }
             if (Model.account is LogicLayer.PremiumUser)
             {
-                <li>DaysOfPremiumLeft: @(((LogicLayer.PremiumUser)Model.account).DaysOfPremiumLeft)</li>
+                <li>Days Of Premium Left: @(((LogicLayer.PremiumUser)Model.account).DaysOfPremiumLeft)</li>
             }
         }
     </ul>

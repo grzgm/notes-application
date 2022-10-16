@@ -46,9 +46,6 @@ namespace NotesAplicationWeb.Pages
                 HttpContext.Session.SetInt32("accountId", account.Id);
                 HttpContext.Session.SetString("accountType", account.GetType().ToString());
 
-                // Disabling Nav Links
-                ViewData["accountJson"] = accountJson;
-
                 //Which one is better?
                 return RedirectToPage("Content");
                 return new RedirectToPageResult("Content");

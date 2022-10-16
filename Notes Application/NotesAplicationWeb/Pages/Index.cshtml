@@ -2,7 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Best Notes App!";
-    ViewData["Css"] = "~/css/landing.css";
+    ViewData["Css"] = "~/css/index.css";
 }
 
 
@@ -17,7 +17,16 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident earum quaerat alias
             dignissimos.
         </p>
-        <button>Manage your notes!</button>
+        @{
+            if (HttpContext.Session.GetString("accountJson") == null)
+            {
+                <a class="fakeButton" asp-page="/Register">Manage your notes!</a>
+            }
+            else
+            {
+                <a class="fakeButton" asp-page="/Content">Manage your notes!</a>
+            }
+        }
     </div>
 </div>
 <div id="text">

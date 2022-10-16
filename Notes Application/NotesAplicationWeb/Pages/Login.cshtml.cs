@@ -63,9 +63,6 @@ namespace NotesAplicationWeb.Pages
                 HttpContext.Session.SetInt32("accountId", account.Id);
                 HttpContext.Session.SetString("accountType", account.GetType().ToString());
 
-                // Disabling Nav Links
-                ViewData["accountJson"] = accountJson;
-
                 return RedirectToPage("Content");
             }
             else
