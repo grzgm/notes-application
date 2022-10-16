@@ -13,20 +13,7 @@ namespace DataLayer
 	public class NoteRepository
 	{
         private SqlConnection conn;
-        //private string serverName;
-        //private string databaseName;
-        //private string username;
-        //private string password;
         private string constr;
-
-        //public NoteRepository(string serverName, string databaseName, string username, string password)
-        //{
-        //    this.serverName = serverName;
-        //    this.databaseName = databaseName;
-        //    this.username = username;
-        //    this.password = password;
-
-        //}
         public NoteRepository()
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
@@ -88,7 +75,7 @@ namespace DataLayer
                 {
                     notesDTO.Add(new NoteDTO
                     {
-                        UserId = 0,
+                        UserId = userId,
                         Id = int.Parse(dreader.GetValue(0).ToString()),
                         Title = dreader.GetValue(1).ToString().Trim(),
                         Text = dreader.GetValue(2).ToString().Trim()

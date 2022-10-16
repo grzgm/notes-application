@@ -6,9 +6,8 @@ Turning PremiumUser to User when times comes
 //WEB
 
 combined key for name and email in account
+validation when there is already user with the same cerdidetials
 
 media query for index
 
 index button
-
-validation when there is no user

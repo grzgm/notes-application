@@ -37,6 +37,7 @@ namespace NotesAplicationWeb.Pages
                 }
                 catch (Exception ex)
                 {
+                    mess = ex.Message;
                     return Page();
                 }
 
@@ -69,7 +70,7 @@ namespace NotesAplicationWeb.Pages
             }
             else
             {
-                mess = "notValid";
+                mess = "Invalid Credentials";
                 return Page();
             }
         }

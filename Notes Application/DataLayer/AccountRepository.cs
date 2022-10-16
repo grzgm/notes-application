@@ -7,20 +7,7 @@ namespace DataLayer
     public class AccountRepository
     {
         private SqlConnection conn;
-        //private string serverName;
-        //private string databaseName;
-        //private string username;
-        //private string password;
         private string constr;
-
-        //public NoteRepository(string serverName, string databaseName, string username, string password)
-        //{
-        //    this.serverName = serverName;
-        //    this.databaseName = databaseName;
-        //    this.username = username;
-        //    this.password = password;
-
-        //}
         public AccountRepository()
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
@@ -64,9 +51,13 @@ namespace DataLayer
 
                 dreader.Close();
             }
+            catch (SqlException ex)
+            {
+                throw new Exception("User with those credentials already exists.");
+            }
             catch (Exception ex)
             {
-
+                throw new Exception("STH went wrong");
             }
             finally
             {
@@ -131,7 +122,7 @@ namespace DataLayer
             }
             catch (Exception ex)
             {
-                return new AccountDTO();
+                throw new Exception("There is no such user.");
             }
             finally
             {
@@ -144,56 +135,56 @@ namespace DataLayer
 
         public void UpdateUser(int id, string title, string text)
         {
-            conn = new SqlConnection(constr);
-            conn.Open();
-            SqlCommand cmd;
+            //conn = new SqlConnection(constr);
+            //conn.Open();
+            //SqlCommand cmd;
 
-            string sql = "UPDATE notes set Title=@title, [Text]=@text, EditDate=@editdate WHERE Id= @id";
+            //string sql = "UPDATE notes set Title=@title, [Text]=@text, EditDate=@editdate WHERE Id= @id";
 
-            cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
-            cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
-            cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
-            cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
+            //cmd = new SqlCommand(sql, conn);
+            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
+            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
+            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
 
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    cmd.ExecuteNonQuery();
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
-            finally
-            {
-                cmd.Dispose();
-                conn.Close();
-            }
+            //}
+            //finally
+            //{
+            //    cmd.Dispose();
+            //    conn.Close();
+            //}
         }
         public void DeleteUser(int id)
         {
-            conn = new SqlConnection(constr);
-            conn.Open();
-            SqlCommand cmd;
+            //conn = new SqlConnection(constr);
+            //conn.Open();
+            //SqlCommand cmd;
 
-            string sql = "DELETE FROM notes WHERE Id=@id";
+            //string sql = "DELETE FROM notes WHERE Id=@id";
 
-            cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            //cmd = new SqlCommand(sql, conn);
+            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
 
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    cmd.ExecuteNonQuery();
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
-            finally
-            {
-                cmd.Dispose();
-                conn.Close();
-            }
+            //}
+            //finally
+            //{
+            //    cmd.Dispose();
+            //    conn.Close();
+            //}
         }
         public void CreatePremiumRequest(int userId)
         {

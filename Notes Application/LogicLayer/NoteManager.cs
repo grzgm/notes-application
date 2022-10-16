@@ -57,9 +57,9 @@ namespace LogicLayer
         {
             List<Note> lLNotes = new List<Note>();
             List<NoteDTO> dLNotes = noteRepository.ReadNotes(userId);
-            foreach (NoteDTO note in dLNotes)
+            foreach (NoteDTO noteDTO in dLNotes)
             {
-                lLNotes.Add(new Note(note));
+                lLNotes.Add(new Note(noteDTO));
             }
 
             return lLNotes;

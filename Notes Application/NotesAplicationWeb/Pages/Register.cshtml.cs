@@ -36,6 +36,7 @@ namespace NotesAplicationWeb.Pages
                 }
                 catch (Exception ex)
                 {
+                    mess = ex.Message;
                     return Page();
                 }
 
