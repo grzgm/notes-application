@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace LogicLayer
@@ -17,19 +18,20 @@ namespace LogicLayer
         }
         public PremiumUser(AccountDTO accountDTO)
         {
-            Id = accountDTO.Id;
-            Name = accountDTO.Name;
-            Email = accountDTO.Email;
-            Password = accountDTO.Password;
-            MaxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
-            MaxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
+            this.id = accountDTO.Id;
+            this.name = accountDTO.Name;
+            this.email = accountDTO.Email;
+            this.password = accountDTO.Password;
+            this.maxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
+            this.maxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
             TimeSpan timeSpan = accountDTO.EndPremiumDate.Value - DateTime.Now;
-            DaysOfPremiumLeft = timeSpan.Days;
+            this.daysOfPremiumLeft = timeSpan.Days;
         }
 
-        public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium, int daysOfPremiumLeft) : base(id, name,email,password,maxAmountOfNotes,maxLengthOfNotes, isPremium)
+        [JsonConstructor]
+        public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft) : base(id, name,email,password,maxAmountOfNotes,maxLengthOfNotes)
 		{
-			DaysOfPremiumLeft = daysOfPremiumLeft;
+			this.daysOfPremiumLeft = daysOfPremiumLeft;
         }
 
         public void ProlongPremium()
@@ -37,6 +39,6 @@ namespace LogicLayer
             throw new NotImplementedException();
         }
 
-		public int DaysOfPremiumLeft { get; set; }
+		public int DaysOfPremiumLeft { get { return this.daysOfPremiumLeft; } }
     }
 }

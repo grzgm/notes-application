@@ -13,7 +13,7 @@ namespace LogicLayer
     {
 		private int amountOfNotes;
 		private int amountPinnedNotes;
-		int amountPremiumNotes;
+		private int amountPremiumNotes;
 
         private readonly NoteRepository noteRepository;
 
@@ -85,12 +85,12 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		public List<Note> UpdateNote(int noteId, int userId)
+		public void UpdateNote(int noteId, int userId)
         {
 			throw new NotImplementedException();
 		}
 
-		List<Note> INoteManagerDesktop.DeleteNote(int noteId, int userId)
+		void INoteManagerDesktop.DeleteNote(int noteId, int userId)
 		{
 			throw new NotImplementedException();
 		}

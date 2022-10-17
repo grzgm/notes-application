@@ -734,7 +734,7 @@
         <Collapsed>False</Collapsed>
         <Member type="Method">Account CreateUser(string name, string email, string password)</Member>
         <Member type="Method">Account ReadAccount(string name, string password)</Member>
-        <Member type="Method">void AskForPremium(int userId)</Member>
+        <Member type="Method">void CreatePremiumRequest(int userId)</Member>
       </Entity>
       <Entity type="Class">
         <Name>PremiumUser</Name>
@@ -747,7 +747,7 @@
         <Member type="Constructor">public PremiumUser(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium, int daysOfPremiumLeft)</Member>
         <Member type="Method">public void ProlongPremium()</Member>
-        <Member type="Property">public int DaysOfPremiumLeft { get; set; }</Member>
+        <Member type="Property">public int DaysOfPremiumLeft { get; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -766,6 +766,7 @@
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public Admin()</Member>
+        <Member type="Constructor">public Admin(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public Admin(int id, string name, string email, string password)</Member>
         <Member type="Method">public void ChangeUserPremiumStatus()</Member>
         <Member type="Method">public void GetUserInfo(int id)</Member>
@@ -777,13 +778,14 @@
         <Location left="1095" top="1219" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">protected bool isPremium</Member>
+        <Member type="Field">protected int maxAmountOfNotes</Member>
+        <Member type="Field">protected int maxLengthOfNotes</Member>
         <Member type="Constructor">public User()</Member>
         <Member type="Constructor">public User(AccountDTO accountDTO)</Member>
-        <Member type="Constructor">public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium)</Member>
+        <Member type="Constructor">public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes)</Member>
         <Member type="Method">private void GetPremium()</Member>
-        <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
-        <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
+        <Member type="Property">public int MaxAmountOfNotes { get; }</Member>
+        <Member type="Property">public int MaxLengthOfNotes { get; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -794,9 +796,9 @@
         <Collapsed>False</Collapsed>
         <Member type="Method">List&lt;Note&gt; GetListOfUserNotes(int userId)</Member>
         <Member type="Method">Note GetUserNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote(int userId, int noteId)</Member>
+        <Member type="Method">Note ReadNote(int userId, int noteId)</Member>
+        <Member type="Method">void UpdateNote(int userId, int noteId)</Member>
+        <Member type="Method">void DeleteNote(int userId, int noteId)</Member>
       </Entity>
       <Entity type="Class">
         <Name>NoteManager</Name>
@@ -822,31 +824,33 @@
         <Size width="236" height="163" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void CreateNote(int userId, string title, string text)</Member>
-        <Member type="Method">Note ReadNote()</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNotes()</Member>
-        <Member type="Method">void UpdateNote(int userId, int noteId, string title, string text)</Member>
-        <Member type="Method">void DeleteNote(int userId, int noteId)</Member>
+        <Member type="Method">Note ReadNote(int noteId, int userId)</Member>
+        <Member type="Method">List&lt;Note&gt; ReadNotes(int userId)</Member>
+        <Member type="Method">void UpdateNote(int noteId, int userId, string title, string text)</Member>
+        <Member type="Method">void DeleteNote(int noteId, int userId)</Member>
       </Entity>
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
         <Location left="1935" top="1172" />
-        <Size width="162" height="315" />
+        <Size width="162" height="349" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private int userId</Member>
         <Member type="Field">private int id</Member>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
+        <Member type="Field">private int userId</Member>
+        <Member type="Field">private string title</Member>
+        <Member type="Field">private string text</Member>
+        <Member type="Field">private DateTime date</Member>
+        <Member type="Field">private DateTime editDate</Member>
         <Member type="Constructor">public Note()</Member>
         <Member type="Constructor">public Note(NoteDTO noteDTO)</Member>
         <Member type="Constructor">public Note(int userId, int id, string title, string text)</Member>
         <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)</Member>
-        <Member type="Property">public int UserId { get; private set; }</Member>
-        <Member type="Property">public int Id { get; private set; }</Member>
+        <Member type="Property">public int UserId { get; }</Member>
+        <Member type="Property">public int Id { get; }</Member>
         <Member type="Property">public string Title { get; set; }</Member>
         <Member type="Property">public string Text { get; set; }</Member>
+        <Member type="Property">public DateTime Date { get; }</Member>
+        <Member type="Property">public DateTime EditDate { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -861,34 +865,12 @@
         <Member type="Field">protected string password</Member>
         <Member type="Constructor">protected Account()</Member>
         <Member type="Constructor">protected Account(int id, string name, string email, string password)</Member>
-        <Member type="Property">public int Id { get; private set; }</Member>
-        <Member type="Property">public string Name { get; set; }</Member>
-        <Member type="Property">public string Email { get; set; }</Member>
-        <Member type="Property">public string Password { get; set; }</Member>
+        <Member type="Property">public int Id { get; }</Member>
+        <Member type="Property">public string Name { get; }</Member>
+        <Member type="Property">public string Email { get; }</Member>
+        <Member type="Property">public string Password { get; }</Member>
         <Member type="Property">public int AmountOfNotes { get; set; }</Member>
         <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="1935" top="1540" />
-        <Size width="162" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int userId</Member>
-        <Member type="Field">private int id</Member>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Member type="Constructor">public Note()</Member>
-        <Member type="Constructor">public Note(NoteDTO noteDTO)</Member>
-        <Member type="Constructor">public Note(int userId, int id, string title, string text)</Member>
-        <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)</Member>
-        <Member type="Property">public int UserId { get; private set; }</Member>
-        <Member type="Property">public int Id { get; private set; }</Member>
-        <Member type="Property">public string Title { get; set; }</Member>
-        <Member type="Property">public string Text { get; set; }</Member>
-        <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>NoteRepository</Name>
@@ -1092,17 +1074,7 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="13" second="15">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="16" second="4">
+      <Relationship type="Association" first="15" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1116,7 +1088,7 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="17" second="4">
+      <Relationship type="Association" first="16" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1127,6 +1099,12 @@
           <X>1538</X>
           <Y>1967</Y>
         </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="13">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>

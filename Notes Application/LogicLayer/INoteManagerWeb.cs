@@ -12,8 +12,6 @@ namespace LogicLayer
         Note ReadNote(int noteId, int userId);
         List<Note> ReadNotes(int userId);
         void UpdateNote(int noteId, int userId, string title, string text);
-        //List<Note> UpdateNote(int userId, int noteId, string text);
-        //List<Note> UpdateNote(int userId, int noteId, string title);
         void DeleteNote(int noteId, int userId);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using DataLayer.DTOs;
 
@@ -17,34 +18,33 @@ namespace LogicLayer
         { }
         public User(AccountDTO accountDTO)
         {
-            Id = accountDTO.Id;
-            Name = accountDTO.Name;
-            Email = accountDTO.Email;
-            Password = accountDTO.Password;
-            MaxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
-            MaxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
+            this.id = accountDTO.Id;
+            this.name = accountDTO.Name;
+            this.email = accountDTO.Email;
+            this.password = accountDTO.Password;
+            this.maxAmountOfNotes = accountDTO.MaxAmountOfNotes.Value;
+            this.maxLengthOfNotes = accountDTO.MaxLengthOfNotes.Value;
         }
 
-        public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium) : base(id, name, email, password)
+        [JsonConstructor]
+        public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes) : base(id, name, email, password)
         {
-            Id = id;
-            Name = name;
-            Email = email;
-            Password = password;
-            MaxAmountOfNotes = maxAmountOfNotes;
-            MaxLengthOfNotes = maxLengthOfNotes;
+            this.id = id;
+            this.name = name;
+            this.email = email;
+            this.password = password;
+            this.maxAmountOfNotes = maxAmountOfNotes;
+            this.maxLengthOfNotes = maxLengthOfNotes;
         }
 
         public int MaxAmountOfNotes
         {
-            get;
-            set;
+            get { return this.maxAmountOfNotes; }
         }
 
         public int MaxLengthOfNotes
         {
-            get;
-            set;
+            get { return this.maxLengthOfNotes; }
         }
         private void GetPremium()
         {

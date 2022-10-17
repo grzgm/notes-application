@@ -52,7 +52,7 @@ namespace NotesAplicationWeb.Pages
             }
             else
             {
-                mess = "notValid";
+                mess = "Invalid Credentials";
                 return Page();
             }
         }

@@ -15,17 +15,17 @@ namespace LogicLayer
         }
         public Admin(AccountDTO accountDTO)
         {
-            Id = accountDTO.Id;
-            Name = accountDTO.Name;
-            Email = accountDTO.Email;
-            Password = accountDTO.Password;
+            this.id = accountDTO.Id;
+            this.name = accountDTO.Name;
+            this.email = accountDTO.Email;
+            this.password = accountDTO.Password;
         }
         public Admin(int id, string name, string email, string password) : base(id, name, email, password)
         {
-            Id = id;
-            Name = name;
-            Email = email;
-            Password = password;
+            this.id = id;
+            this.name = name;
+            this.email = email;
+            this.password = password;
         }
         public void ChangeUserPremiumStatus()
         {
