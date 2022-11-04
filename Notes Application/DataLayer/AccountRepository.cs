@@ -1,10 +1,12 @@
-﻿using DataLayer.DTOs;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Security.Principal;
+//using DataLayer.DTOs;
+using LogicLayer;
+using LogicLayer.DTOs;
 
 namespace DataLayer
 {
-    public class AccountRepository
+    public class AccountRepository : LogicLayer.IAccountRepository
     {
         private SqlConnection conn;
         private string constr;

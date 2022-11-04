@@ -32,7 +32,7 @@ namespace NotesAplicationWeb.Pages
 
         private void RetriveNotes()
         {
-            NoteRepository noteRepository = new NoteRepository();
+            INoteRepository noteRepository = new DataLayer.NoteRepository();
             INoteManagerWeb noteManager = new NoteManager(noteRepository);
 
             List<Note> lLNotes = noteManager.ReadNotes(account.Id);
@@ -57,7 +57,7 @@ namespace NotesAplicationWeb.Pages
             if (account == null)
                 return RedirectToPage("Index");
 
-            NoteRepository noteRepository = new NoteRepository();
+            INoteRepository noteRepository = new DataLayer.NoteRepository();
             INoteManagerWeb noteManager = new NoteManager(noteRepository);
 
             noteManager.DeleteNote(NoteId, account.Id);
@@ -77,7 +77,7 @@ namespace NotesAplicationWeb.Pages
             cookieOptions.Expires = DateTime.Now.AddDays(7);
             Response.Cookies.Append(account.Id+"premiumRequest", "yes", cookieOptions);
 
-            AccountRepository accountRepository = new AccountRepository();
+            IAccountRepository accountRepository = new DataLayer.AccountRepository();
             IUserManager userManager = new UserManager(accountRepository);
 
             userManager.CreatePremiumRequest(account.Id);

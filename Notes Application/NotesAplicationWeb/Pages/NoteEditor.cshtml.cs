@@ -43,13 +43,13 @@ namespace NotesAplicationWeb.Pages
             //}
             if ((Title == null) && (Text == null))
             {
-                NoteRepository noteRepository = new NoteRepository();
+                INoteRepository noteRepository = new DataLayer.NoteRepository();
                 INoteManagerWeb noteManager = new NoteManager(noteRepository);
                 noteManager.CreateNote(accountId, Note.Title, Note.Text);
             }
             else if ((Title != Note.Title) || (Text != Note.Text))
             {
-                NoteRepository noteRepository = new NoteRepository();
+                INoteRepository noteRepository = new DataLayer.NoteRepository();
                 INoteManagerWeb noteManager = new NoteManager(noteRepository);
                 noteManager.UpdateNote(int.Parse(RouteData.Values["noteId"].ToString()), accountId, Note.Title, Note.Text);
             }

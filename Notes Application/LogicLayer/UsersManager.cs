@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using DataLayer;
-using DataLayer.DTOs;
+using LogicLayer.DTOs;
 
 namespace LogicLayer
 {
 	public class UserManager : IUserManager, IUserManagerAdmin
     {
-        private readonly AccountRepository accountRepository;
+        private readonly IAccountRepository accountRepository;
 
-		public UserManager(AccountRepository accountRepository)
+		public UserManager(IAccountRepository accountRepository)
         {
             this.accountRepository = accountRepository
                 ?? throw new ArgumentNullException(nameof(accountRepository));

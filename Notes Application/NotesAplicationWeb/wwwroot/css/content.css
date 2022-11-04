@@ -4,6 +4,9 @@
 }
 
 #sidebar {
+    max-height: 90vh;
+    top: 10px;
+    position: sticky;
     display: block;
     background-color: #576F72;
     margin: 10px 0;
@@ -96,6 +99,7 @@
 
     #sidebar {
         display: block;
+        position: static;
         background-color: #576F72;
         margin: 10px 20px;
         border-radius: 25px;

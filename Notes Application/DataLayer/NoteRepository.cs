@@ -5,12 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer.DTOs;
+//using DataLayer.DTOs;
+using LogicLayer;
+using LogicLayer.DTOs;
 
 
 namespace DataLayer
 {
-	public class NoteRepository
+	public class NoteRepository : LogicLayer.INoteRepository
 	{
         private SqlConnection conn;
         private string constr;

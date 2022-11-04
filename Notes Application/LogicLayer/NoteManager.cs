@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
-using DataLayer.DTOs;
+using LogicLayer.DTOs;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace LogicLayer
@@ -15,10 +14,10 @@ namespace LogicLayer
 		private int amountPinnedNotes;
 		private int amountPremiumNotes;
 
-        private readonly NoteRepository noteRepository;
+        private readonly INoteRepository noteRepository;
 
 
-        public NoteManager(NoteRepository noteRepository)
+        public NoteManager(INoteRepository noteRepository)
         {
             this.noteRepository = noteRepository
                 ?? throw new ArgumentNullException(nameof(noteRepository));

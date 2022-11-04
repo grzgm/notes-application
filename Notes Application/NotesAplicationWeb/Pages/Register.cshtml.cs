@@ -25,7 +25,7 @@ namespace NotesAplicationWeb.Pages
         {
             if (ModelState.IsValid)
             {
-                AccountRepository accountRepository = new AccountRepository();
+                IAccountRepository accountRepository = new DataLayer.AccountRepository();
                 IUserManager userManager = new UserManager(accountRepository);
 
                 Account account;
