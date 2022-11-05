@@ -5,13 +5,4 @@ Turning PremiumUser to User when times comes
 urzytkownik z tym samym nickiem ale innym mailem i tym samym hasłem !!!
 
 unit tests:
-login as a user
-login as non existing user
-login as a user with wrong credentials
-register new user
-register as already registered user
-create new note
-read user notes
-update note
-delete note
 ask for premium
