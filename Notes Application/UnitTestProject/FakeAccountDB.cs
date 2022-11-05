@@ -13,15 +13,33 @@ namespace UnitTestProject
     {
         public AccountDTO CreateUser(string name, string email, string password)
         {
-            return new AccountDTO()
+            if (name == "NameUnitTest" && email == "TestAccount@Email" && password == "PasswordUnitTest")
             {
-                Id = 7,
-                Name = name,
-                Email = email,
-                Password = password,
-                MaxAmountOfNotes = 5,
-                MaxLengthOfNotes = 100
-            };
+                return new AccountDTO()
+                {
+                    Id = 7,
+                    Name = name,
+                    Email = email,
+                    Password = password,
+                    MaxAmountOfNotes = 5,
+                    MaxLengthOfNotes = 100
+                };
+            }
+            else if (name == "SqlException" && email == "SqlException" && password == "SqlException")
+            {
+                SqlException exception = null;
+                try
+                {
+                    SqlConnection conn = new SqlConnection(@"Data Source=.;Database=GUARANTEED_TO_FAIL;Connection Timeout=1");
+                    conn.Open();
+                }
+                catch (SqlException ex)
+                {
+                    exception = ex;
+                }
+                throw exception;
+            }
+            throw new Exception("STH went wrong");
         }
         public AccountDTO ReadAccount(string name, string password)
         {
