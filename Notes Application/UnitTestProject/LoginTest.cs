@@ -8,7 +8,7 @@ namespace UnitTestProject
     public class LoginTest
     {
 /*        private readonly IAccountRepository accountRepository;
-        private readonly IUserManager userManager;
+        private readonly IUserManagerWeb userManager;
 
         public LoginTest()
         {
@@ -16,7 +16,7 @@ namespace UnitTestProject
             userManager = new UserManager(accountRepository);
         }*/
         private IAccountRepository accountRepository;
-        private IUserManager userManager;
+        private IUserManagerWeb userManager;
 
         [TestMethod]
         public void LoginUser()

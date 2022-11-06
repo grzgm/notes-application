@@ -9,7 +9,7 @@ namespace UnitTestProject
     public class RegisterTest
     {
         private IAccountRepository accountRepository;
-        private IUserManager userManager;
+        private IUserManagerWeb userManager;
 
         [TestMethod]
         public void RegisterUser()

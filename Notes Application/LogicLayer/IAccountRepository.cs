@@ -11,7 +11,9 @@ namespace LogicLayer
     {
         public AccountDTO CreateUser(string name, string email, string password);
         public AccountDTO ReadAccount(string name, string password);
-        public void UpdateUser(int id, string title, string text);
+        AccountDTO ReadUser(int id);
+        List<AccountDTO> ReadUsers(string name, string email, string password);
+        void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft);
         public void DeleteUser(int id);
         public void CreatePremiumRequest(int userId);
 

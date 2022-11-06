@@ -16,7 +16,7 @@ namespace DataLayer
             // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
-            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
         }
 
         public AccountDTO CreateUser(string name, string email, string password)
@@ -135,7 +135,133 @@ namespace DataLayer
             return accountDTO;
         }
 
-        public void UpdateUser(int id, string title, string text)
+        public AccountDTO ReadUser(int id)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataReader dreader;
+
+            string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
+                "userTable.[MaxAmountOfNotes], userTable.[MaxLengthOfNote], " +
+                "[StartPremiumDate], [EndPremiumDate] FROM account " +
+                "INNER JOIN userTable ON account.Id = userTable.Id " +
+                "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
+                "WHERE account.[Id] = @id";
+
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+
+            AccountDTO accountDTO;
+
+            try
+            {
+                dreader = cmd.ExecuteReader();
+
+                dreader.Read();
+                accountDTO = new AccountDTO
+                {
+                    Id = dreader.GetInt32(0),
+                    Name = dreader.GetString(1).Trim(),
+                    Email = dreader.GetString(2).Trim(),
+                    Password = dreader.GetString(3).Trim()
+                };
+
+                if (!DBNull.Value.Equals(dreader.GetValue(4)))
+                    accountDTO.MaxAmountOfNotes = dreader.GetInt32(4);
+                if (!DBNull.Value.Equals(dreader.GetValue(5)))
+                    accountDTO.MaxLengthOfNotes = dreader.GetInt32(5);
+
+                if (!DBNull.Value.Equals(dreader.GetValue(6)))
+                    accountDTO.StartPremiumDate = dreader.GetDateTime(6);
+                if (!DBNull.Value.Equals(dreader.GetValue(7)))
+                    accountDTO.EndPremiumDate = dreader.GetDateTime(7);
+                dreader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("There is no such user.");
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+
+            return accountDTO;
+        }
+
+        public List<AccountDTO> ReadUsers(string name, string email, string password)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataReader dreader;
+
+            string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
+                "userTable.[MaxAmountOfNotes], userTable.[MaxLengthOfNote], " +
+                "[StartPremiumDate], [EndPremiumDate] FROM account " +
+                "INNER JOIN userTable ON account.Id = userTable.Id " +
+                "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
+                "WHERE TRIM([Name]) LIKE @name AND TRIM([Email]) LIKE @email AND TRIM([Password]) LIKE @password;";
+
+            cmd = new SqlCommand(sql, conn);
+            if (name != "")
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = name });
+            else
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = "%" });
+            if (email != "")
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
+            else
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = "%" });
+            if (password != "")
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
+            else
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = "%" });
+
+            List<AccountDTO> accountDTOs = new List<AccountDTO>();
+
+            try
+            {
+                dreader = cmd.ExecuteReader();
+
+                while(dreader.Read())
+                {
+                    AccountDTO accountDTO = new AccountDTO
+                    {
+                        Id = dreader.GetInt32(0),
+                        Name = dreader.GetString(1).Trim(),
+                        Email = dreader.GetString(2).Trim(),
+                        Password = dreader.GetString(3).Trim()
+                    };
+
+                    if (!DBNull.Value.Equals(dreader.GetValue(4)))
+                        accountDTO.MaxAmountOfNotes = dreader.GetInt32(4);
+                    if (!DBNull.Value.Equals(dreader.GetValue(5)))
+                        accountDTO.MaxLengthOfNotes = dreader.GetInt32(5);
+
+                    if (!DBNull.Value.Equals(dreader.GetValue(6)))
+                        accountDTO.StartPremiumDate = dreader.GetDateTime(6);
+                    if (!DBNull.Value.Equals(dreader.GetValue(7)))
+                        accountDTO.EndPremiumDate = dreader.GetDateTime(7);
+                    accountDTOs.Add(accountDTO);
+                }
+                dreader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("There is no such users.");
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+
+            return accountDTOs;
+        }
+
+        public void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
         {
             //conn = new SqlConnection(constr);
             //conn.Open();

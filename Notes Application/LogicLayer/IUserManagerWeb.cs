@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer
 {
-	public interface IUserManager
+	public interface IUserManagerWeb
     {
         Account CreateUser(string name, string email, string password);
         Account ReadAccount(string name, string password);

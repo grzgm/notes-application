@@ -78,7 +78,7 @@ namespace NotesAplicationWeb.Pages
             Response.Cookies.Append(account.Id+"premiumRequest", "yes", cookieOptions);
 
             IAccountRepository accountRepository = new DataLayer.AccountRepository();
-            IUserManager userManager = new UserManager(accountRepository);
+            IUserManagerWeb userManager = new UserManager(accountRepository);
 
             userManager.CreatePremiumRequest(account.Id);
 

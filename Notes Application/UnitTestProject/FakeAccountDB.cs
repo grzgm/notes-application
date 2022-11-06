@@ -69,5 +69,20 @@ namespace UnitTestProject
         {
 
         }
+
+        public AccountDTO ReadUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AccountDTO> ReadUsers(string name = null, string email = null, string password = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

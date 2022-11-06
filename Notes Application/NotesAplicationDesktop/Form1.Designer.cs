@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.UserPage = new System.Windows.Forms.TabPage();
             this.gbAccount = new System.Windows.Forms.GroupBox();
-            this.tbUserId = new System.Windows.Forms.TextBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.lbUsersList = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.lbUserEmail = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.AdminPage = new System.Windows.Forms.TabPage();
+            this.tbUserId = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.UserPage.SuspendLayout();
             this.gbAccount.SuspendLayout();
@@ -51,25 +51,27 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.UserPage);
             this.tabControl1.Controls.Add(this.AdminPage);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(13, 15);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1874, 1000);
+            this.tabControl1.Size = new System.Drawing.Size(2082, 1250);
             this.tabControl1.TabIndex = 0;
             // 
             // UserPage
             // 
             this.UserPage.Controls.Add(this.gbAccount);
             this.UserPage.Controls.Add(this.listBox1);
-            this.UserPage.Location = new System.Drawing.Point(4, 29);
+            this.UserPage.Location = new System.Drawing.Point(4, 34);
+            this.UserPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UserPage.Name = "UserPage";
-            this.UserPage.Padding = new System.Windows.Forms.Padding(3);
-            this.UserPage.Size = new System.Drawing.Size(1866, 967);
+            this.UserPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UserPage.Size = new System.Drawing.Size(2074, 1212);
             this.UserPage.TabIndex = 0;
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
@@ -87,25 +89,21 @@
             this.gbAccount.Controls.Add(this.tbUserName);
             this.gbAccount.Controls.Add(this.tbUserEmail);
             this.gbAccount.Controls.Add(this.lbUserEmail);
-            this.gbAccount.Location = new System.Drawing.Point(6, 6);
+            this.gbAccount.Location = new System.Drawing.Point(7, 8);
+            this.gbAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbAccount.Name = "gbAccount";
-            this.gbAccount.Size = new System.Drawing.Size(511, 744);
+            this.gbAccount.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbAccount.Size = new System.Drawing.Size(568, 930);
             this.gbAccount.TabIndex = 12;
             this.gbAccount.TabStop = false;
             this.gbAccount.Text = "Account";
             // 
-            // tbUserId
-            // 
-            this.tbUserId.Location = new System.Drawing.Point(104, 32);
-            this.tbUserId.Name = "tbUserId";
-            this.tbUserId.Size = new System.Drawing.Size(196, 26);
-            this.tbUserId.TabIndex = 3;
-            // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(20, 506);
+            this.btnDeleteUser.Location = new System.Drawing.Point(22, 632);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(280, 30);
+            this.btnDeleteUser.Size = new System.Drawing.Size(311, 38);
             this.btnDeleteUser.TabIndex = 11;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
@@ -113,103 +111,120 @@
             // lbUsersList
             // 
             this.lbUsersList.FormattingEnabled = true;
-            this.lbUsersList.ItemHeight = 20;
-            this.lbUsersList.Location = new System.Drawing.Point(20, 196);
+            this.lbUsersList.ItemHeight = 25;
+            this.lbUsersList.Location = new System.Drawing.Point(22, 245);
+            this.lbUsersList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbUsersList.Name = "lbUsersList";
-            this.lbUsersList.Size = new System.Drawing.Size(280, 304);
+            this.lbUsersList.Size = new System.Drawing.Size(311, 379);
             this.lbUsersList.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(20, 160);
+            this.btnSearch.Location = new System.Drawing.Point(22, 200);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(280, 30);
+            this.btnSearch.Size = new System.Drawing.Size(311, 38);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lbUserId
             // 
             this.lbUserId.AutoSize = true;
-            this.lbUserId.Location = new System.Drawing.Point(16, 35);
+            this.lbUserId.Location = new System.Drawing.Point(18, 44);
             this.lbUserId.Name = "lbUserId";
-            this.lbUserId.Size = new System.Drawing.Size(27, 20);
+            this.lbUserId.Size = new System.Drawing.Size(32, 25);
             this.lbUserId.TabIndex = 2;
             this.lbUserId.Text = "Id:";
             // 
             // tbUserPassword
             // 
-            this.tbUserPassword.Location = new System.Drawing.Point(104, 128);
+            this.tbUserPassword.Location = new System.Drawing.Point(116, 160);
+            this.tbUserPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbUserPassword.Name = "tbUserPassword";
-            this.tbUserPassword.Size = new System.Drawing.Size(196, 26);
+            this.tbUserPassword.Size = new System.Drawing.Size(217, 31);
             this.tbUserPassword.TabIndex = 9;
             // 
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(16, 67);
+            this.lbUserName.Location = new System.Drawing.Point(18, 84);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(55, 20);
+            this.lbUserName.Size = new System.Drawing.Size(63, 25);
             this.lbUserName.TabIndex = 4;
             this.lbUserName.Text = "Name:";
             // 
             // lbUserPassword
             // 
             this.lbUserPassword.AutoSize = true;
-            this.lbUserPassword.Location = new System.Drawing.Point(16, 131);
+            this.lbUserPassword.Location = new System.Drawing.Point(18, 164);
             this.lbUserPassword.Name = "lbUserPassword";
-            this.lbUserPassword.Size = new System.Drawing.Size(82, 20);
+            this.lbUserPassword.Size = new System.Drawing.Size(91, 25);
             this.lbUserPassword.TabIndex = 8;
             this.lbUserPassword.Text = "Password:";
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(104, 64);
+            this.tbUserName.Location = new System.Drawing.Point(116, 80);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(196, 26);
+            this.tbUserName.Size = new System.Drawing.Size(217, 31);
             this.tbUserName.TabIndex = 5;
             // 
             // tbUserEmail
             // 
-            this.tbUserEmail.Location = new System.Drawing.Point(104, 96);
+            this.tbUserEmail.Location = new System.Drawing.Point(116, 120);
+            this.tbUserEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbUserEmail.Name = "tbUserEmail";
-            this.tbUserEmail.Size = new System.Drawing.Size(196, 26);
+            this.tbUserEmail.Size = new System.Drawing.Size(217, 31);
             this.tbUserEmail.TabIndex = 7;
             // 
             // lbUserEmail
             // 
             this.lbUserEmail.AutoSize = true;
-            this.lbUserEmail.Location = new System.Drawing.Point(16, 99);
+            this.lbUserEmail.Location = new System.Drawing.Point(18, 124);
             this.lbUserEmail.Name = "lbUserEmail";
-            this.lbUserEmail.Size = new System.Drawing.Size(57, 20);
+            this.lbUserEmail.Size = new System.Drawing.Size(65, 25);
             this.lbUserEmail.TabIndex = 6;
             this.lbUserEmail.Text = "E-mail:";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(1347, 42);
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(1497, 52);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(499, 904);
+            this.listBox1.Size = new System.Drawing.Size(554, 1129);
             this.listBox1.TabIndex = 0;
             // 
             // AdminPage
             // 
-            this.AdminPage.Location = new System.Drawing.Point(4, 29);
+            this.AdminPage.Location = new System.Drawing.Point(4, 34);
+            this.AdminPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminPage.Name = "AdminPage";
-            this.AdminPage.Padding = new System.Windows.Forms.Padding(3);
-            this.AdminPage.Size = new System.Drawing.Size(1866, 967);
+            this.AdminPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AdminPage.Size = new System.Drawing.Size(2074, 1212);
             this.AdminPage.TabIndex = 1;
             this.AdminPage.Text = "Admins";
             this.AdminPage.UseVisualStyleBackColor = true;
             // 
+            // tbUserId
+            // 
+            this.tbUserId.Location = new System.Drawing.Point(116, 41);
+            this.tbUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbUserId.Name = "tbUserId";
+            this.tbUserId.Size = new System.Drawing.Size(217, 31);
+            this.tbUserId.TabIndex = 14;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.ClientSize = new System.Drawing.Size(2109, 1280);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
@@ -227,7 +242,6 @@
         private System.Windows.Forms.TabPage AdminPage;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.TextBox tbUserId;
         private System.Windows.Forms.Label lbUserId;
         private System.Windows.Forms.ListBox lbUsersList;
         private System.Windows.Forms.ListBox listBox1;
@@ -238,6 +252,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.GroupBox gbAccount;
+        private TextBox tbUserId;
     }
 }
 

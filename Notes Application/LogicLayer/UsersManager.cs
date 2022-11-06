@@ -8,7 +8,7 @@ using LogicLayer.DTOs;
 
 namespace LogicLayer
 {
-	public class UserManager : IUserManager, IUserManagerAdmin
+	public class UserManager : IUserManagerWeb, IUserManagerDesktop, IUserManagerAdmin
     {
         private readonly IAccountRepository accountRepository;
 
@@ -42,20 +42,81 @@ namespace LogicLayer
             throw new NotImplementedException();
         }
 
-        public Account CreateUser(string name, string email, string password)
+        Account IUserManagerWeb.CreateUser(string name, string email, string password)
 		{
             AccountDTO accountDTO = accountRepository.CreateUser(name, email, password);
             return ConvertAccountDTO(accountDTO);
         }
 
-        public Account ReadAccount(string name, string password)
+        Account IUserManagerWeb.ReadAccount(string name, string password)
         {
             AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
             return ConvertAccountDTO(accountDTO);
         }
-        public void CreatePremiumRequest(int userId)
+        void IUserManagerWeb.CreatePremiumRequest(int userId)
         {
             accountRepository.CreatePremiumRequest(userId);
+        }
+
+        Account IUserManagerDesktop.ReadUser(int id, string name, string email, string password)
+        {
+            AccountDTO accountDTO;
+            // There is no need to search with name, email, password in database, cuz id is Unique
+            try
+            {
+                accountDTO = accountRepository.ReadUser(id);
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+
+            if (name != "")
+            {
+                if (accountDTO.Name != name)
+                    return null;
+            }
+            if (email != "")
+            {
+                if (accountDTO.Email != email)
+                    return null;
+            }
+            if (password != "")
+            {
+                if (accountDTO.Password != password)
+                    return null;
+            }
+
+            return ConvertAccountDTO(accountDTO);
+        }
+
+        List<Account> IUserManagerDesktop.ReadUsers(string name = null, string email = null, string password = null)
+        {
+            List<AccountDTO> accountDTOs;
+            try
+            {
+                accountDTOs = accountRepository.ReadUsers(name, email, password);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            if(!accountDTOs.Any())
+            {
+                return null;
+            }
+            return ConvertAccountsDTO(accountDTOs);
+        }
+
+        void IUserManagerDesktop.UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IUserManagerDesktop.DeleteUser(int id)
+        {
+            throw new NotImplementedException();
         }
 
         private Account ConvertAccountDTO(AccountDTO accountDTO)
@@ -63,7 +124,7 @@ namespace LogicLayer
             Account account;
             if (accountDTO.MaxLengthOfNotes == null)
             {
-                account = new Admin();
+                account = new Admin(accountDTO);
             }
             else if (accountDTO.StartPremiumDate == null)
             {
@@ -76,5 +137,16 @@ namespace LogicLayer
 
             return account;
         }
-	}
+
+        private List<Account> ConvertAccountsDTO(List<AccountDTO> accountDTOs)
+        {
+            List<Account> accounts = new List<Account>();
+            foreach (AccountDTO accountDTO in accountDTOs)
+            {
+                accounts.Add(ConvertAccountDTO(accountDTO));
+            }
+
+            return accounts;
+        }
+    }
 }

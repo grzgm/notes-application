@@ -727,10 +727,10 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
-        <Name>IUserManager</Name>
+        <Name>IUserManagerWeb</Name>
         <Access>Public</Access>
-        <Location left="1109" top="665" />
-        <Size width="395" height="153" />
+        <Location left="1291" top="521" />
+        <Size width="362" height="153" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Account CreateUser(string name, string email, string password)</Member>
         <Member type="Method">Account ReadAccount(string name, string password)</Member>
@@ -897,6 +897,17 @@
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Interface">
+        <Name>IUserManagerDesktop</Name>
+        <Access>Public</Access>
+        <Location left="861" top="521" />
+        <Size width="395" height="153" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">Account ReadUser(int id, string name, string email, string password)</Member>
+        <Member type="Method">List&lt;Account&gt; ReadUsers(string name, string email, string password)</Member>
+        <Member type="Method">void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)</Member>
+        <Member type="Method">void DeleteUser(int id)</Member>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="4">
@@ -932,10 +943,6 @@
         <Label>Asks to check if account is in the system or asks to create new account</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1460</X>
-          <Y>640</Y>
-        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
@@ -1103,6 +1110,21 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="13" second="13">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="7" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1380</X>
+          <Y>1255</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="1" second="17">
+        <Label>Asks about inforation about users</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
