@@ -1,5 +1,6 @@
 using DataLayer;
 using LogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NotesAplicationDesktop
 {
@@ -9,6 +10,7 @@ namespace NotesAplicationDesktop
         string userName;
         string userEmail;
         List<Account> users;
+        Account selectedUser;
 
         public Form1()
         {
@@ -18,7 +20,9 @@ namespace NotesAplicationDesktop
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            lbUsersList.Items.Clear();
+            ResetAccountManageGroup();
+            users = null;
+
             IAccountRepository accountRepository = new AccountRepository();
             IUserManagerDesktop userManager = new UserManager(accountRepository);
 
@@ -41,8 +45,8 @@ namespace NotesAplicationDesktop
             {
                 userId = 0;
             }
-            userName = tbUserName.Text;
-            userEmail = tbUserEmail.Text;
+            userName = tbUserNameSearch.Text;
+            userEmail = tbUserEmailSearch.Text;
 
             if(userId > 0)
             {
@@ -57,13 +61,53 @@ namespace NotesAplicationDesktop
 
             if (users != null)
             {
-                foreach (Account user in users)
-                {
-                    lbUsersList.Items.Add(user.Id.ToString() + "; " + user.Name + "; " + user.Email);
-                }
+                //foreach (Account user in users)
+                //{
+                //    lbUsersList.Items.Add(user.Id.ToString() + "; " + user.Name + "; " + user.Email);
+                //}
+
+                lbUsersList.SelectedIndexChanged -= lbUsersList_SelectedIndexChanged;
+                lbUsersList.DataSource = users;
+                lbUsersList.SelectedIndex = -1;
+                lbUsersList.SelectedIndexChanged += lbUsersList_SelectedIndexChanged;
             }
             else
+            {
+                lbUsersList.DataSource = null;
+                lbUsersList.Items.Clear();
                 lbUsersList.Items.Add("There is no such User.");
+            }
+        }
+
+        private void lbUsersList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = lbUsersList.SelectedItem;
+
+            if (selectedItem is Account)
+            {
+                gbAccountManage.Enabled = true;
+                selectedUser = (Account)selectedItem;
+                tbUserNameManage.Text = selectedUser.Name;
+                tbUserEmailManage.Text = selectedUser.Email;
+                tbMaxAmountOfNotes.Text = ((User)selectedUser).MaxAmountOfNotes.ToString();
+                tbMaxLengthOfNotes.Text = ((User)selectedUser).MaxLengthOfNotes.ToString();
+
+                if(selectedUser is PremiumUser)
+                {
+                    tbPremiumEndDate.Text = selectedUser.Email;
+                }
+                
+
+            }
+        }
+
+        private void ResetAccountManageGroup()
+        {
+            tbUserNameManage.Text = String.Empty;
+            tbUserEmailManage.Text = String.Empty;
+            tbMaxAmountOfNotes.Text = String.Empty;
+            tbMaxLengthOfNotes.Text = String.Empty;
+            tbPremiumEndDate.Text = String.Empty;
         }
     }
 }

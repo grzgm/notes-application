@@ -59,5 +59,10 @@ namespace LogicLayer
             get;
             set;
         }
+
+        public override string ToString()
+        {
+            return Id.ToString() + "; " + Name + "; " + Email;
+        }
     }
 }
