@@ -8,7 +8,6 @@ namespace NotesAplicationDesktop
         int userId;
         string userName;
         string userEmail;
-        string userPassword;
         List<Account> users;
 
         public Form1()
@@ -44,24 +43,23 @@ namespace NotesAplicationDesktop
             }
             userName = tbUserName.Text;
             userEmail = tbUserEmail.Text;
-            userPassword = tbUserPassword.Text;
 
             if(userId > 0)
             {
-                users = new List<Account>() { userManager.ReadUser(userId, userName, userEmail, userPassword) };
+                users = new List<Account>() { userManager.ReadUser(userId, userName, userEmail) };
                 if (users[0] == null)
                     users = null;
             }
             else if(userId == 0)
             {
-                users = userManager.ReadUsers(userName, userEmail, userPassword);
+                users = userManager.ReadUsers(userName, userEmail);
             }
 
             if (users != null)
             {
                 foreach (Account user in users)
                 {
-                    lbUsersList.Items.Add(user.Id.ToString() + "; " + user.Name + "; " + user.Email + "; " + user.Password);
+                    lbUsersList.Items.Add(user.Id.ToString() + "; " + user.Name + "; " + user.Email);
                 }
             }
             else

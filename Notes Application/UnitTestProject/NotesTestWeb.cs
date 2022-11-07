@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace UnitTestProject
 {
     [TestClass]
-    public class NotesTest
+    public class NotesTestWeb
     {
         private INoteRepository noteRepository;
         private INoteManagerWeb noteManager;

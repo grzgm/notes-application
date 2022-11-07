@@ -58,7 +58,7 @@ namespace LogicLayer
             accountRepository.CreatePremiumRequest(userId);
         }
 
-        Account IUserManagerDesktop.ReadUser(int id, string name, string email, string password)
+        Account IUserManagerDesktop.ReadUser(int id, string name, string email)
         {
             AccountDTO accountDTO;
             // There is no need to search with name, email, password in database, cuz id is Unique
@@ -81,21 +81,16 @@ namespace LogicLayer
                 if (accountDTO.Email != email)
                     return null;
             }
-            if (password != "")
-            {
-                if (accountDTO.Password != password)
-                    return null;
-            }
 
             return ConvertAccountDTO(accountDTO);
         }
 
-        List<Account> IUserManagerDesktop.ReadUsers(string name = null, string email = null, string password = null)
+        List<Account> IUserManagerDesktop.ReadUsers(string name, string email)
         {
             List<AccountDTO> accountDTOs;
             try
             {
-                accountDTOs = accountRepository.ReadUsers(name, email, password);
+                accountDTOs = accountRepository.ReadUsers(name, email);
             }
             catch (Exception ex)
             {
@@ -109,7 +104,7 @@ namespace LogicLayer
             return ConvertAccountsDTO(accountDTOs);
         }
 
-        void IUserManagerDesktop.UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        void IUserManagerDesktop.UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
         {
             throw new NotImplementedException();
         }

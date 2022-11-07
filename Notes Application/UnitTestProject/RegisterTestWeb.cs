@@ -6,7 +6,7 @@ using System.Xml.Linq;
 namespace UnitTestProject
 {
     [TestClass]
-    public class RegisterTest
+    public class RegisterTestWeb
     {
         private IAccountRepository accountRepository;
         private IUserManagerWeb userManager;

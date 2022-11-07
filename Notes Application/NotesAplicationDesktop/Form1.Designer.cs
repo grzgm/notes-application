@@ -31,19 +31,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.UserPage = new System.Windows.Forms.TabPage();
             this.gbAccount = new System.Windows.Forms.GroupBox();
+            this.tbUserId = new System.Windows.Forms.TextBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.lbUsersList = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbUserId = new System.Windows.Forms.Label();
-            this.tbUserPassword = new System.Windows.Forms.TextBox();
             this.lbUserName = new System.Windows.Forms.Label();
-            this.lbUserPassword = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbUserEmail = new System.Windows.Forms.TextBox();
             this.lbUserEmail = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.AdminPage = new System.Windows.Forms.TabPage();
-            this.tbUserId = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.UserPage.SuspendLayout();
             this.gbAccount.SuspendLayout();
@@ -83,9 +81,7 @@
             this.gbAccount.Controls.Add(this.lbUsersList);
             this.gbAccount.Controls.Add(this.btnSearch);
             this.gbAccount.Controls.Add(this.lbUserId);
-            this.gbAccount.Controls.Add(this.tbUserPassword);
             this.gbAccount.Controls.Add(this.lbUserName);
-            this.gbAccount.Controls.Add(this.lbUserPassword);
             this.gbAccount.Controls.Add(this.tbUserName);
             this.gbAccount.Controls.Add(this.tbUserEmail);
             this.gbAccount.Controls.Add(this.lbUserEmail);
@@ -98,9 +94,17 @@
             this.gbAccount.TabStop = false;
             this.gbAccount.Text = "Account";
             // 
+            // tbUserId
+            // 
+            this.tbUserId.Location = new System.Drawing.Point(116, 41);
+            this.tbUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbUserId.Name = "tbUserId";
+            this.tbUserId.Size = new System.Drawing.Size(217, 31);
+            this.tbUserId.TabIndex = 14;
+            // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(22, 632);
+            this.btnDeleteUser.Location = new System.Drawing.Point(22, 591);
             this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(311, 38);
@@ -112,7 +116,7 @@
             // 
             this.lbUsersList.FormattingEnabled = true;
             this.lbUsersList.ItemHeight = 25;
-            this.lbUsersList.Location = new System.Drawing.Point(22, 245);
+            this.lbUsersList.Location = new System.Drawing.Point(22, 204);
             this.lbUsersList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbUsersList.Name = "lbUsersList";
             this.lbUsersList.Size = new System.Drawing.Size(311, 379);
@@ -120,7 +124,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(22, 200);
+            this.btnSearch.Location = new System.Drawing.Point(22, 159);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(311, 38);
@@ -138,14 +142,6 @@
             this.lbUserId.TabIndex = 2;
             this.lbUserId.Text = "Id:";
             // 
-            // tbUserPassword
-            // 
-            this.tbUserPassword.Location = new System.Drawing.Point(116, 160);
-            this.tbUserPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbUserPassword.Name = "tbUserPassword";
-            this.tbUserPassword.Size = new System.Drawing.Size(217, 31);
-            this.tbUserPassword.TabIndex = 9;
-            // 
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
@@ -154,15 +150,6 @@
             this.lbUserName.Size = new System.Drawing.Size(63, 25);
             this.lbUserName.TabIndex = 4;
             this.lbUserName.Text = "Name:";
-            // 
-            // lbUserPassword
-            // 
-            this.lbUserPassword.AutoSize = true;
-            this.lbUserPassword.Location = new System.Drawing.Point(18, 164);
-            this.lbUserPassword.Name = "lbUserPassword";
-            this.lbUserPassword.Size = new System.Drawing.Size(91, 25);
-            this.lbUserPassword.TabIndex = 8;
-            this.lbUserPassword.Text = "Password:";
             // 
             // tbUserName
             // 
@@ -210,14 +197,6 @@
             this.AdminPage.Text = "Admins";
             this.AdminPage.UseVisualStyleBackColor = true;
             // 
-            // tbUserId
-            // 
-            this.tbUserId.Location = new System.Drawing.Point(116, 41);
-            this.tbUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbUserId.Name = "tbUserId";
-            this.tbUserId.Size = new System.Drawing.Size(217, 31);
-            this.tbUserId.TabIndex = 14;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -245,8 +224,6 @@
         private System.Windows.Forms.Label lbUserId;
         private System.Windows.Forms.ListBox lbUsersList;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox tbUserPassword;
-        private System.Windows.Forms.Label lbUserPassword;
         private System.Windows.Forms.TextBox tbUserEmail;
         private System.Windows.Forms.Label lbUserEmail;
         private System.Windows.Forms.Button btnSearch;

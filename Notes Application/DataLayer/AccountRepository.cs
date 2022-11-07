@@ -191,7 +191,7 @@ namespace DataLayer
             return accountDTO;
         }
 
-        public List<AccountDTO> ReadUsers(string name, string email, string password)
+        public List<AccountDTO> ReadUsers(string name, string email)
         {
             conn = new SqlConnection(constr);
             conn.Open();
@@ -203,7 +203,7 @@ namespace DataLayer
                 "[StartPremiumDate], [EndPremiumDate] FROM account " +
                 "INNER JOIN userTable ON account.Id = userTable.Id " +
                 "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
-                "WHERE TRIM([Name]) LIKE @name AND TRIM([Email]) LIKE @email AND TRIM([Password]) LIKE @password;";
+                "WHERE TRIM([Name]) LIKE @name AND TRIM([Email]) LIKE @email";
 
             cmd = new SqlCommand(sql, conn);
             if (name != "")
@@ -214,10 +214,6 @@ namespace DataLayer
                 cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
             else
                 cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = "%" });
-            if (password != "")
-                cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
-            else
-                cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = "%" });
 
             List<AccountDTO> accountDTOs = new List<AccountDTO>();
 
@@ -261,7 +257,7 @@ namespace DataLayer
             return accountDTOs;
         }
 
-        public void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        public void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
         {
             //conn = new SqlConnection(constr);
             //conn.Open();

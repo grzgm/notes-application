@@ -5,7 +5,7 @@ using System.Xml.Linq;
 namespace UnitTestProject
 {
     [TestClass]
-    public class LoginTest
+    public class LoginTestWeb
     {
 /*        private readonly IAccountRepository accountRepository;
         private readonly IUserManagerWeb userManager;
