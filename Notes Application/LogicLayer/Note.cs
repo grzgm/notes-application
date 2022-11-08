@@ -41,6 +41,17 @@ namespace LogicLayer
             this.editDate = editDate;
 		}
 
+        public override string ToString()
+        {
+            int titleLenght = 10;
+            int textLenght = 20;
+            if (title.Length < titleLenght)
+                titleLenght = title.Length;
+            if (text.Length < textLenght)
+                textLenght = text.Length;
+            return Title.Substring(0, titleLenght) + "; " + Text.Substring(0, textLenght);
+        }
+
         public int UserId { get { return this.userId; }}
         public int Id { get { return this.id; } }
         public string Title { get { return this.title; } set { this.title = value; } }

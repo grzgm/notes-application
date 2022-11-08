@@ -16,7 +16,7 @@ namespace DataLayer
             // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
-            //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
         }
 
         public AccountDTO CreateUser(string name, string email, string password)
