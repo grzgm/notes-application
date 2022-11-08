@@ -30,6 +30,12 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.UserPage = new System.Windows.Forms.TabPage();
+            this.gbNotesManage = new System.Windows.Forms.GroupBox();
+            this.tbNoteTitle = new System.Windows.Forms.TextBox();
+            this.btUpdateNote = new System.Windows.Forms.Button();
+            this.btDeleteNote = new System.Windows.Forms.Button();
+            this.tbNotesText = new System.Windows.Forms.TextBox();
+            this.lbNotesList = new System.Windows.Forms.ListBox();
             this.gbAccountManage = new System.Windows.Forms.GroupBox();
             this.btUpdateUser = new System.Windows.Forms.Button();
             this.lbPremiumEndDate = new System.Windows.Forms.Label();
@@ -52,41 +58,96 @@
             this.tbUserNameSearch = new System.Windows.Forms.TextBox();
             this.tbUserEmailSearch = new System.Windows.Forms.TextBox();
             this.lbUserEmailSearch = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.AdminPage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.UserPage.SuspendLayout();
+            this.gbNotesManage.SuspendLayout();
             this.gbAccountManage.SuspendLayout();
             this.gbAccountSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.UserPage);
             this.tabControl1.Controls.Add(this.AdminPage);
-            this.tabControl1.Location = new System.Drawing.Point(13, 15);
+            this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2082, 1250);
+            this.tabControl1.Size = new System.Drawing.Size(1348, 987);
             this.tabControl1.TabIndex = 0;
             // 
             // UserPage
             // 
+            this.UserPage.Controls.Add(this.gbNotesManage);
             this.UserPage.Controls.Add(this.gbAccountManage);
             this.UserPage.Controls.Add(this.gbAccountSearch);
-            this.UserPage.Controls.Add(this.listBox1);
             this.UserPage.Location = new System.Drawing.Point(4, 34);
             this.UserPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UserPage.Name = "UserPage";
             this.UserPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UserPage.Size = new System.Drawing.Size(2074, 1212);
+            this.UserPage.Size = new System.Drawing.Size(1340, 949);
             this.UserPage.TabIndex = 0;
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
+            // 
+            // gbNotesManage
+            // 
+            this.gbNotesManage.Controls.Add(this.tbNoteTitle);
+            this.gbNotesManage.Controls.Add(this.btUpdateNote);
+            this.gbNotesManage.Controls.Add(this.btDeleteNote);
+            this.gbNotesManage.Controls.Add(this.tbNotesText);
+            this.gbNotesManage.Controls.Add(this.lbNotesList);
+            this.gbNotesManage.Enabled = false;
+            this.gbNotesManage.Location = new System.Drawing.Point(812, 8);
+            this.gbNotesManage.Name = "gbNotesManage";
+            this.gbNotesManage.Size = new System.Drawing.Size(513, 930);
+            this.gbNotesManage.TabIndex = 14;
+            this.gbNotesManage.TabStop = false;
+            this.gbNotesManage.Text = "Manage Notes";
+            // 
+            // tbNoteTitle
+            // 
+            this.tbNoteTitle.Location = new System.Drawing.Point(6, 340);
+            this.tbNoteTitle.Name = "tbNoteTitle";
+            this.tbNoteTitle.Size = new System.Drawing.Size(501, 31);
+            this.tbNoteTitle.TabIndex = 17;
+            // 
+            // btUpdateNote
+            // 
+            this.btUpdateNote.Location = new System.Drawing.Point(6, 810);
+            this.btUpdateNote.Name = "btUpdateNote";
+            this.btUpdateNote.Size = new System.Drawing.Size(501, 34);
+            this.btUpdateNote.TabIndex = 16;
+            this.btUpdateNote.Text = "Update Note";
+            this.btUpdateNote.UseVisualStyleBackColor = true;
+            // 
+            // btDeleteNote
+            // 
+            this.btDeleteNote.Location = new System.Drawing.Point(6, 850);
+            this.btDeleteNote.Name = "btDeleteNote";
+            this.btDeleteNote.Size = new System.Drawing.Size(501, 34);
+            this.btDeleteNote.TabIndex = 15;
+            this.btDeleteNote.Text = "Delete Note";
+            this.btDeleteNote.UseVisualStyleBackColor = true;
+            // 
+            // tbNotesText
+            // 
+            this.tbNotesText.Location = new System.Drawing.Point(6, 377);
+            this.tbNotesText.Multiline = true;
+            this.tbNotesText.Name = "tbNotesText";
+            this.tbNotesText.Size = new System.Drawing.Size(501, 427);
+            this.tbNotesText.TabIndex = 1;
+            // 
+            // lbNotesList
+            // 
+            this.lbNotesList.FormattingEnabled = true;
+            this.lbNotesList.ItemHeight = 25;
+            this.lbNotesList.Location = new System.Drawing.Point(6, 29);
+            this.lbNotesList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbNotesList.Name = "lbNotesList";
+            this.lbNotesList.Size = new System.Drawing.Size(501, 304);
+            this.lbNotesList.TabIndex = 0;
             // 
             // gbAccountManage
             // 
@@ -103,9 +164,9 @@
             this.gbAccountManage.Controls.Add(this.tbUserEmailManage);
             this.gbAccountManage.Controls.Add(this.tbUserNameManage);
             this.gbAccountManage.Enabled = false;
-            this.gbAccountManage.Location = new System.Drawing.Point(581, 8);
+            this.gbAccountManage.Location = new System.Drawing.Point(367, 8);
             this.gbAccountManage.Name = "gbAccountManage";
-            this.gbAccountManage.Size = new System.Drawing.Size(592, 930);
+            this.gbAccountManage.Size = new System.Drawing.Size(439, 930);
             this.gbAccountManage.TabIndex = 13;
             this.gbAccountManage.TabStop = false;
             this.gbAccountManage.Text = "Manage Account";
@@ -229,7 +290,7 @@
             this.gbAccountSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbAccountSearch.Name = "gbAccountSearch";
             this.gbAccountSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbAccountSearch.Size = new System.Drawing.Size(568, 930);
+            this.gbAccountSearch.Size = new System.Drawing.Size(354, 930);
             this.gbAccountSearch.TabIndex = 12;
             this.gbAccountSearch.TabStop = false;
             this.gbAccountSearch.Text = "Search Account";
@@ -307,16 +368,6 @@
             this.lbUserEmailSearch.TabIndex = 6;
             this.lbUserEmailSearch.Text = "E-mail:";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(1179, 18);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(482, 929);
-            this.listBox1.TabIndex = 0;
-            // 
             // AdminPage
             // 
             this.AdminPage.Location = new System.Drawing.Point(4, 34);
@@ -332,13 +383,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2109, 1280);
+            this.ClientSize = new System.Drawing.Size(1370, 1009);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.UserPage.ResumeLayout(false);
+            this.gbNotesManage.ResumeLayout(false);
+            this.gbNotesManage.PerformLayout();
             this.gbAccountManage.ResumeLayout(false);
             this.gbAccountManage.PerformLayout();
             this.gbAccountSearch.ResumeLayout(false);
@@ -356,7 +409,7 @@
         private System.Windows.Forms.Label lbUserNameSearch;
         private System.Windows.Forms.Label lbUserId;
         private System.Windows.Forms.ListBox lbUsersList;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbNotesList;
         private System.Windows.Forms.TextBox tbUserEmailSearch;
         private System.Windows.Forms.Label lbUserEmailSearch;
         private System.Windows.Forms.Button btnSearch;
@@ -375,6 +428,11 @@
         private Label lbPremiumEndDate;
         private TextBox tbPremiumEndDate;
         private Button btUpdateUser;
+        private GroupBox gbNotesManage;
+        private Button btUpdateNote;
+        private Button btDeleteNote;
+        private TextBox tbNotesText;
+        private TextBox tbNoteTitle;
     }
 }
 
