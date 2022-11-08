@@ -40,11 +40,13 @@ namespace LogicLayer
         public int MaxAmountOfNotes
         {
             get { return this.maxAmountOfNotes; }
+            set { this.maxAmountOfNotes = value; }
         }
 
         public int MaxLengthOfNotes
         {
             get { return this.maxLengthOfNotes; }
+            set { this.maxLengthOfNotes = value; }
         }
         private void GetPremium()
         {

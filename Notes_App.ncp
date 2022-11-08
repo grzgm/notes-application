@@ -747,7 +747,7 @@
         <Member type="Constructor">public PremiumUser(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium, int daysOfPremiumLeft)</Member>
         <Member type="Method">public void ProlongPremium()</Member>
-        <Member type="Property">public int DaysOfPremiumLeft { get; }</Member>
+        <Member type="Property">public int DaysOfPremiumLeft { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -784,8 +784,8 @@
         <Member type="Constructor">public User(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes)</Member>
         <Member type="Method">private void GetPremium()</Member>
-        <Member type="Property">public int MaxAmountOfNotes { get; }</Member>
-        <Member type="Property">public int MaxLengthOfNotes { get; }</Member>
+        <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
+        <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -833,7 +833,7 @@
         <Name>Note</Name>
         <Access>Public</Access>
         <Location left="1935" top="1172" />
-        <Size width="162" height="349" />
+        <Size width="162" height="366" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int id</Member>
         <Member type="Field">private int userId</Member>
@@ -851,6 +851,7 @@
         <Member type="Property">public string Text { get; set; }</Member>
         <Member type="Property">public DateTime Date { get; }</Member>
         <Member type="Property">public DateTime EditDate { get; set; }</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -870,6 +871,7 @@
         <Member type="Property">public string Email { get; }</Member>
         <Member type="Property">public string Password { get; }</Member>
         <Member type="Property">public int AmountOfNotes { get; set; }</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -905,7 +907,7 @@
         <Collapsed>False</Collapsed>
         <Member type="Method">Account ReadUser(int id, string name, string email, string password)</Member>
         <Member type="Method">List&lt;Account&gt; ReadUsers(string name, string email, string password)</Member>
-        <Member type="Method">void UpdateUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)</Member>
+        <Member type="Method">void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null)</Member>
         <Member type="Method">void DeleteUser(int id)</Member>
       </Entity>
     </Entities>

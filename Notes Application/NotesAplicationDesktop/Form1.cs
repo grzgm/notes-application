@@ -14,9 +14,17 @@ namespace NotesAplicationDesktop
         List<Note> notes;
         Note selectedNote;
 
+        IAccountRepository accountRepository;
+        IUserManagerDesktop userManager;
+        INoteRepository noteRepository;
+        INoteManagerWeb noteManager;
+
         public Form1()
         {
-            users = new List<Account>();
+            accountRepository = new AccountRepository();
+            userManager = new UserManager(accountRepository);
+            noteRepository = new NoteRepository();
+            noteManager = new NoteManager(noteRepository);
             InitializeComponent();
         }
 
@@ -27,9 +35,7 @@ namespace NotesAplicationDesktop
             users = null;
             notes = null;
 
-            IAccountRepository accountRepository = new AccountRepository();
-            IUserManagerDesktop userManager = new UserManager(accountRepository);
-
+            // input Id validation
             if(tbUserId.Text != "")
             {
                 try
@@ -43,6 +49,7 @@ namespace NotesAplicationDesktop
                 catch(Exception ex)
                 {
                     MessageBox.Show("Id must be intiger bigger than 0");
+                    return;
                 }
             }
             else
@@ -83,6 +90,29 @@ namespace NotesAplicationDesktop
             }
         }
 
+        private void ResetAccountManageGroup()
+        {
+            gbAccountManage.Enabled = false;
+            tbUserNameManage.Text = String.Empty;
+            tbUserEmailManage.Text = String.Empty;
+            tbMaxAmountOfNotes.Text = String.Empty;
+            tbMaxLengthOfNotes.Text = String.Empty;
+            tbPremiumDaysLeft.Text = String.Empty;
+            selectedUser = null;
+        }
+
+        private void ResetNotesManageGroup()
+        {
+            gbNotesManage.Enabled = false;
+            tbNoteTitle.Text = String.Empty;
+            tbNotesText.Text = String.Empty;
+
+            lbNotesList.SelectedIndexChanged -= lbNotesList_SelectedIndexChanged;
+            lbNotesList.DataSource = null;
+            lbNotesList.Items.Clear();
+            lbNotesList.SelectedIndexChanged += lbNotesList_SelectedIndexChanged;
+        }
+
         private void lbUsersList_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedItem = lbUsersList.SelectedItem;
@@ -106,47 +136,48 @@ namespace NotesAplicationDesktop
 
             if (selectedUser is PremiumUser)
             {
-                tbPremiumEndDate.Enabled = true;
-                tbPremiumEndDate.Text = selectedUser.Email;
+                tbPremiumDaysLeft.Enabled = true;
+                tbPremiumDaysLeft.Text = ((PremiumUser)selectedUser).DaysOfPremiumLeft.ToString();
             }
-        }
-
-        private void ResetAccountManageGroup()
-        {
-            gbAccountManage.Enabled = false;
-            tbUserNameManage.Text = String.Empty;
-            tbUserEmailManage.Text = String.Empty;
-            tbMaxAmountOfNotes.Text = String.Empty;
-            tbMaxLengthOfNotes.Text = String.Empty;
-            tbPremiumEndDate.Text = String.Empty;
-            selectedUser = null;
+            else
+            {
+                tbPremiumDaysLeft.Enabled = false;
+                tbPremiumDaysLeft.Text = String.Empty;
+            }
         }
 
         private void EnableNotesManageGroup()
         {
             gbNotesManage.Enabled = true;
-            INoteRepository noteRepository = new NoteRepository();
-            INoteManagerWeb noteManager = new NoteManager(noteRepository);
             notes = noteManager.ReadNotes(selectedUser.Id);
             lbNotesList.DataSource = notes;
         }
 
-        private void ResetNotesManageGroup()
-        {
-            gbNotesManage.Enabled = false;
-            tbNoteTitle.Text = String.Empty;
-            tbNotesText.Text = String.Empty;
-            lbNotesList.DataSource = null;
-            lbNotesList.Items.Clear();
-        }
-
         private void lbNotesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (notes.Any() && selectedUser != null)
+            if (notes.Any() && lbNotesList.SelectedItem != null)
             {
                 selectedNote = (Note)lbNotesList.SelectedItem;
                 tbNoteTitle.Text = selectedNote.Title;
                 tbNotesText.Text = selectedNote.Text;
+            }
+        }
+
+        private void btUpdateUser_Click(object sender, EventArgs e)
+        {
+            selectedUser.Name = tbUserNameManage.Text;
+            selectedUser.Email = tbUserEmailManage.Text;
+            ((User)selectedUser).MaxAmountOfNotes = int.Parse(tbMaxAmountOfNotes.Text);
+            ((User)selectedUser).MaxLengthOfNotes = int.Parse(tbMaxLengthOfNotes.Text);
+
+            if (selectedUser is PremiumUser)
+            {
+                ((PremiumUser)selectedUser).DaysOfPremiumLeft = int.Parse(tbPremiumDaysLeft.Text);
+                userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes, ((PremiumUser)selectedUser).DaysOfPremiumLeft);
+            }
+            else
+            {
+                userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes);
             }
         }
     }

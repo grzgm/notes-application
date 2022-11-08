@@ -16,7 +16,7 @@ namespace DataLayer
             // PC
             constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
-            constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
         }
 
         public AccountDTO CreateUser(string name, string email, string password)
@@ -257,33 +257,48 @@ namespace DataLayer
             return accountDTOs;
         }
 
-        public void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        public void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, DateTime? endPremiumDate = null)
         {
-            //conn = new SqlConnection(constr);
-            //conn.Open();
-            //SqlCommand cmd;
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
 
-            //string sql = "UPDATE notes set Title=@title, [Text]=@text, EditDate=@editdate WHERE Id= @id";
+            string sql = "BEGIN TRANSACTION; " +
+                "UPDATE account SET Name = @name, Email = @email WHERE Id = @id; " +
+                "UPDATE userTable SET MaxAmountOfNotes = @maxAmountOfNotes, MaxLengthOfNote = @maxLengthOfNotes WHERE Id = @id; ";
 
-            //cmd = new SqlCommand(sql, conn);
-            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
-            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@title", Value = title });
-            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@text", Value = text });
-            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@editdate", Value = DateTime.Now });
+            if(endPremiumDate != null)
+            {
+                sql += "UPDATE premiumUserTable SET EndPremiumDate = @endPremiumDate WHERE Id = @id; ";
+            }
 
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (Exception ex)
-            //{
+            sql += "COMMIT;";
 
-            //}
-            //finally
-            //{
-            //    cmd.Dispose();
-            //    conn.Close();
-            //}
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = name });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@maxAmountOfNotes", Value = maxAmountOfNotes });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@maxLengthOfNotes", Value = maxLengthOfNotes });
+
+            if (endPremiumDate != null)
+            {
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@endPremiumDate", Value = endPremiumDate.Value});
+            }
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
         }
         public void DeleteUser(int id)
         {

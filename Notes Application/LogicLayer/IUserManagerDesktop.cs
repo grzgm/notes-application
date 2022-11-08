@@ -10,7 +10,7 @@ namespace LogicLayer
     {
         Account ReadUser(int id, string name, string email);
         List<Account> ReadUsers(string name, string email);
-        void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft);
+        void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null);
         void DeleteUser(int id);
     }
 }

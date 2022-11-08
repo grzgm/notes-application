@@ -104,9 +104,13 @@ namespace LogicLayer
             return ConvertAccountsDTO(accountDTOs);
         }
 
-        void IUserManagerDesktop.UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft)
+        void IUserManagerDesktop.UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null)
         {
-            throw new NotImplementedException();
+            if(daysOfPremiumLeft != null)
+                accountRepository.UpdateUser(id, name, email, maxAmountOfNotes, maxLengthOfNotes, DateTime.Now.AddDays(daysOfPremiumLeft.Value));
+            else
+                accountRepository.UpdateUser(id, name, email, maxAmountOfNotes, maxLengthOfNotes);
+
         }
 
         void IUserManagerDesktop.DeleteUser(int id)

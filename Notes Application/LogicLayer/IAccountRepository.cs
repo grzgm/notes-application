@@ -13,7 +13,7 @@ namespace LogicLayer
         public AccountDTO ReadAccount(string name, string password);
         AccountDTO ReadUser(int id);
         List<AccountDTO> ReadUsers(string name, string email);
-        void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft);
+        void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, DateTime? endPremiumDate = null);
         public void DeleteUser(int id);
         public void CreatePremiumRequest(int userId);
 

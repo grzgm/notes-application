@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using LogicLayer.DTOs;
+using System.Text.Json.Serialization;
 
 namespace LogicLayer
 {
-	public class PremiumUser : User
-	{
-		private int daysOfPremiumLeft;
+    public class PremiumUser : User
+    {
+        private int daysOfPremiumLeft;
 
-		public PremiumUser()
-		{
+        public PremiumUser()
+        {
 
         }
         public PremiumUser(AccountDTO accountDTO)
@@ -29,9 +24,9 @@ namespace LogicLayer
         }
 
         [JsonConstructor]
-        public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft) : base(id, name,email,password,maxAmountOfNotes,maxLengthOfNotes)
-		{
-			this.daysOfPremiumLeft = daysOfPremiumLeft;
+        public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, int daysOfPremiumLeft) : base(id, name, email, password, maxAmountOfNotes, maxLengthOfNotes)
+        {
+            this.daysOfPremiumLeft = daysOfPremiumLeft;
         }
 
         public void ProlongPremium()
@@ -39,6 +34,10 @@ namespace LogicLayer
             throw new NotImplementedException();
         }
 
-		public int DaysOfPremiumLeft { get { return this.daysOfPremiumLeft; } }
+        public int DaysOfPremiumLeft
+        {
+            get { return this.daysOfPremiumLeft; }
+            set { this.daysOfPremiumLeft = value; }
+        }
     }
 }
