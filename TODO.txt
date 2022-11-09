@@ -6,7 +6,5 @@ urzytkownik z tym samym nickiem ale innym mailem i tym samym hasłem !!!
 
 adding notes over maximum on web
 
-notes list doesnt work after updating
-
 unit tests:
 ask for premium

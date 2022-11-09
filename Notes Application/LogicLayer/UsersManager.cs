@@ -115,7 +115,7 @@ namespace LogicLayer
 
         void IUserManagerDesktop.DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            accountRepository.DeleteUser(id);
         }
 
         private Account ConvertAccountDTO(AccountDTO accountDTO)

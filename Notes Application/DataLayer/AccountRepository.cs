@@ -302,28 +302,28 @@ namespace DataLayer
         }
         public void DeleteUser(int id)
         {
-            //conn = new SqlConnection(constr);
-            //conn.Open();
-            //SqlCommand cmd;
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
 
-            //string sql = "DELETE FROM notes WHERE Id=@id";
+            string sql = "DELETE FROM account WHERE Id=@id";
 
-            //cmd = new SqlCommand(sql, conn);
-            //cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
 
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (Exception ex)
-            //{
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
-            //}
-            //finally
-            //{
-            //    cmd.Dispose();
-            //    conn.Close();
-            //}
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
         }
         public void CreatePremiumRequest(int userId)
         {

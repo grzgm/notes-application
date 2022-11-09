@@ -30,8 +30,8 @@ namespace NotesAplicationDesktop
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            ResetNotesManageGroup();
-            ResetAccountManageGroup();
+            DisableNotesManageGroup();
+            DisableAccountManageGroup();
             users = null;
             notes = null;
 
@@ -72,15 +72,7 @@ namespace NotesAplicationDesktop
 
             if (users != null)
             {
-                //foreach (Account user in users)
-                //{
-                //    lbUsersList.Items.Add(user.Id.ToString() + "; " + user.Name + "; " + user.Email);
-                //}
-
-                lbUsersList.SelectedIndexChanged -= lbUsersList_SelectedIndexChanged;
-                lbUsersList.DataSource = users;
-                lbUsersList.SelectedIndex = -1;
-                lbUsersList.SelectedIndexChanged += lbUsersList_SelectedIndexChanged;
+                ResetListBoxUsersList();
             }
             else
             {
@@ -90,7 +82,7 @@ namespace NotesAplicationDesktop
             }
         }
 
-        private void ResetAccountManageGroup()
+        private void DisableAccountManageGroup()
         {
             gbAccountManage.Enabled = false;
             tbUserNameManage.Text = String.Empty;
@@ -101,11 +93,11 @@ namespace NotesAplicationDesktop
             selectedUser = null;
         }
 
-        private void ResetNotesManageGroup()
+        private void DisableNotesManageGroup()
         {
             gbNotesManage.Enabled = false;
             tbNoteTitle.Text = String.Empty;
-            tbNotesText.Text = String.Empty;
+            tbNoteText.Text = String.Empty;
 
             lbNotesList.SelectedIndexChanged -= lbNotesList_SelectedIndexChanged;
             lbNotesList.DataSource = null;
@@ -159,7 +151,7 @@ namespace NotesAplicationDesktop
             {
                 selectedNote = (Note)lbNotesList.SelectedItem;
                 tbNoteTitle.Text = selectedNote.Title;
-                tbNotesText.Text = selectedNote.Text;
+                tbNoteText.Text = selectedNote.Text;
             }
         }
 
@@ -179,6 +171,41 @@ namespace NotesAplicationDesktop
             {
                 userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes);
             }
+            ResetListBoxUsersList(lbUsersList.SelectedIndex);
+        }
+
+        private void ResetListBoxUsersList(int selectedIndex = -1)
+        {
+            lbUsersList.SelectedIndexChanged -= lbUsersList_SelectedIndexChanged;
+            lbUsersList.DataSource = null;
+            lbUsersList.DataSource = users;
+            lbUsersList.SelectedIndex = selectedIndex;
+            lbUsersList.SelectedIndexChanged += lbUsersList_SelectedIndexChanged;
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            userManager.DeleteUser(selectedUser.Id);
+            users.Remove(selectedUser);
+            DisableAccountManageGroup();
+            DisableNotesManageGroup();
+            ResetListBoxUsersList();
+        }
+
+        private void btUpdateNote_Click(object sender, EventArgs e)
+        {
+            selectedNote.Title = tbNoteTitle.Text;
+            selectedNote.Text = tbNoteText.Text;
+            noteManager.UpdateNote(selectedNote.Id, selectedNote.UserId, selectedNote.Title, selectedNote.Text);
+            ResetListBoxNotesList(lbNotesList.SelectedIndex);
+        }
+        private void ResetListBoxNotesList(int selectedIndex = -1)
+        {
+            lbNotesList.SelectedIndexChanged -= lbNotesList_SelectedIndexChanged;
+            lbNotesList.DataSource = null;
+            lbNotesList.DataSource = notes;
+            lbNotesList.SelectedIndex = selectedIndex;
+            lbNotesList.SelectedIndexChanged += lbNotesList_SelectedIndexChanged;
         }
     }
 }

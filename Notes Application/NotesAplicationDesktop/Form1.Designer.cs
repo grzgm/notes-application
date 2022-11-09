@@ -34,7 +34,7 @@
             this.tbNoteTitle = new System.Windows.Forms.TextBox();
             this.btUpdateNote = new System.Windows.Forms.Button();
             this.btDeleteNote = new System.Windows.Forms.Button();
-            this.tbNotesText = new System.Windows.Forms.TextBox();
+            this.tbNoteText = new System.Windows.Forms.TextBox();
             this.lbNotesList = new System.Windows.Forms.ListBox();
             this.gbAccountManage = new System.Windows.Forms.GroupBox();
             this.btUpdateUser = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.gbNotesManage.Controls.Add(this.tbNoteTitle);
             this.gbNotesManage.Controls.Add(this.btUpdateNote);
             this.gbNotesManage.Controls.Add(this.btDeleteNote);
-            this.gbNotesManage.Controls.Add(this.tbNotesText);
+            this.gbNotesManage.Controls.Add(this.tbNoteText);
             this.gbNotesManage.Controls.Add(this.lbNotesList);
             this.gbNotesManage.Enabled = false;
             this.gbNotesManage.Location = new System.Drawing.Point(812, 8);
@@ -125,6 +125,7 @@
             this.btUpdateNote.TabIndex = 16;
             this.btUpdateNote.Text = "Update Note";
             this.btUpdateNote.UseVisualStyleBackColor = true;
+            this.btUpdateNote.Click += new System.EventHandler(this.btUpdateNote_Click);
             // 
             // btDeleteNote
             // 
@@ -136,14 +137,14 @@
             this.btDeleteNote.Text = "Delete Note";
             this.btDeleteNote.UseVisualStyleBackColor = true;
             // 
-            // tbNotesText
+            // tbNoteText
             // 
-            this.tbNotesText.Location = new System.Drawing.Point(6, 378);
-            this.tbNotesText.Margin = new System.Windows.Forms.Padding(2);
-            this.tbNotesText.Multiline = true;
-            this.tbNotesText.Name = "tbNotesText";
-            this.tbNotesText.Size = new System.Drawing.Size(502, 426);
-            this.tbNotesText.TabIndex = 1;
+            this.tbNoteText.Location = new System.Drawing.Point(6, 378);
+            this.tbNoteText.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNoteText.Multiline = true;
+            this.tbNoteText.Name = "tbNoteText";
+            this.tbNoteText.Size = new System.Drawing.Size(502, 426);
+            this.tbNoteText.TabIndex = 1;
             // 
             // lbNotesList
             // 
@@ -210,6 +211,7 @@
             this.btnDeleteUser.TabIndex = 11;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // tbPremiumDaysLeft
             // 
@@ -450,7 +452,7 @@
         private GroupBox gbNotesManage;
         private Button btUpdateNote;
         private Button btDeleteNote;
-        private TextBox tbNotesText;
+        private TextBox tbNoteText;
         private TextBox tbNoteTitle;
     }
 }
