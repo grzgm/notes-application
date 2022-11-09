@@ -1,5 +1,7 @@
 using DataLayer;
 using LogicLayer;
+using System.Net.Mail;
+using System.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NotesAplicationDesktop
@@ -163,21 +165,61 @@ namespace NotesAplicationDesktop
 
         private void btUpdateUser_Click(object sender, EventArgs e)
         {
-            selectedUser.Name = tbUserNameManage.Text;
-            selectedUser.Email = tbUserEmailManage.Text;
-            ((User)selectedUser).MaxAmountOfNotes = int.Parse(tbMaxAmountOfNotes.Text);
-            ((User)selectedUser).MaxLengthOfNotes = int.Parse(tbMaxLengthOfNotes.Text);
-
-            if (selectedUser is PremiumUser)
+            if(ValidateUserData())
             {
-                ((PremiumUser)selectedUser).DaysOfPremiumLeft = int.Parse(tbPremiumDaysLeft.Text);
-                userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes, ((PremiumUser)selectedUser).DaysOfPremiumLeft);
+                selectedUser.Name = tbUserNameManage.Text;
+                selectedUser.Email = tbUserEmailManage.Text;
+                ((User)selectedUser).MaxAmountOfNotes = int.Parse(tbMaxAmountOfNotes.Text);
+                ((User)selectedUser).MaxLengthOfNotes = int.Parse(tbMaxLengthOfNotes.Text);
+
+                if (selectedUser is PremiumUser)
+                {
+                    ((PremiumUser)selectedUser).DaysOfPremiumLeft = int.Parse(tbPremiumDaysLeft.Text);
+                    userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes, ((PremiumUser)selectedUser).DaysOfPremiumLeft);
+                }
+                else
+                {
+                    userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes);
+                }
+                ResetListBoxUsersList(lbUsersList.SelectedIndex);
             }
             else
             {
-                userManager.UpdateUser(selectedUser.Id, selectedUser.Name, selectedUser.Email, ((User)selectedUser).MaxAmountOfNotes, ((User)selectedUser).MaxLengthOfNotes);
+                MessageBox.Show("User data is not valid");
             }
-            ResetListBoxUsersList(lbUsersList.SelectedIndex);
+        }
+
+        private bool ValidateUserData()
+        {
+            if (tbUserNameManage.Text.Length < 3 || tbUserNameManage.Text.Length > 15)
+            {
+                return false;
+            }
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(tbUserEmailManage.Text);
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (int.Parse(tbMaxAmountOfNotes.Text) < 3 || tbUserNameManage.Text.Length > 15)
+            {
+                return false;
+            }
+            if (int.Parse(tbMaxLengthOfNotes.Text) < 50 || tbUserNameManage.Text.Length > 200)
+            {
+                return false;
+            }
+            if (tbPremiumDaysLeft.Enabled)
+            {
+                if (int.Parse(tbPremiumDaysLeft.Text) < 0 || int.Parse(tbPremiumDaysLeft.Text) > 90)
+                    return false;
+            }
+
+            return true;
         }
 
         private void ResetListBoxUsersList(int selectedIndex = -1)
@@ -202,6 +244,11 @@ namespace NotesAplicationDesktop
         {
             if(selectedNote != null)
             {
+                if(tbNoteText.Text.Length > ((User)selectedUser).MaxLengthOfNotes)
+                {
+                    MessageBox.Show("Note is too long");
+                    return;
+                }
                 selectedNote.Title = tbNoteTitle.Text;
                 selectedNote.Text = tbNoteText.Text;
                 noteManager.UpdateNote(selectedNote.Id, selectedNote.UserId, selectedNote.Title, selectedNote.Text);

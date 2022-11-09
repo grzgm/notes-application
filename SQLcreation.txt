@@ -44,7 +44,7 @@ CREATE TABLE notes
 	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1),
 	UserId int NOT NULL FOREIGN KEY REFERENCES [account]([id]),
 	Title nchar(15) NULL,
-	[Text] nchar(100) NULL,
+	[Text] nchar(200) NULL,
 	[Date] datetime2(0) NULL,
 	EditDate datetime2(0) NULL
 	);
