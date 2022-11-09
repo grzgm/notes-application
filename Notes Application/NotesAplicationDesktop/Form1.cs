@@ -72,6 +72,7 @@ namespace NotesAplicationDesktop
 
             if (users != null)
             {
+                // Reset also populates listboxUsers with list users as data source
                 ResetListBoxUsersList();
             }
             else
@@ -107,6 +108,7 @@ namespace NotesAplicationDesktop
 
         private void lbUsersList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DisableNotesManageGroup();
             var selectedItem = lbUsersList.SelectedItem;
 
             if (selectedItem is Account)
@@ -114,7 +116,6 @@ namespace NotesAplicationDesktop
                 selectedUser = (Account)selectedItem;
                 EnableAccountManageGroup();
                 EnableNotesManageGroup();
-
             }
         }
 
@@ -140,9 +141,14 @@ namespace NotesAplicationDesktop
 
         private void EnableNotesManageGroup()
         {
-            gbNotesManage.Enabled = true;
             notes = noteManager.ReadNotes(selectedUser.Id);
-            lbNotesList.DataSource = notes;
+            if(notes.Any())
+            {
+                gbNotesManage.Enabled = true;
+                //lbNotesList.DataSource = notes;
+                // Reset also populates listboxnotes with list notes as data source
+                ResetListBoxNotesList();
+            }
         }
 
         private void lbNotesList_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,10 +200,13 @@ namespace NotesAplicationDesktop
 
         private void btUpdateNote_Click(object sender, EventArgs e)
         {
-            selectedNote.Title = tbNoteTitle.Text;
-            selectedNote.Text = tbNoteText.Text;
-            noteManager.UpdateNote(selectedNote.Id, selectedNote.UserId, selectedNote.Title, selectedNote.Text);
-            ResetListBoxNotesList(lbNotesList.SelectedIndex);
+            if(selectedNote != null)
+            {
+                selectedNote.Title = tbNoteTitle.Text;
+                selectedNote.Text = tbNoteText.Text;
+                noteManager.UpdateNote(selectedNote.Id, selectedNote.UserId, selectedNote.Title, selectedNote.Text);
+                ResetListBoxNotesList(lbNotesList.SelectedIndex);
+            }
         }
         private void ResetListBoxNotesList(int selectedIndex = -1)
         {
@@ -206,6 +215,19 @@ namespace NotesAplicationDesktop
             lbNotesList.DataSource = notes;
             lbNotesList.SelectedIndex = selectedIndex;
             lbNotesList.SelectedIndexChanged += lbNotesList_SelectedIndexChanged;
+            if( selectedIndex == -1 )
+            {
+                selectedNote = null;
+                tbNoteTitle.Text = String.Empty;
+                tbNoteText.Text = String.Empty;
+            }
+        }
+
+        private void btDeleteNote_Click(object sender, EventArgs e)
+        {
+            noteManager.DeleteNote(selectedNote.Id, selectedNote.UserId);
+            notes.Remove(selectedNote);
+            ResetListBoxNotesList();
         }
     }
 }
