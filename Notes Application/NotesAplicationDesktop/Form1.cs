@@ -8,18 +8,18 @@ namespace NotesAplicationDesktop
 {
     public partial class Form1 : Form
     {
-        int userId;
-        string userName;
-        string userEmail;
         List<Account> users;
         Account selectedUser;
         List<Note> notes;
         Note selectedNote;
+        List<Admin> admins;
+        Admin selectedAdmin;
 
         IAccountRepository accountRepository;
         IUserManagerDesktop userManager;
         INoteRepository noteRepository;
         INoteManagerWeb noteManager;
+        AdminManager adminManager;
 
         public Form1()
         {
@@ -36,6 +36,8 @@ namespace NotesAplicationDesktop
             DisableAccountManageGroup();
             users = null;
             notes = null;
+
+            int userId;
 
             // input Id validation
             if(tbUserId.Text != "")
@@ -58,8 +60,8 @@ namespace NotesAplicationDesktop
             {
                 userId = 0;
             }
-            userName = tbUserNameSearch.Text;
-            userEmail = tbUserEmailSearch.Text;
+            string userName = tbUserNameSearch.Text;
+            string userEmail = tbUserEmailSearch.Text;
 
             if(userId > 0)
             {
@@ -275,6 +277,72 @@ namespace NotesAplicationDesktop
             noteManager.DeleteNote(selectedNote.Id, selectedNote.UserId);
             notes.Remove(selectedNote);
             ResetListBoxNotesList();
+        }
+
+
+
+        // ADMIN MANAGE
+
+
+
+        private void btAdminSearch_Click(object sender, EventArgs e)
+        {
+            DisableAdminDetailsGroup();
+            admins = null;
+
+            int adminId;
+
+            // input Id validation
+            if (tbAdminId.Text != "")
+            {
+                try
+                {
+                    adminId = int.Parse(tbAdminId.Text);
+                    if (adminId <= 0)
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Id must be intiger bigger than 0");
+                    return;
+                }
+            }
+            else
+            {
+                adminId = 0;
+            }
+            string adminName = tbUserNameSearch.Text;
+            string adminEmail = tbUserEmailSearch.Text;
+
+            if (adminId > 0)
+            {
+                users = new List<Admin>() { adminManager.ReadAdmin(adminId, adminName, adminEmail) };
+                if (users[0] == null)
+                    users = null;
+            }
+            else if (adminId == 0)
+            {
+                users = adminManager.ReadAdmins(adminName, adminEmail);
+            }
+
+            if (users != null)
+            {
+                // Reset also populates listboxUsers with list users as data source
+                ResetListBoxUsersList();
+            }
+            else
+            {
+                lbUsersList.DataSource = null;
+                lbUsersList.Items.Clear();
+                lbUsersList.Items.Add("There is no such User.");
+            }
+        }
+
+        private void DisableAdminDetailsGroup()
+        {
+
         }
     }
 }

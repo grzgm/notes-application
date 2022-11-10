@@ -24,6 +24,7 @@ CREATE TABLE premiumUserTable
 CREATE TABLE adminTable
 (
 	Id int NOT NULL FOREIGN KEY REFERENCES [account]([id]) UNIQUE,
+	AdminRole nchar(15) NOT NULL,
 );
 
 CREATE TABLE premiumRequests

@@ -54,5 +54,10 @@ namespace LogicLayer.DTOs
             get;
             set;
         }
+        public string Role
+        {
+            get;
+            set;
+        }
     }
 }

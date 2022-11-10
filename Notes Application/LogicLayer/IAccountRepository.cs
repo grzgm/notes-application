@@ -16,6 +16,7 @@ namespace LogicLayer
         void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, DateTime? endPremiumDate = null);
         public void DeleteUser(int id);
         public void CreatePremiumRequest(int userId);
-
+        public AccountDTO ReadAdmin(int id);
+        public List<AccountDTO> ReadAdmins(string name, string email);
     }
 }

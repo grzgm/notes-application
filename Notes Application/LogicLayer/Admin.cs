@@ -9,6 +9,7 @@ namespace LogicLayer
 {
 	public class Admin : Account
 	{
+        private string role;
 		public Admin()
 		{
 
@@ -20,12 +21,13 @@ namespace LogicLayer
             this.email = accountDTO.Email;
             this.password = accountDTO.Password;
         }
-        public Admin(int id, string name, string email, string password) : base(id, name, email, password)
+        public Admin(int id, string name, string email, string password, string role) : base(id, name, email, password)
         {
             this.id = id;
             this.name = name;
             this.email = email;
             this.password = password;
+            this.role = role;
         }
         public void ChangeUserPremiumStatus()
         {
@@ -35,6 +37,12 @@ namespace LogicLayer
         public void GetUserInfo(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public string Role
+        {
+            get { return this.role; }
+            set { this.role = value; }
         }
     }
 }

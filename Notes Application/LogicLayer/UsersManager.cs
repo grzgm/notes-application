@@ -118,7 +118,7 @@ namespace LogicLayer
             accountRepository.DeleteUser(id);
         }
 
-        private Account ConvertAccountDTO(AccountDTO accountDTO)
+        public static Account ConvertAccountDTO(AccountDTO accountDTO)
         {
             Account account;
             if (accountDTO.MaxLengthOfNotes == null)
@@ -137,7 +137,7 @@ namespace LogicLayer
             return account;
         }
 
-        private List<Account> ConvertAccountsDTO(List<AccountDTO> accountDTOs)
+        public static List<Account> ConvertAccountsDTO(List<AccountDTO> accountDTOs)
         {
             List<Account> accounts = new List<Account>();
             foreach (AccountDTO accountDTO in accountDTOs)
