@@ -1,6 +1,7 @@
 using LogicLayer.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,30 +16,19 @@ namespace LogicLayer
             this.accountRepository = accountRepository
                 ?? throw new ArgumentNullException(nameof(accountRepository));
         }
-        public void ShowAdmin(int id)
-		{
-			throw new NotImplementedException();
-		}
 
-		public void ShowAllAdmins()
+		public string CreateAdmin(string name, string email, string password, string adminRole)
 		{
-			throw new NotImplementedException();
-		}
-
-		public int AmountOfAdmins()
-		{
-			throw new NotImplementedException();
-		}
-
-		public Account SearchAdmin(string name, string password)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Account CreateAdmin(string name, string email, string password)
-		{
-			throw new NotImplementedException();
-		}
+            try
+            {
+                accountRepository.CreateAdmin(name, email, password, adminRole);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "New Admin Added";
+        }
 
         public Admin ReadAdmin(int id, string name, string email, string adminRole)
         {
@@ -89,6 +79,15 @@ namespace LogicLayer
                 return null;
             }
             return ConvertAccountsDTOToAdmins(accountDTOs);
+        }
+
+        public void UpdateAdmin(int id, string name, string email, string adminRole)
+        {
+            accountRepository.UpdateAdmin(id, name, email, adminRole);
+        }
+        public void DeleteAdmin(int id)
+        {
+            accountRepository.DeleteAdmin(id);
         }
 
         public Admin ConvertAccountDTOToAdmin(AccountDTO accountDTO)

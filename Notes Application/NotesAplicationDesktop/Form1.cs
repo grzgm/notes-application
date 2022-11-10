@@ -3,6 +3,7 @@ using LogicLayer;
 using System.Net.Mail;
 using System.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Text.RegularExpressions;
 
 namespace NotesAplicationDesktop
 {
@@ -338,7 +339,7 @@ namespace NotesAplicationDesktop
             {
                 lbAdminList.DataSource = null;
                 lbAdminList.Items.Clear();
-                lbAdminList.Items.Add("There is no such User.");
+                lbAdminList.Items.Add("There is no such Admin.");
             }
         }
 
@@ -354,7 +355,6 @@ namespace NotesAplicationDesktop
         private void DisableAdminDetailsGroup()
         {
             gbAdminDetails.Enabled = false;
-            btAddAdmin.Enabled = false;
             tbAdminNameDetails.Text = String.Empty;
             tbAdminEmailDetails.Text = String.Empty;
             tbAdminRoleDetails.Text = String.Empty;
@@ -370,10 +370,6 @@ namespace NotesAplicationDesktop
                 selectedAdmin = (Admin)selectedItem;
                 EnableAdminDetailGroup();
             }
-            else if (selectedItem is String)
-            {
-                EnableAdminDetailGroupAdding();
-            }
         }
         private void EnableAdminDetailGroup()
         {
@@ -382,13 +378,112 @@ namespace NotesAplicationDesktop
             tbAdminEmailDetails.Text = selectedAdmin.Email;
             tbAdminRoleDetails.Text = selectedAdmin.AdminRole;
         }
-        private void EnableAdminDetailGroupAdding()
+
+        private void btUpdateAdmin_Click(object sender, EventArgs e)
         {
-            gbAdminDetails.Enabled = true;
-            tbAdminNameDetails.Text = String.Empty;
-            tbAdminEmailDetails.Text = String.Empty;
-            tbAdminRoleDetails.Text = String.Empty;
-            btAddAdmin.Enabled = true;
+            if (ValidateAdminData())
+            {
+                selectedAdmin.Name = tbAdminNameDetails.Text;
+                selectedAdmin.Email = tbAdminEmailDetails.Text;
+                selectedAdmin.AdminRole = tbAdminRoleDetails.Text;
+
+                adminManager.UpdateAdmin(selectedAdmin.Id, selectedAdmin.Name, selectedAdmin.Email, selectedAdmin.AdminRole);
+
+                ResetListBoxAdminsList(lbUsersList.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Admin data is not valid");
+            }
+        }
+        private bool ValidateAdminData()
+        {
+            if (tbAdminNameDetails.Text.Length < 3 || tbAdminNameDetails.Text.Length > 15)
+            {
+                return false;
+            }
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(tbAdminEmailDetails.Text);
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (tbAdminRoleDetails.Text.Length < 3 || tbAdminRoleDetails.Text.Length > 15)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btDelteteAdmin_Click(object sender, EventArgs e)
+        {
+            adminManager.DeleteAdmin(selectedAdmin.Id);
+            admins.Remove(selectedAdmin);
+            DisableAdminDetailsGroup();
+            ResetListBoxAdminsList();
+        }
+
+        private void btAddAdmin_Click(object sender, EventArgs e)
+        {
+            Admin newAdmin = new Admin();
+
+            if (tbAdminNameCreator.Text.Length >= 3 && tbAdminNameCreator.Text.Length <= 15)
+            {
+                newAdmin.Name = tbAdminNameCreator.Text;
+            }
+            else
+            {
+                MessageBox.Show("New Admin data is not valid");
+                return;
+            }
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(tbAdminEmailCreator.Text);
+                newAdmin.Email = tbAdminEmailCreator.Text;
+            }
+            catch
+            {
+                MessageBox.Show("New Admin data is not valid");
+                return;
+            }
+
+            if (tbAdminRoleCreator.Text.Length >= 3 && tbAdminRoleCreator.Text.Length <= 15)
+            {
+                newAdmin.AdminRole = tbAdminRoleCreator.Text;
+            }
+            else
+            {
+                MessageBox.Show("New Admin data is not valid");
+                return;
+            }
+
+            if (Regex.Match(tbAdminPasswordCreator.Text, "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,10}$").Success)
+            {
+                newAdmin.Password = tbAdminPasswordCreator.Text;
+            }
+            else
+            {
+                MessageBox.Show("New Admin data is not valid");
+                return;
+            }
+
+            string info = adminManager.CreateAdmin(newAdmin.Name, newAdmin.Email, newAdmin.Password, newAdmin.AdminRole);
+            MessageBox.Show(info);
+            ResetAdminCreator();
+        }
+
+        private void ResetAdminCreator()
+        {
+            tbAdminNameCreator.Text = String.Empty;
+            tbAdminEmailCreator.Text = String.Empty;
+            tbAdminPasswordCreator.Text = String.Empty;
+            tbAdminRoleCreator.Text = String.Empty;
         }
     }
 }

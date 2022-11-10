@@ -369,6 +369,47 @@ namespace DataLayer
             }
         }
 
+        public void CreateAdmin(string name, string email, string password, string adminRole)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataReader dreader;
+
+            string sql = "BEGIN TRANSACTION;" +
+                        "INSERT INTO account VALUES (@name, @email, @password);" +
+                        "DECLARE @id INT;" +
+                        "SET @id = IDENT_CURRENT('account')" +
+                        "INSERT INTO adminTable VALUES (@id, @adminRole);" +
+                        "COMMIT;";
+            int id = 0;
+            string sqlId = "SELECT IDENT_CURRENT('account')";
+
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = name });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@password", Value = password });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@adminRole", Value = adminRole });
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("User with those credentials already exists.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("STH went wrong");
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
+
         public AccountDTO ReadAdmin(int id)
         {
             conn = new SqlConnection(constr);
@@ -471,6 +512,62 @@ namespace DataLayer
             }
 
             return accountDTOs;
+        }
+        public void UpdateAdmin(int id, string name, string email, string adminRole)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+
+            string sql = "BEGIN TRANSACTION; " +
+                "UPDATE account SET Name = @name, Email = @email WHERE Id = @id; " +
+                "UPDATE AdminRole SET AdminRole = @adminRole WHERE Id = @id; " +
+                "COMMIT;";
+
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@name", Value = name });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@adminRole", Value = adminRole });
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
+        public void DeleteAdmin(int id)
+        {
+            conn = new SqlConnection(constr);
+            conn.Open();
+            SqlCommand cmd;
+
+            string sql = "DELETE FROM account WHERE Id=@id";
+
+            cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter { ParameterName = "@id", Value = id });
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
         }
     }
 }

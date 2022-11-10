@@ -59,8 +59,17 @@
             this.tbUserEmailSearch = new System.Windows.Forms.TextBox();
             this.lbUserEmailSearch = new System.Windows.Forms.Label();
             this.AdminPage = new System.Windows.Forms.TabPage();
-            this.gbAdminDetails = new System.Windows.Forms.GroupBox();
+            this.gbAdminCreator = new System.Windows.Forms.GroupBox();
+            this.lbAdminRoleCreator = new System.Windows.Forms.Label();
+            this.tbAdminRoleCreator = new System.Windows.Forms.TextBox();
             this.btAddAdmin = new System.Windows.Forms.Button();
+            this.lbAdminPasswordCreator = new System.Windows.Forms.Label();
+            this.tbAdminPasswordCreator = new System.Windows.Forms.TextBox();
+            this.lbAdminEmailCreator = new System.Windows.Forms.Label();
+            this.lbAdminNameCreator = new System.Windows.Forms.Label();
+            this.tbAdminEmailCreator = new System.Windows.Forms.TextBox();
+            this.tbAdminNameCreator = new System.Windows.Forms.TextBox();
+            this.gbAdminDetails = new System.Windows.Forms.GroupBox();
             this.btUpdateAdmin = new System.Windows.Forms.Button();
             this.btDelteteAdmin = new System.Windows.Forms.Button();
             this.lbAdminRoleDetails = new System.Windows.Forms.Label();
@@ -86,6 +95,7 @@
             this.gbAccountManage.SuspendLayout();
             this.gbAccountSearch.SuspendLayout();
             this.AdminPage.SuspendLayout();
+            this.gbAdminCreator.SuspendLayout();
             this.gbAdminDetails.SuspendLayout();
             this.gbSearchAdmin.SuspendLayout();
             this.SuspendLayout();
@@ -417,6 +427,7 @@
             // 
             // AdminPage
             // 
+            this.AdminPage.Controls.Add(this.gbAdminCreator);
             this.AdminPage.Controls.Add(this.gbAdminDetails);
             this.AdminPage.Controls.Add(this.gbSearchAdmin);
             this.AdminPage.Location = new System.Drawing.Point(4, 34);
@@ -428,9 +439,111 @@
             this.AdminPage.Text = "Admins";
             this.AdminPage.UseVisualStyleBackColor = true;
             // 
+            // gbAdminCreator
+            // 
+            this.gbAdminCreator.Controls.Add(this.lbAdminRoleCreator);
+            this.gbAdminCreator.Controls.Add(this.tbAdminRoleCreator);
+            this.gbAdminCreator.Controls.Add(this.btAddAdmin);
+            this.gbAdminCreator.Controls.Add(this.lbAdminPasswordCreator);
+            this.gbAdminCreator.Controls.Add(this.tbAdminPasswordCreator);
+            this.gbAdminCreator.Controls.Add(this.lbAdminEmailCreator);
+            this.gbAdminCreator.Controls.Add(this.lbAdminNameCreator);
+            this.gbAdminCreator.Controls.Add(this.tbAdminEmailCreator);
+            this.gbAdminCreator.Controls.Add(this.tbAdminNameCreator);
+            this.gbAdminCreator.Location = new System.Drawing.Point(807, 8);
+            this.gbAdminCreator.Margin = new System.Windows.Forms.Padding(2);
+            this.gbAdminCreator.Name = "gbAdminCreator";
+            this.gbAdminCreator.Padding = new System.Windows.Forms.Padding(2);
+            this.gbAdminCreator.Size = new System.Drawing.Size(439, 930);
+            this.gbAdminCreator.TabIndex = 28;
+            this.gbAdminCreator.TabStop = false;
+            this.gbAdminCreator.Text = "Admin Creator";
+            // 
+            // lbAdminRoleCreator
+            // 
+            this.lbAdminRoleCreator.AutoSize = true;
+            this.lbAdminRoleCreator.Location = new System.Drawing.Point(4, 159);
+            this.lbAdminRoleCreator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAdminRoleCreator.Name = "lbAdminRoleCreator";
+            this.lbAdminRoleCreator.Size = new System.Drawing.Size(50, 25);
+            this.lbAdminRoleCreator.TabIndex = 28;
+            this.lbAdminRoleCreator.Text = "Role:";
+            // 
+            // tbAdminRoleCreator
+            // 
+            this.tbAdminRoleCreator.Location = new System.Drawing.Point(212, 159);
+            this.tbAdminRoleCreator.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbAdminRoleCreator.Name = "tbAdminRoleCreator";
+            this.tbAdminRoleCreator.Size = new System.Drawing.Size(216, 31);
+            this.tbAdminRoleCreator.TabIndex = 29;
+            // 
+            // btAddAdmin
+            // 
+            this.btAddAdmin.Location = new System.Drawing.Point(4, 198);
+            this.btAddAdmin.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btAddAdmin.Name = "btAddAdmin";
+            this.btAddAdmin.Size = new System.Drawing.Size(424, 38);
+            this.btAddAdmin.TabIndex = 27;
+            this.btAddAdmin.Text = "Add Admin";
+            this.btAddAdmin.UseVisualStyleBackColor = true;
+            this.btAddAdmin.Click += new System.EventHandler(this.btAddAdmin_Click);
+            // 
+            // lbAdminPasswordCreator
+            // 
+            this.lbAdminPasswordCreator.AutoSize = true;
+            this.lbAdminPasswordCreator.Location = new System.Drawing.Point(4, 120);
+            this.lbAdminPasswordCreator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAdminPasswordCreator.Name = "lbAdminPasswordCreator";
+            this.lbAdminPasswordCreator.Size = new System.Drawing.Size(91, 25);
+            this.lbAdminPasswordCreator.TabIndex = 20;
+            this.lbAdminPasswordCreator.Text = "Password:";
+            // 
+            // tbAdminPasswordCreator
+            // 
+            this.tbAdminPasswordCreator.Location = new System.Drawing.Point(212, 120);
+            this.tbAdminPasswordCreator.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbAdminPasswordCreator.Name = "tbAdminPasswordCreator";
+            this.tbAdminPasswordCreator.Size = new System.Drawing.Size(216, 31);
+            this.tbAdminPasswordCreator.TabIndex = 21;
+            // 
+            // lbAdminEmailCreator
+            // 
+            this.lbAdminEmailCreator.AutoSize = true;
+            this.lbAdminEmailCreator.Location = new System.Drawing.Point(4, 82);
+            this.lbAdminEmailCreator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAdminEmailCreator.Name = "lbAdminEmailCreator";
+            this.lbAdminEmailCreator.Size = new System.Drawing.Size(65, 25);
+            this.lbAdminEmailCreator.TabIndex = 18;
+            this.lbAdminEmailCreator.Text = "E-mail:";
+            // 
+            // lbAdminNameCreator
+            // 
+            this.lbAdminNameCreator.AutoSize = true;
+            this.lbAdminNameCreator.Location = new System.Drawing.Point(4, 42);
+            this.lbAdminNameCreator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAdminNameCreator.Name = "lbAdminNameCreator";
+            this.lbAdminNameCreator.Size = new System.Drawing.Size(63, 25);
+            this.lbAdminNameCreator.TabIndex = 16;
+            this.lbAdminNameCreator.Text = "Name:";
+            // 
+            // tbAdminEmailCreator
+            // 
+            this.tbAdminEmailCreator.Location = new System.Drawing.Point(212, 82);
+            this.tbAdminEmailCreator.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbAdminEmailCreator.Name = "tbAdminEmailCreator";
+            this.tbAdminEmailCreator.Size = new System.Drawing.Size(216, 31);
+            this.tbAdminEmailCreator.TabIndex = 19;
+            // 
+            // tbAdminNameCreator
+            // 
+            this.tbAdminNameCreator.Location = new System.Drawing.Point(212, 42);
+            this.tbAdminNameCreator.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbAdminNameCreator.Name = "tbAdminNameCreator";
+            this.tbAdminNameCreator.Size = new System.Drawing.Size(216, 31);
+            this.tbAdminNameCreator.TabIndex = 17;
+            // 
             // gbAdminDetails
             // 
-            this.gbAdminDetails.Controls.Add(this.btAddAdmin);
             this.gbAdminDetails.Controls.Add(this.btUpdateAdmin);
             this.gbAdminDetails.Controls.Add(this.btDelteteAdmin);
             this.gbAdminDetails.Controls.Add(this.lbAdminRoleDetails);
@@ -449,16 +562,6 @@
             this.gbAdminDetails.TabStop = false;
             this.gbAdminDetails.Text = "Admin Details";
             // 
-            // btAddAdmin
-            // 
-            this.btAddAdmin.Location = new System.Drawing.Point(4, 249);
-            this.btAddAdmin.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.btAddAdmin.Name = "btAddAdmin";
-            this.btAddAdmin.Size = new System.Drawing.Size(424, 38);
-            this.btAddAdmin.TabIndex = 27;
-            this.btAddAdmin.Text = "Add Admin";
-            this.btAddAdmin.UseVisualStyleBackColor = true;
-            // 
             // btUpdateAdmin
             // 
             this.btUpdateAdmin.Location = new System.Drawing.Point(4, 159);
@@ -468,6 +571,7 @@
             this.btUpdateAdmin.TabIndex = 26;
             this.btUpdateAdmin.Text = "Update Admin";
             this.btUpdateAdmin.UseVisualStyleBackColor = true;
+            this.btUpdateAdmin.Click += new System.EventHandler(this.btUpdateAdmin_Click);
             // 
             // btDelteteAdmin
             // 
@@ -478,6 +582,7 @@
             this.btDelteteAdmin.TabIndex = 11;
             this.btDelteteAdmin.Text = "Delete Admin";
             this.btDelteteAdmin.UseVisualStyleBackColor = true;
+            this.btDelteteAdmin.Click += new System.EventHandler(this.btDelteteAdmin_Click);
             // 
             // lbAdminRoleDetails
             // 
@@ -666,6 +771,8 @@
             this.gbAccountSearch.ResumeLayout(false);
             this.gbAccountSearch.PerformLayout();
             this.AdminPage.ResumeLayout(false);
+            this.gbAdminCreator.ResumeLayout(false);
+            this.gbAdminCreator.PerformLayout();
             this.gbAdminDetails.ResumeLayout(false);
             this.gbAdminDetails.PerformLayout();
             this.gbSearchAdmin.ResumeLayout(false);
@@ -728,6 +835,15 @@
         private Label lbAdminRoleSearch;
         private TextBox tbAdminRoleSearch;
         private Button btAddAdmin;
+        private GroupBox gbAdminCreator;
+        private Label lbAdminRoleCreator;
+        private TextBox tbAdminRoleCreator;
+        private Label lbAdminPasswordCreator;
+        private TextBox tbAdminPasswordCreator;
+        private Label lbAdminEmailCreator;
+        private Label lbAdminNameCreator;
+        private TextBox tbAdminEmailCreator;
+        private TextBox tbAdminNameCreator;
     }
 }
 
