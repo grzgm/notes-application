@@ -17,6 +17,6 @@ namespace LogicLayer
         public void DeleteUser(int id);
         public void CreatePremiumRequest(int userId);
         public AccountDTO ReadAdmin(int id);
-        public List<AccountDTO> ReadAdmins(string name, string email);
+        public List<AccountDTO> ReadAdmins(string name, string email, string adminRole);
     }
 }

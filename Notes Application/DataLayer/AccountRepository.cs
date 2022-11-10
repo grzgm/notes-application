@@ -121,7 +121,7 @@ namespace DataLayer
                 if (!DBNull.Value.Equals(dreader.GetValue(7)))
                     accountDTO.EndPremiumDate = dreader.GetDateTime(7);
                 if (!DBNull.Value.Equals(dreader.GetValue(8)))
-                    accountDTO.Role = dreader.GetString(8).Trim();
+                    accountDTO.AdminRole = dreader.GetString(8).Trim();
                 dreader.Close();
             }
             catch (Exception ex)
@@ -376,7 +376,7 @@ namespace DataLayer
             SqlCommand cmd;
             SqlDataReader dreader;
 
-            string sql = "SELECT account.[Id], account.[Name], account.[Email], " +
+            string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
                 "adminTable.AdminRole FROM account " +
                 "INNER JOIN adminTable ON account.Id = adminTable.Id " +
                 "WHERE account.[Id] = @id;";
@@ -396,11 +396,9 @@ namespace DataLayer
                     Id = dreader.GetInt32(0),
                     Name = dreader.GetString(1).Trim(),
                     Email = dreader.GetString(2).Trim(),
-                    Password = dreader.GetString(3).Trim()
+                    Password = dreader.GetString(3).Trim(),
+                    AdminRole = dreader.GetString(4).Trim(),
                 };
-
-                if (!DBNull.Value.Equals(dreader.GetValue(8)))
-                    accountDTO.Role = dreader.GetString(8).Trim();
                 dreader.Close();
             }
             catch (Exception ex)
@@ -416,7 +414,7 @@ namespace DataLayer
             return accountDTO;
         }
 
-        public List<AccountDTO> ReadAdmins(string name, string email)
+        public List<AccountDTO> ReadAdmins(string name, string email, string adminRole)
         {
             conn = new SqlConnection(constr);
             conn.Open();
@@ -424,11 +422,8 @@ namespace DataLayer
             SqlDataReader dreader;
 
             string sql = "SELECT account.[Id], account.[Name], account.[Email], account.[Password], " +
-                "userTable.[MaxAmountOfNotes], userTable.[MaxLengthOfNote], " +
-                "[StartPremiumDate], [EndPremiumDate] FROM account " +
-                "INNER JOIN userTable ON account.Id = userTable.Id " +
-                "LEFT JOIN premiumUserTable ON account.Id = premiumUserTable.Id " +
-                "WHERE TRIM([Name]) LIKE @name AND TRIM([Email]) LIKE @email";
+                "AdminRole FROM account INNER JOIN adminTable ON account.Id = adminTable.Id " +
+                "WHERE TRIM([Name]) LIKE @name AND TRIM([Email]) LIKE @email AND TRIM([AdminRole]) LIKE @adminRole;";
 
             cmd = new SqlCommand(sql, conn);
             if (name != "")
@@ -439,6 +434,10 @@ namespace DataLayer
                 cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = email });
             else
                 cmd.Parameters.Add(new SqlParameter { ParameterName = "@email", Value = "%" });
+            if (email != "")
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@adminRole", Value = adminRole });
+            else
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@adminRole", Value = "%" });
 
             List<AccountDTO> accountDTOs = new List<AccountDTO>();
 
@@ -453,18 +452,10 @@ namespace DataLayer
                         Id = dreader.GetInt32(0),
                         Name = dreader.GetString(1).Trim(),
                         Email = dreader.GetString(2).Trim(),
-                        Password = dreader.GetString(3).Trim()
+                        Password = dreader.GetString(3).Trim(),
+                        AdminRole = dreader.GetString(4).Trim(),
                     };
 
-                    if (!DBNull.Value.Equals(dreader.GetValue(4)))
-                        accountDTO.MaxAmountOfNotes = dreader.GetInt32(4);
-                    if (!DBNull.Value.Equals(dreader.GetValue(5)))
-                        accountDTO.MaxLengthOfNotes = dreader.GetInt32(5);
-
-                    if (!DBNull.Value.Equals(dreader.GetValue(6)))
-                        accountDTO.StartPremiumDate = dreader.GetDateTime(6);
-                    if (!DBNull.Value.Equals(dreader.GetValue(7)))
-                        accountDTO.EndPremiumDate = dreader.GetDateTime(7);
                     accountDTOs.Add(accountDTO);
                 }
                 dreader.Close();

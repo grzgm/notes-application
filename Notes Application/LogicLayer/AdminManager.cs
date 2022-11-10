@@ -30,17 +30,17 @@ namespace LogicLayer
 			throw new NotImplementedException();
 		}
 
-		Account SearchAdmin(string name, string password)
+		public Account SearchAdmin(string name, string password)
 		{
 			throw new NotImplementedException();
 		}
 
-		Account CreateAdmin(string name, string email, string password)
+		public Account CreateAdmin(string name, string email, string password)
 		{
 			throw new NotImplementedException();
 		}
 
-        Account ReadAdmin(int id, string name, string email)
+        public Admin ReadAdmin(int id, string name, string email, string adminRole)
         {
             AccountDTO accountDTO;
             // There is no need to search with name, email, password in database, cuz id is Unique
@@ -63,16 +63,21 @@ namespace LogicLayer
                 if (accountDTO.Email != email)
                     return null;
             }
+            if (adminRole != "")
+            {
+                if (accountDTO.AdminRole != email)
+                    return null;
+            }
 
-            return UserManager.ConvertAccountDTO(accountDTO);
+            return ConvertAccountDTOToAdmin(accountDTO);
         }
 
-        List<Account> ReadAdmin(string name, string email)
+        public List<Admin> ReadAdmins(string name, string email, string adminRole)
         {
             List<AccountDTO> accountDTOs;
             try
             {
-                accountDTOs = accountRepository.ReadAdmins(name, email);
+                accountDTOs = accountRepository.ReadAdmins(name, email, adminRole);
             }
             catch (Exception ex)
             {
@@ -83,7 +88,23 @@ namespace LogicLayer
             {
                 return null;
             }
-            return UserManager.ConvertAccountsDTO(accountDTOs);
+            return ConvertAccountsDTOToAdmins(accountDTOs);
+        }
+
+        public Admin ConvertAccountDTOToAdmin(AccountDTO accountDTO)
+        {
+            return new Admin(accountDTO);
+        }
+
+        public List<Admin> ConvertAccountsDTOToAdmins(List<AccountDTO> accountDTOs)
+        {
+            List<Admin> accounts = new List<Admin>();
+            foreach (AccountDTO accountDTO in accountDTOs)
+            {
+                accounts.Add(ConvertAccountDTOToAdmin(accountDTO));
+            }
+
+            return accounts;
         }
 
     }

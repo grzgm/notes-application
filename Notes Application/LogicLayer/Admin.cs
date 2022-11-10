@@ -9,7 +9,7 @@ namespace LogicLayer
 {
 	public class Admin : Account
 	{
-        private string role;
+        private string adminRole;
 		public Admin()
 		{
 
@@ -20,14 +20,15 @@ namespace LogicLayer
             this.name = accountDTO.Name;
             this.email = accountDTO.Email;
             this.password = accountDTO.Password;
+            this.adminRole = accountDTO.AdminRole;
         }
-        public Admin(int id, string name, string email, string password, string role) : base(id, name, email, password)
+        public Admin(int id, string name, string email, string password, string adminRole) : base(id, name, email, password)
         {
             this.id = id;
             this.name = name;
             this.email = email;
             this.password = password;
-            this.role = role;
+            this.adminRole = adminRole;
         }
         public void ChangeUserPremiumStatus()
         {
@@ -39,10 +40,15 @@ namespace LogicLayer
             throw new NotImplementedException();
         }
 
-        public string Role
+        public string AdminRole
         {
-            get { return this.role; }
-            set { this.role = value; }
+            get { return this.adminRole; }
+            set { this.adminRole = value; }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "; " + AdminRole;
         }
     }
 }

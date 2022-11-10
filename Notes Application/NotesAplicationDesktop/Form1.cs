@@ -27,6 +27,7 @@ namespace NotesAplicationDesktop
             userManager = new UserManager(accountRepository);
             noteRepository = new NoteRepository();
             noteManager = new NoteManager(noteRepository);
+            adminManager = new AdminManager(accountRepository);
             InitializeComponent();
         }
 
@@ -40,7 +41,7 @@ namespace NotesAplicationDesktop
             int userId;
 
             // input Id validation
-            if(tbUserId.Text != "")
+            if (tbUserId.Text != "")
             {
                 try
                 {
@@ -50,7 +51,7 @@ namespace NotesAplicationDesktop
                         throw new Exception();
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Id must be intiger bigger than 0");
                     return;
@@ -63,13 +64,13 @@ namespace NotesAplicationDesktop
             string userName = tbUserNameSearch.Text;
             string userEmail = tbUserEmailSearch.Text;
 
-            if(userId > 0)
+            if (userId > 0)
             {
                 users = new List<Account>() { userManager.ReadUser(userId, userName, userEmail) };
                 if (users[0] == null)
                     users = null;
             }
-            else if(userId == 0)
+            else if (userId == 0)
             {
                 users = userManager.ReadUsers(userName, userEmail);
             }
@@ -146,7 +147,7 @@ namespace NotesAplicationDesktop
         private void EnableNotesManageGroup()
         {
             notes = noteManager.ReadNotes(selectedUser.Id);
-            if(notes.Any())
+            if (notes.Any())
             {
                 gbNotesManage.Enabled = true;
                 //lbNotesList.DataSource = notes;
@@ -167,7 +168,7 @@ namespace NotesAplicationDesktop
 
         private void btUpdateUser_Click(object sender, EventArgs e)
         {
-            if(ValidateUserData())
+            if (ValidateUserData())
             {
                 selectedUser.Name = tbUserNameManage.Text;
                 selectedUser.Email = tbUserEmailManage.Text;
@@ -244,9 +245,9 @@ namespace NotesAplicationDesktop
 
         private void btUpdateNote_Click(object sender, EventArgs e)
         {
-            if(selectedNote != null)
+            if (selectedNote != null)
             {
-                if(tbNoteText.Text.Length > ((User)selectedUser).MaxLengthOfNotes)
+                if (tbNoteText.Text.Length > ((User)selectedUser).MaxLengthOfNotes)
                 {
                     MessageBox.Show("Note is too long");
                     return;
@@ -264,7 +265,7 @@ namespace NotesAplicationDesktop
             lbNotesList.DataSource = notes;
             lbNotesList.SelectedIndex = selectedIndex;
             lbNotesList.SelectedIndexChanged += lbNotesList_SelectedIndexChanged;
-            if( selectedIndex == -1 )
+            if (selectedIndex == -1)
             {
                 selectedNote = null;
                 tbNoteTitle.Text = String.Empty;
@@ -313,36 +314,81 @@ namespace NotesAplicationDesktop
             {
                 adminId = 0;
             }
-            string adminName = tbUserNameSearch.Text;
-            string adminEmail = tbUserEmailSearch.Text;
+            string adminName = tbAdminNameSearch.Text;
+            string adminEmail = tbAdminEmailSearch.Text;
+            string adminRole = tbAdminRoleSearch.Text;
 
             if (adminId > 0)
             {
-                users = new List<Admin>() { adminManager.ReadAdmin(adminId, adminName, adminEmail) };
-                if (users[0] == null)
-                    users = null;
+                admins = new List<Admin>() { adminManager.ReadAdmin(adminId, adminName, adminEmail, adminRole) };
+                if (admins[0] == null)
+                    admins = null;
             }
             else if (adminId == 0)
             {
-                users = adminManager.ReadAdmins(adminName, adminEmail);
+                admins = adminManager.ReadAdmins(adminName, adminEmail, adminRole);
             }
 
-            if (users != null)
+            if (admins != null)
             {
-                // Reset also populates listboxUsers with list users as data source
-                ResetListBoxUsersList();
+                // Reset also populates listboxadmins with list admins as data source
+                ResetListBoxAdminsList();
             }
             else
             {
-                lbUsersList.DataSource = null;
-                lbUsersList.Items.Clear();
-                lbUsersList.Items.Add("There is no such User.");
+                lbAdminList.DataSource = null;
+                lbAdminList.Items.Clear();
+                lbAdminList.Items.Add("There is no such User.");
             }
+        }
+
+        private void ResetListBoxAdminsList(int selectedIndex = -1)
+        {
+            lbAdminList.SelectedIndexChanged -= lbAdminList_SelectedIndexChanged;
+            lbAdminList.DataSource = null;
+            lbAdminList.DataSource = admins;
+            lbAdminList.SelectedIndex = selectedIndex;
+            lbAdminList.SelectedIndexChanged += lbAdminList_SelectedIndexChanged;
         }
 
         private void DisableAdminDetailsGroup()
         {
+            gbAdminDetails.Enabled = false;
+            btAddAdmin.Enabled = false;
+            tbAdminNameDetails.Text = String.Empty;
+            tbAdminEmailDetails.Text = String.Empty;
+            tbAdminRoleDetails.Text = String.Empty;
+            selectedAdmin = null;
+        }
 
+        private void lbAdminList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = lbAdminList.SelectedItem;
+
+            if (selectedItem is Admin)
+            {
+                selectedAdmin = (Admin)selectedItem;
+                EnableAdminDetailGroup();
+            }
+            else if (selectedItem is String)
+            {
+                EnableAdminDetailGroupAdding();
+            }
+        }
+        private void EnableAdminDetailGroup()
+        {
+            gbAdminDetails.Enabled = true;
+            tbAdminNameDetails.Text = selectedAdmin.Name;
+            tbAdminEmailDetails.Text = selectedAdmin.Email;
+            tbAdminRoleDetails.Text = selectedAdmin.AdminRole;
+        }
+        private void EnableAdminDetailGroupAdding()
+        {
+            gbAdminDetails.Enabled = true;
+            tbAdminNameDetails.Text = String.Empty;
+            tbAdminEmailDetails.Text = String.Empty;
+            tbAdminRoleDetails.Text = String.Empty;
+            btAddAdmin.Enabled = true;
         }
     }
 }

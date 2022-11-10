@@ -54,7 +54,7 @@ namespace LogicLayer.DTOs
             get;
             set;
         }
-        public string Role
+        public string AdminRole
         {
             get;
             set;
