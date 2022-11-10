@@ -14,9 +14,11 @@ namespace DataLayer
         {
             //constr = $"Data Source={serverName};Initial Catalog={databaseName};User ID={username};Password={password}";
             // PC
-            constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            //constr = "Data Source=GMALISZ\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
             // LAPTOP
             //constr = "Data Source=DESKTOP-PCL70MC\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
+            // FONTYS SERVER
+            constr = "Server=mssqlstud.fhict.local;Database=dbi508542_notesapp;User Id=dbi508542_notesapp;Password=notes;";
         }
 
         public AccountDTO CreateUser(string name, string email, string password)

@@ -7,14 +7,6 @@ namespace UnitTestProject
     [TestClass]
     public class LoginTestWeb
     {
-/*        private readonly IAccountRepository accountRepository;
-        private readonly IUserManagerWeb userManager;
-
-        public LoginTest()
-        {
-            accountRepository = new FakeAccountDB();
-            userManager = new UserManager(accountRepository);
-        }*/
         private IAccountRepository accountRepository;
         private IUserManagerWeb userManager;
 
@@ -24,7 +16,6 @@ namespace UnitTestProject
             // Arrange
             accountRepository = new FakeAccountDB();
             userManager = new UserManager(accountRepository);
-            //Account modelUser = new User(7, "NameUnitTest", "TestAccount@Email", "PasswordUnitTest", 5, 100);
 
             // Act
             Account LoginCorrectUser = userManager.ReadAccount("NameUnitTest", "PasswordUnitTest");

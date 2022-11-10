@@ -45,7 +45,7 @@ INSERT INTO premiumUserTable VALUES (1, '2022-10-01 0:03:06', '2022-11-01 00:03:
 INSERT INTO account VALUES ('jan', 'j@j', 'zaq12wsx');
 INSERT INTO userTable VALUES (2, 5, 100);
 INSERT INTO account VALUES ('admin', 'a@a', 'zaq12wsx');
-INSERT INTO adminTable VALUES (2, 'TestRole');
+INSERT INTO adminTable VALUES (3, 'TestRole');
 
 -- Note Table
 CREATE TABLE notes
@@ -63,7 +63,7 @@ CREATE TABLE historyNotes
 	(
 	NoteId int NOT NULL FOREIGN KEY REFERENCES [notes]([id]) ON DELETE CASCADE,
 	EditId int NOT NULL,
-	UserId int NOT NULL FOREIGN KEY REFERENCES [account]([id]) ON DELETE CASCADE,
+	UserId int NOT NULL FOREIGN KEY REFERENCES [account]([id]),
 	Title nchar(15) NULL,
 	[Text] nchar(100) NULL,
 	[Date] datetime2(0) NULL,
