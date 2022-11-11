@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using LogicLayer.DTOs;
 
@@ -22,6 +23,7 @@ namespace LogicLayer
             this.password = accountDTO.Password;
             this.adminRole = accountDTO.AdminRole;
         }
+        [JsonConstructor]
         public Admin(int id, string name, string email, string password, string adminRole) : base(id, name, email, password)
         {
             this.id = id;
