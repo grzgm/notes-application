@@ -1,10 +1,3 @@
-czy Account potrzebuje AmountOfNotes tak, tam będzie to obliczał
-
 Turning PremiumUser to User when times comes
 
 urzytkownik z tym samym nickiem ale innym mailem i tym samym hasłem !!!
-
-adding notes over maximum on web
-
-unit tests:
-ask for premium

@@ -33,7 +33,7 @@ namespace NotesAplicationWeb.Pages
         private void RetriveNotes()
         {
             INoteRepository noteRepository = new DataLayer.NoteRepository();
-            INoteManagerWeb noteManager = new NoteManager(noteRepository);
+            INoteManager noteManager = new NoteManager(noteRepository);
 
             List<Note> lLNotes = noteManager.ReadNotes(account.Id);
             foreach (Note note in lLNotes)
@@ -58,7 +58,7 @@ namespace NotesAplicationWeb.Pages
                 return RedirectToPage("Index");
 
             INoteRepository noteRepository = new DataLayer.NoteRepository();
-            INoteManagerWeb noteManager = new NoteManager(noteRepository);
+            INoteManager noteManager = new NoteManager(noteRepository);
 
             noteManager.DeleteNote(NoteId, account.Id);
 

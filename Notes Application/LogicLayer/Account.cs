@@ -54,12 +54,6 @@ namespace LogicLayer
              set { this.password = value; }
         }
 
-        public int AmountOfNotes
-        {
-            get;
-            set;
-        }
-
         public override string ToString()
         {
             return Id.ToString() + "; " + Name + "; " + Email;

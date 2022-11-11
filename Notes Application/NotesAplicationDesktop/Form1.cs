@@ -19,7 +19,7 @@ namespace NotesAplicationDesktop
         IAccountRepository accountRepository;
         IUserManagerDesktop userManager;
         INoteRepository noteRepository;
-        INoteManagerWeb noteManager;
+        INoteManager noteManager;
         AdminManager adminManager;
 
         public Form1()

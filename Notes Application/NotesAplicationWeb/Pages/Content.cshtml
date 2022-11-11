@@ -46,13 +46,18 @@
                 voluptate beatae.
             </div>
     </div>*@
-    <div class="note">
-        <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="">
-            <div class="noteTextPosition">
-                +
-            </div>
-        </a>
-    </div>
+    @{
+        if (Model.account is LogicLayer.User && Model.Notes.Count <= ((LogicLayer.User)Model.account).MaxAmountOfNotes)
+        {
+        <div class="note">
+            <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="">
+                <div class="noteTextPosition">
+                    +
+                </div>
+            </a>
+        </div>
+    }
+    }
 </div>
 
 <script>

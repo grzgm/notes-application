@@ -13,7 +13,7 @@ namespace LogicLayer
         private int userId;
         private string title;
         private string text;
-        private DateTime date;
+        private DateTime creationDate;
         private DateTime editDate;
 
         public Note()
@@ -31,13 +31,13 @@ namespace LogicLayer
             this.title = title;
             this.text = text;
         }
-		public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)
+		public Note(int userId, int id, string title, string text, DateTime creationDate, DateTime editDate)
 		{
 			this.userId = userId;
 			this.id = id;
 			this.title = title;
 			this.text = text;
-            this.date = date;
+            this.creationDate = creationDate;
             this.editDate = editDate;
 		}
 
@@ -56,7 +56,7 @@ namespace LogicLayer
         public int Id { get { return this.id; } }
         public string Title { get { return this.title; } set { this.title = value; } }
         public string Text { get { return this.text; } set { this.text = value; } }
-        public DateTime Date { get { return this.date; }}
+        public DateTime CreationDate { get { return this.creationDate; }}
         public DateTime EditDate { get { return this.editDate; } set { this.editDate = value; } }
     }
 }

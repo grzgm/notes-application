@@ -34,6 +34,16 @@ namespace NotesAplicationWeb.Pages
             if (HttpContext.Session.Get("accountJson") == null)
                 return RedirectToPage("Index");
 
+            if (HttpContext.Session.Get("MaxLengthOfNote") != null)
+            {
+                int MaxLengthOfNote = HttpContext.Session.GetInt32("MaxLengthOfNote").Value;
+                if (Note.Text.Length > MaxLengthOfNote)
+                {
+                    Note.Text += " NOTE TEXT TOO LONG";
+                    return Page();
+                }
+            }
+
             accountId = HttpContext.Session.GetInt32("accountId").Value;
             //if ((Note.Title == String.Empty) && (Note.Text == String.Empty))
             //{
@@ -44,13 +54,13 @@ namespace NotesAplicationWeb.Pages
             if ((Title == null) && (Text == null))
             {
                 INoteRepository noteRepository = new DataLayer.NoteRepository();
-                INoteManagerWeb noteManager = new NoteManager(noteRepository);
+                INoteManager noteManager = new NoteManager(noteRepository);
                 noteManager.CreateNote(accountId, Note.Title, Note.Text);
             }
             else if ((Title != Note.Title) || (Text != Note.Text))
             {
                 INoteRepository noteRepository = new DataLayer.NoteRepository();
-                INoteManagerWeb noteManager = new NoteManager(noteRepository);
+                INoteManager noteManager = new NoteManager(noteRepository);
                 noteManager.UpdateNote(int.Parse(RouteData.Values["noteId"].ToString()), accountId, Note.Title, Note.Text);
             }
 

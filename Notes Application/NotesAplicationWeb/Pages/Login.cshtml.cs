@@ -61,6 +61,10 @@ namespace NotesAplicationWeb.Pages
 
                 HttpContext.Session.SetString("accountJson", accountJson);
                 HttpContext.Session.SetInt32("accountId", account.Id);
+                if(account is User)
+                {
+                    HttpContext.Session.SetInt32("MaxLengthOfNote", ((User)account).MaxLengthOfNotes);
+                }
                 HttpContext.Session.SetString("accountType", account.GetType().ToString());
 
                 return RedirectToPage("Content");

@@ -9,7 +9,7 @@
     <form method="post" autocomplete="on">
         <label asp-for="Note.Title">Title: </label>
         <input asp-for="Note.Title" type="text">
-        <textarea asp-for="Note.Text"></textarea>
+        <textarea asp-for="Note.Text" maxlength="@HttpContext.Session.GetInt32("MaxLengthOfNote")"></textarea>
         <label class="textVertical" asp-for="Note.Text">Text: </label>
         <button type="submit">Save!</button>
     </form>

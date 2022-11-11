@@ -90,12 +90,12 @@ namespace LogicLayer
             accountRepository.DeleteAdmin(id);
         }
 
-        public Admin ConvertAccountDTOToAdmin(AccountDTO accountDTO)
+        private Admin ConvertAccountDTOToAdmin(AccountDTO accountDTO)
         {
             return new Admin(accountDTO);
         }
 
-        public List<Admin> ConvertAccountsDTOToAdmins(List<AccountDTO> accountDTOs)
+        private List<Admin> ConvertAccountsDTOToAdmins(List<AccountDTO> accountDTOs)
         {
             List<Admin> accounts = new List<Admin>();
             foreach (AccountDTO accountDTO in accountDTOs)

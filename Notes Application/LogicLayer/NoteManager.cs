@@ -8,49 +8,17 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace LogicLayer
 {
-	public class NoteManager : INoteManagerWeb, INoteManagerDesktop
+	public class NoteManager : INoteManager
     {
-		private int amountOfNotes;
-		private int amountPinnedNotes;
-		private int amountPremiumNotes;
-
         private readonly INoteRepository noteRepository;
-
-
         public NoteManager(INoteRepository noteRepository)
         {
             this.noteRepository = noteRepository
                 ?? throw new ArgumentNullException(nameof(noteRepository));
         }
-		 
-/*		public int AmountOfNotes()
-		{
-			throw new NotImplementedException();
-		}
-
-		public int AmountPinnedNotes()
-		{
-			throw new NotImplementedException();
-		}
-
-		public int AmountPremiumNotes()
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<string> ListOfPremiumNotes(int userId)
-		{
-			throw new NotImplementedException();
-		}*/
-
 		public void CreateNote(int userId, string title, string text)
         {
             noteRepository.CreateNote(userId, title, text);
-        }
-
-        public Note ReadNote(int noteId, int userId)
-        {
-            throw new NotImplementedException();
         }
         public List<Note> ReadNotes(int userId)
         {
@@ -63,35 +31,13 @@ namespace LogicLayer
 
             return lLNotes;
         }
-
         public void UpdateNote(int noteId, int userId, string title, string text)
         {
 			noteRepository.UpdateNote(noteId, userId, title, text);
         }
-
 		public void DeleteNote(int noteId, int userId)
         {
             noteRepository.DeleteNote(noteId, userId);
         }
-
-		public List<Note> GetListOfUserNotes(int userId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Note GetUserNote(int noteId, int userId)
-        {
-			throw new NotImplementedException();
-		}
-
-		public void UpdateNote(int noteId, int userId)
-        {
-			throw new NotImplementedException();
-		}
-
-		void INoteManagerDesktop.DeleteNote(int noteId, int userId)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

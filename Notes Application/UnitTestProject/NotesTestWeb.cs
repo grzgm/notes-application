@@ -11,7 +11,7 @@ namespace UnitTestProject
     public class NotesTestWeb
     {
         private INoteRepository noteRepository;
-        private INoteManagerWeb noteManager;
+        private INoteManager noteManager;
 
         [TestMethod]
         public void CreatingCorrectNote()

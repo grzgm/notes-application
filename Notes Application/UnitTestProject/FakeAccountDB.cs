@@ -144,11 +144,41 @@ namespace UnitTestProject
         }
         public void DeleteUser(int id)
         {
-
+            throw new NotImplementedException();
         }
         public void CreatePremiumRequest(int userId)
         {
+            throw new NotImplementedException();
+        }
 
+        public void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, DateTime? endPremiumDate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateAdmin(string name, string email, string password, string adminRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AccountDTO ReadAdmin(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AccountDTO> ReadAdmins(string name, string email, string adminRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateAdmin(int id, string name, string email, string adminRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAdmin(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

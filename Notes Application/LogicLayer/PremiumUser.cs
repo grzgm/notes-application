@@ -28,12 +28,6 @@ namespace LogicLayer
         {
             this.daysOfPremiumLeft = daysOfPremiumLeft;
         }
-
-        public void ProlongPremium()
-        {
-            throw new NotImplementedException();
-        }
-
         public int DaysOfPremiumLeft
         {
             get { return this.daysOfPremiumLeft; }

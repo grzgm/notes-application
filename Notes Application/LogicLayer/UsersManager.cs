@@ -8,7 +8,7 @@ using LogicLayer.DTOs;
 
 namespace LogicLayer
 {
-	public class UserManager : IUserManagerWeb, IUserManagerDesktop, IUserManagerAdmin
+	public class UserManager : IUserManagerWeb, IUserManagerDesktop
     {
         private readonly IAccountRepository accountRepository;
 
@@ -18,36 +18,15 @@ namespace LogicLayer
                 ?? throw new ArgumentNullException(nameof(accountRepository));
         }
 
-        public void ChangePremiumStatus(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ChangeMaxAmountOfNotes(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ChangeMaxLengthOfNotes(int id)
-		{
-			throw new NotImplementedException();
-        }
-
-        public int AmountOfUsers()
-        {
-            throw new NotImplementedException();
-        }
-        public int AmountOfPremiumUsers()
-        {
-            throw new NotImplementedException();
-        }
-
+        //public void ChangePremiumStatus(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
         Account IUserManagerWeb.CreateUser(string name, string email, string password)
 		{
             AccountDTO accountDTO = accountRepository.CreateUser(name, email, password);
             return ConvertAccountDTO(accountDTO);
         }
-
         Account IUserManagerWeb.ReadAccount(string name, string password)
         {
             AccountDTO accountDTO = accountRepository.ReadAccount(name, password);
@@ -57,7 +36,6 @@ namespace LogicLayer
         {
             accountRepository.CreatePremiumRequest(userId);
         }
-
         Account IUserManagerDesktop.ReadUser(int id, string name, string email)
         {
             AccountDTO accountDTO;
@@ -84,7 +62,6 @@ namespace LogicLayer
 
             return ConvertAccountDTO(accountDTO);
         }
-
         List<Account> IUserManagerDesktop.ReadUsers(string name, string email)
         {
             List<AccountDTO> accountDTOs;
@@ -103,7 +80,6 @@ namespace LogicLayer
             }
             return ConvertAccountsDTO(accountDTOs);
         }
-
         void IUserManagerDesktop.UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null)
         {
             if(daysOfPremiumLeft != null)
@@ -112,12 +88,10 @@ namespace LogicLayer
                 accountRepository.UpdateUser(id, name, email, maxAmountOfNotes, maxLengthOfNotes);
 
         }
-
         void IUserManagerDesktop.DeleteUser(int id)
         {
             accountRepository.DeleteUser(id);
         }
-
         private Account ConvertAccountDTO(AccountDTO accountDTO)
         {
             Account account;
@@ -136,7 +110,6 @@ namespace LogicLayer
 
             return account;
         }
-
         private List<Account> ConvertAccountsDTO(List<AccountDTO> accountDTOs)
         {
             List<Account> accounts = new List<Account>();

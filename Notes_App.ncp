@@ -7,693 +7,24 @@
       <Entity type="Class">
         <Name>AdminManager</Name>
         <Access>Public</Access>
-        <Location left="1080" top="396" />
-        <Size width="236" height="168" />
+        <Location left="114" top="1349" />
+        <Size width="236" height="230" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void ShowAdmin(int id)</Member>
-        <Member type="Method">public void ShowAllAdmins()</Member>
-        <Member type="Method">public int AmountOfAdmins()</Member>
-        <Member type="Method">Account SearchAdmin(string name, string password)</Member>
-        <Member type="Method">Account CreateAdminr(string name, string email, string password)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>NoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1821" top="681" />
-        <Size width="262" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int amountOfNotes</Member>
-        <Member type="Field">private int amountPinnedNotes</Member>
-        <Member type="Field">private static int noteIdCounter</Member>
-        <Member type="Field">int amountPremiumNotes</Member>
-        <Member type="Field">private List&lt;List&lt;Note&gt;&gt; usersNotes</Member>
-        <Member type="Method">public int AmountOfNotes()</Member>
-        <Member type="Method">public int AmountPinnedNotes()</Member>
-        <Member type="Method">public int AmountPremiumNotes()</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfUserNotes(int userId)</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUser</Name>
-        <Access>Public</Access>
-        <Location left="366" top="75" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void NewMethod()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>Account</Name>
-        <Access>Public</Access>
-        <Location left="825" top="153" />
-        <Size width="236" height="400" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">protected int id</Member>
-        <Member type="Field">private string name</Member>
-        <Member type="Field">private string email</Member>
-        <Member type="Field">private int amountOfNotes</Member>
-        <Member type="Field">private string password</Member>
-        <Member type="Field">private int maxAmountOfNotes</Member>
-        <Member type="Field">private int maxLengthOfNote</Member>
-        <Member type="Field">private bool isPremium</Member>
-        <Member type="Field">private List&lt;Note&gt; notes</Member>
-        <Member type="Property">public int Id { get; private set; }</Member>
-        <Member type="Property">public string Name { get; set; }</Member>
-        <Member type="Property">public string Email { get; set; }</Member>
-        <Member type="Property">public abstract bool IsPremium { get; set; }</Member>
-        <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
-        <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
-        <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="2425" top="730" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Admin</Name>
-        <Access>Public</Access>
-        <Location left="985" top="683" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void ChangeUserPremiumStatus()</Member>
-        <Member type="Method">public void GetUserInfo(int id)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>PremiumUser</Name>
-        <Access>Public</Access>
-        <Location left="289" top="683" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int daysOfPremiumLeft</Member>
-        <Member type="Method">public void ProlongPremium()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>User</Name>
-        <Access>Public</Access>
-        <Location left="641" top="683" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void GetPremium()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="2165" top="730" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int userId</Member>
-        <Member type="Field">private int id</Member>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Administration</Name>
-        <Access>Public</Access>
-        <Location left="38" top="26" />
-        <Size width="294" height="320" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>UsersManager</Name>
-        <Access>Public</Access>
-        <Location left="641" top="1433" />
-        <Size width="236" height="168" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUserManager</Name>
-        <Access>Public</Access>
-        <Location left="1146" top="1229" />
-        <Size width="236" height="157" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void ChangePremiumStatus(int id)</Member>
-        <Member type="Method">void ChangeMaxAmountOfNotes(int id)</Member>
-        <Member type="Method">void ChangeMaxLengthOfNotes(int id)</Member>
-        <Member type="Method">int AmountOfUsers()</Member>
-        <Member type="Method">int AmountOfPremiumUsers()</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>INoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1834" top="262" />
-        <Size width="236" height="163" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfNotes()</Member>
-        <Member type="Method">Note GetNote()</Member>
-        <Member type="Method">List&lt;Note&gt; CreateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote()</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote()</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>INoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1454" top="757" />
-        <Size width="280" height="163" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfUserNotes(int userId)</Member>
-        <Member type="Method">Note GetUserNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote(int userId, int noteId)</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUserManager</Name>
-        <Access>Public</Access>
-        <Location left="1168" top="1504" />
-        <Size width="298" height="153" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">Account SearchUser(string name, string password)</Member>
-        <Member type="Method">Account CreateUser(string name, string email, string password)</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>DAL</Name>
-        <Access>Public</Access>
-        <Location left="830" top="1737" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly IAccountRepository accountRepository</Member>
+        <Member type="Constructor">public AdminManager(IAccountRepository accountRepository)</Member>
+        <Member type="Method">public string CreateAdmin(string name, string email, string password, string adminRole)</Member>
+        <Member type="Method">public Admin ReadAdmin(int id, string name, string email, string adminRole)</Member>
+        <Member type="Method">public List&lt;Admin&gt; ReadAdmins(string name, string email, string adminRole)</Member>
+        <Member type="Method">public void UpdateAdmin(int id, string name, string email, string adminRole)</Member>
+        <Member type="Method">public void DeleteAdmin(int id)</Member>
+        <Member type="Method">private Admin ConvertAccountDTOToAdmin(AccountDTO accountDTO)</Member>
+        <Member type="Method">private List&lt;Admin&gt; ConvertAccountsDTOToAdmins(List&lt;AccountDTO&gt; accountDTOs)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Desktop_Presentation</Name>
         <Access>Public</Access>
-        <Location left="1580" top="396" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Web_Presentation</Name>
-        <Access>Public</Access>
-        <Location left="1566" top="1199" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-    </Entities>
-    <Relationships>
-      <Relationship type="Association" first="1" second="8">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;List&lt;Note&gt;&gt; notes</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Generalization" first="6" second="7">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="7" second="3">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="5" second="3">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="8" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="0" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Admin&gt; admins</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="10" second="7">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="10" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="10" second="11">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="5" second="11">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1262</X>
-          <Y>965</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="1" second="12">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="3" second="12">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1801</X>
-          <Y>324</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; notes</EndRole>
-      </Relationship>
-      <Relationship type="Realization" first="1" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="5" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="10" second="14">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="10" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="10" second="15">
-        <Label>Retrives Information About Users</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="17" second="14">
-        <Label>Asks to check if account is in the system or asks to create new account</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="16" second="0">
-        <Label>Asks to check if admin is in the system or asks to create new admin</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="17" second="1">
-        <Label>Asks for notes of logged Account</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="1" second="15">
-        <Label>Retrives Notes</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1096</X>
-          <Y>1868</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="16" second="1">
-        <Label>Asks for notes of specific Account</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="15">
-        <Label>Retrives Information About Admins</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="16" second="14">
-        <Label>Asks about details of specific User</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-    </Relationships>
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>UML_Admin_in_UserManager</Name>
-    <Language>CSharp</Language>
-    <Entities>
-      <Entity type="Class">
-        <Name>UsersManager</Name>
-        <Access>Public</Access>
-        <Location left="784" top="265" />
-        <Size width="236" height="168" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Admin</Name>
-        <Access>Public</Access>
-        <Location left="610" top="1127" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void ChangeUserPremiumStatus()</Member>
-        <Member type="Method">public void GetUserInfo(int id)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>INoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1258" top="646" />
-        <Size width="236" height="163" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfNotes()</Member>
-        <Member type="Method">Note GetNote()</Member>
-        <Member type="Method">List&lt;Note&gt; CreateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote()</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote()</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote()</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUserManager</Name>
-        <Access>Public</Access>
-        <Location left="270" top="66" />
-        <Size width="298" height="153" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">Account SearchUser(string name, string password)</Member>
-        <Member type="Method">Account CreateUser(string name, string email, string password)</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUserPropertiesManager</Name>
-        <Access>Public</Access>
-        <Location left="463" top="689" />
-        <Size width="236" height="157" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void ChangePremiumStatus(int id)</Member>
-        <Member type="Method">void ChangeMaxAmountOfNotes(int id)</Member>
-        <Member type="Method">void ChangeMaxLengthOfNotes(int id)</Member>
-        <Member type="Method">int AmountOfUsers()</Member>
-        <Member type="Method">int AmountOfPremiumUsers()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>AdminManager</Name>
-        <Access>Public</Access>
-        <Location left="90" top="1228" />
-        <Size width="236" height="168" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void ShowAdmin(int id)</Member>
-        <Member type="Method">public void ShowAllAdmins()</Member>
-        <Member type="Method">public int AmountOfAdmins()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>INoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1587" top="1421" />
-        <Size width="280" height="163" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfUserNotes(int userId)</Member>
-        <Member type="Method">Note GetUserNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; ReadNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; UpdateNote(int userId, int noteId)</Member>
-        <Member type="Method">List&lt;Note&gt; DeleteNote(int userId, int noteId)</Member>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUser</Name>
-        <Access>Public</Access>
-        <Location left="2260" top="1097" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void NewMethod()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>Account</Name>
-        <Access>Public</Access>
-        <Location left="784" top="527" />
-        <Size width="236" height="400" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">protected int id</Member>
-        <Member type="Field">private string name</Member>
-        <Member type="Field">private string email</Member>
-        <Member type="Field">private int amountOfNotes</Member>
-        <Member type="Field">private string password</Member>
-        <Member type="Field">private int maxAmountOfNotes</Member>
-        <Member type="Field">private int maxLengthOfNote</Member>
-        <Member type="Field">private bool isPremium</Member>
-        <Member type="Field">private List&lt;Note&gt; notes</Member>
-        <Member type="Property">public int Id { get; private set; }</Member>
-        <Member type="Property">public string Name { get; set; }</Member>
-        <Member type="Property">public string Email { get; set; }</Member>
-        <Member type="Property">public abstract bool IsPremium { get; set; }</Member>
-        <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
-        <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
-        <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>PremiumUser</Name>
-        <Access>Public</Access>
-        <Location left="1331" top="1127" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int daysOfPremiumLeft</Member>
-        <Member type="Method">public void ProlongPremium()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>User</Name>
-        <Access>Public</Access>
-        <Location left="990" top="1127" />
-        <Size width="236" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void GetPremium()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Administration</Name>
-        <Access>Public</Access>
-        <Location left="1903" top="1063" />
-        <Size width="294" height="320" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>NoteManager</Name>
-        <Access>Public</Access>
-        <Location left="1599" top="570" />
-        <Size width="262" height="315" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int amountOfNotes</Member>
-        <Member type="Field">private int amountPinnedNotes</Member>
-        <Member type="Field">private static int noteIdCounter</Member>
-        <Member type="Field">int amountPremiumNotes</Member>
-        <Member type="Field">private List&lt;List&lt;Note&gt;&gt; usersNotes</Member>
-        <Member type="Method">public int AmountOfNotes()</Member>
-        <Member type="Method">public int AmountPinnedNotes()</Member>
-        <Member type="Method">public int AmountPremiumNotes()</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfUserNotes(int userId)</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="2239" top="619" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Note</Name>
-        <Access>Public</Access>
-        <Location left="1979" top="619" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private int userId</Member>
-        <Member type="Field">private int id</Member>
-        <Member type="Field">public string Title</Member>
-        <Member type="Field">public DateTime date</Member>
-        <Member type="Field">public string text</Member>
-        <Member type="Field">public DateTime editDate</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Presentation_Layer</Name>
-        <Access>Public</Access>
-        <Location left="35" top="51" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-    </Entities>
-    <Relationships>
-      <Relationship type="Association" first="8" second="2">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; notes</EndRole>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Generalization" first="10" second="8">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="1" second="8">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="1" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>581</X>
-          <Y>1145</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="1" second="6">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="5" second="1">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Admin&gt; admins</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="0" second="3">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>605</X>
-          <Y>164</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Realization" first="0" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="9" second="10">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="0" second="8">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Accounts&gt; users</EndRole>
-      </Relationship>
-      <Relationship type="Association" first="14" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Note&gt; lastEdit</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="12" second="14">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;List&lt;Note&gt;&gt; notes</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="12" second="2">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Realization" first="12" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="1" second="3">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>1</EndRole>
-      </Relationship>
-      <Relationship type="Association" first="15" second="3">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-    </Relationships>
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>UML new layout Account doesnt have notes</Name>
-    <Language>CSharp</Language>
-    <Entities>
-      <Entity type="Class">
-        <Name>AdminManager</Name>
-        <Access>Public</Access>
-        <Location left="51" top="448" />
-        <Size width="236" height="168" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void ShowAdmin(int id)</Member>
-        <Member type="Method">public void ShowAllAdmins()</Member>
-        <Member type="Method">public int AmountOfAdmins()</Member>
-        <Member type="Method">Account SearchAdmin(string name, string password)</Member>
-        <Member type="Method">Account CreateAdmin(string name, string email, string password)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Desktop_Presentation</Name>
-        <Access>Public</Access>
-        <Location left="502" top="24" />
+        <Location left="985" top="48" />
         <Size width="163" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -701,27 +32,7 @@
       <Entity type="Class">
         <Name>Web_Presentation</Name>
         <Access>Public</Access>
-        <Location left="1863" top="24" />
-        <Size width="163" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IUserManagerAdmin</Name>
-        <Access>Public</Access>
-        <Location left="286" top="1606" />
-        <Size width="236" height="157" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void ChangePremiumStatus(int id)</Member>
-        <Member type="Method">void ChangeMaxAmountOfNotes(int id)</Member>
-        <Member type="Method">void ChangeMaxLengthOfNotes(int id)</Member>
-        <Member type="Method">int AmountOfUsers()</Member>
-        <Member type="Method">int AmountOfPremiumUsers()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>DAL</Name>
-        <Access>Public</Access>
-        <Location left="1438" top="1726" />
+        <Location left="2244" top="48" />
         <Size width="163" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -729,8 +40,8 @@
       <Entity type="Interface">
         <Name>IUserManagerWeb</Name>
         <Access>Public</Access>
-        <Location left="1291" top="521" />
-        <Size width="362" height="153" />
+        <Location left="2144" top="433" />
+        <Size width="362" height="112" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Account CreateUser(string name, string email, string password)</Member>
         <Member type="Method">Account ReadAccount(string name, string password)</Member>
@@ -739,43 +50,46 @@
       <Entity type="Class">
         <Name>PremiumUser</Name>
         <Access>Public</Access>
-        <Location left="797" top="1219" />
+        <Location left="786" top="1307" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int daysOfPremiumLeft</Member>
         <Member type="Constructor">public PremiumUser()</Member>
         <Member type="Constructor">public PremiumUser(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public PremiumUser(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes, bool isPremium, int daysOfPremiumLeft)</Member>
-        <Member type="Method">public void ProlongPremium()</Member>
         <Member type="Property">public int DaysOfPremiumLeft { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>UserManager</Name>
         <Access>Public</Access>
-        <Location left="1353" top="1280" />
-        <Size width="236" height="168" />
+        <Location left="1473" top="1585" />
+        <Size width="429" height="145" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly IAccountRepository accountRepository</Member>
+        <Member type="Constructor">public UserManager(IAccountRepository accountRepository)</Member>
         <Member type="Method">private Account ConvertAccountDTO(AccountDTO accountDTO)</Member>
+        <Member type="Method">private List&lt;Account&gt; ConvertAccountsDTO(List&lt;AccountDTO&gt; accountDTOs)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Admin</Name>
         <Access>Public</Access>
-        <Location left="511" top="1219" />
+        <Location left="498" top="1307" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private string adminRole</Member>
         <Member type="Constructor">public Admin()</Member>
         <Member type="Constructor">public Admin(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public Admin(int id, string name, string email, string password)</Member>
-        <Member type="Method">public void ChangeUserPremiumStatus()</Member>
-        <Member type="Method">public void GetUserInfo(int id)</Member>
+        <Member type="Property">public string AdminRole { get; set; }</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="1095" top="1219" />
+        <Location left="1082" top="1307" />
         <Size width="236" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">protected int maxAmountOfNotes</Member>
@@ -783,48 +97,27 @@
         <Member type="Constructor">public User()</Member>
         <Member type="Constructor">public User(AccountDTO accountDTO)</Member>
         <Member type="Constructor">public User(int id, string name, string email, string password, int maxAmountOfNotes, int maxLengthOfNotes)</Member>
-        <Member type="Method">private void GetPremium()</Member>
         <Member type="Property">public int MaxAmountOfNotes { get; set; }</Member>
         <Member type="Property">public int MaxLengthOfNotes { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Interface">
-        <Name>INoteManagerDesktop</Name>
-        <Access>Public</Access>
-        <Location left="443" top="392" />
-        <Size width="280" height="163" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Note&gt; GetListOfUserNotes(int userId)</Member>
-        <Member type="Method">Note GetUserNote(int userId, int noteId)</Member>
-        <Member type="Method">Note ReadNote(int userId, int noteId)</Member>
-        <Member type="Method">void UpdateNote(int userId, int noteId)</Member>
-        <Member type="Method">void DeleteNote(int userId, int noteId)</Member>
-      </Entity>
       <Entity type="Class">
         <Name>NoteManager</Name>
         <Access>Public</Access>
-        <Location left="1617" top="972" />
-        <Size width="262" height="315" />
+        <Location left="1593" top="378" />
+        <Size width="262" height="111" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private int amountOfNotes</Member>
-        <Member type="Field">private int amountPinnedNotes</Member>
-        <Member type="Field">int amountPremiumNotes</Member>
-        <Member type="Field">private readonly NoteRepository noteRepository</Member>
-        <Member type="Constructor">public NoteManager()</Member>
-        <Member type="Method">public int AmountOfNotes()</Member>
-        <Member type="Method">public int AmountPinnedNotes()</Member>
-        <Member type="Method">public int AmountPremiumNotes()</Member>
-        <Member type="Method">public List&lt;string&gt; ListOfPremiumNotes(int userId)</Member>
+        <Member type="Field">private readonly INoteRepository noteRepository</Member>
+        <Member type="Constructor">public NoteManager(INoteRepository noteRepository)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
-        <Name>INoteManagerWeb</Name>
+        <Name>INoteManager</Name>
         <Access>Public</Access>
-        <Location left="1827" top="390" />
-        <Size width="236" height="163" />
+        <Location left="1543" top="192" />
+        <Size width="363" height="129" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void CreateNote(int userId, string title, string text)</Member>
-        <Member type="Method">Note ReadNote(int noteId, int userId)</Member>
         <Member type="Method">List&lt;Note&gt; ReadNotes(int userId)</Member>
         <Member type="Method">void UpdateNote(int noteId, int userId, string title, string text)</Member>
         <Member type="Method">void DeleteNote(int noteId, int userId)</Member>
@@ -832,32 +125,32 @@
       <Entity type="Class">
         <Name>Note</Name>
         <Access>Public</Access>
-        <Location left="1935" top="1172" />
-        <Size width="162" height="366" />
+        <Location left="1630" top="552" />
+        <Size width="189" height="366" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int id</Member>
         <Member type="Field">private int userId</Member>
         <Member type="Field">private string title</Member>
         <Member type="Field">private string text</Member>
-        <Member type="Field">private DateTime date</Member>
+        <Member type="Field">private DateTime creationDate</Member>
         <Member type="Field">private DateTime editDate</Member>
         <Member type="Constructor">public Note()</Member>
         <Member type="Constructor">public Note(NoteDTO noteDTO)</Member>
         <Member type="Constructor">public Note(int userId, int id, string title, string text)</Member>
-        <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime date, DateTime editDate)</Member>
+        <Member type="Constructor">public Note(int userId, int id, string title, string text, DateTime creationDate, DateTime editDate)</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Member type="Property">public int UserId { get; }</Member>
         <Member type="Property">public int Id { get; }</Member>
         <Member type="Property">public string Title { get; set; }</Member>
         <Member type="Property">public string Text { get; set; }</Member>
-        <Member type="Property">public DateTime Date { get; }</Member>
+        <Member type="Property">public DateTime CreationDate { get; }</Member>
         <Member type="Property">public DateTime EditDate { get; set; }</Member>
-        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="797" top="700" />
+        <Location left="786" top="789" />
         <Size width="236" height="400" />
         <Collapsed>False</Collapsed>
         <Member type="Field">protected int id</Member>
@@ -867,268 +160,252 @@
         <Member type="Constructor">protected Account()</Member>
         <Member type="Constructor">protected Account(int id, string name, string email, string password)</Member>
         <Member type="Property">public int Id { get; }</Member>
-        <Member type="Property">public string Name { get; }</Member>
-        <Member type="Property">public string Email { get; }</Member>
-        <Member type="Property">public string Password { get; }</Member>
-        <Member type="Property">public int AmountOfNotes { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Email { get; set; }</Member>
+        <Member type="Property">public string Password { get; set; }</Member>
         <Member type="Method">public override string ToString()</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>NoteRepository</Name>
         <Access>Public</Access>
-        <Location left="1227" top="1914" />
+        <Location left="1385" top="727" />
         <Size width="163" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private SqlConnection conn</Member>
         <Member type="Field">private string constr</Member>
         <Member type="Constructor">public NoteRepository()</Member>
-        <Member type="Method">public void Connect()</Member>
-        <Member type="Method">public void Disconnet()</Member>
-        <Member type="Method">public void CreateNote(string title, string text)</Member>
-        <Member type="Method">public List&lt;NoteDTO&gt; ReadNotes()</Member>
-        <Member type="Method">public void UpdateNote(int id, string title, string text)</Member>
-        <Member type="Method">public void Delete(int id)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>NoteDTO</Name>
         <Access>Public</Access>
-        <Location left="1664" top="1921" />
-        <Size width="163" height="216" />
+        <Location left="1207" top="727" />
+        <Size width="163" height="145" />
         <Collapsed>False</Collapsed>
+        <Member type="Property">public int UserId { get; set; }</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public string Title { get; set; }</Member>
+        <Member type="Property">public string Text { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
         <Name>IUserManagerDesktop</Name>
         <Access>Public</Access>
-        <Location left="861" top="521" />
-        <Size width="395" height="153" />
+        <Location left="869" top="425" />
+        <Size width="395" height="129" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">Account ReadUser(int id, string name, string email, string password)</Member>
-        <Member type="Method">List&lt;Account&gt; ReadUsers(string name, string email, string password)</Member>
-        <Member type="Method">void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null)</Member>
+        <Member type="Method">Account ReadUser(int userId, string name, string email)</Member>
+        <Member type="Method">List&lt;Account&gt; ReadUsers(string name, string email)</Member>
+        <Member type="Method">void UpdateUser(int userId, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, int? daysOfPremiumLeft = null)</Member>
+        <Member type="Method">void DeleteUser(int userId)</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IAccountRepository</Name>
+        <Access>Public</Access>
+        <Location left="678" top="1708" />
+        <Size width="453" height="231" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">AccountDTO CreateUser(string name, string email, string password)</Member>
+        <Member type="Method">AccountDTO ReadAccount(string name, string password)</Member>
+        <Member type="Method">AccountDTO ReadUser(int id)</Member>
+        <Member type="Method">List&lt;AccountDTO&gt; ReadUsers(string name, string email)</Member>
+        <Member type="Method">void UpdateUser(int id, string name, string email, int maxAmountOfNotes, int maxLengthOfNotes, DateTime? endPremiumDate = null)</Member>
         <Member type="Method">void DeleteUser(int id)</Member>
+        <Member type="Method">void CreatePremiumRequest(int userId)</Member>
+        <Member type="Method">void CreateAdmin(string name, string email, string password, string adminRole)</Member>
+        <Member type="Method">List&lt;AccountDTO&gt; ReadAdmins(string name, string email, string adminRole)</Member>
+        <Member type="Method">void DeleteAdmin(int id)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>AccountRepository</Name>
+        <Access>Public</Access>
+        <Location left="823" top="2038" />
+        <Size width="163" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private SqlConnection conn</Member>
+        <Member type="Field">private string constr</Member>
+        <Member type="Constructor">public AccountRepository()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>INoteRepository</Name>
+        <Access>Public</Access>
+        <Location left="1385" top="459" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void CreateNote(int userId, string title, string text)</Member>
+        <Member type="Method">List&lt;NoteDTO&gt; ReadNotes(int userId)</Member>
+        <Member type="Method">void UpdateNote(int noteId, int userId, string title, string text)</Member>
+        <Member type="Method">void DeleteNote(int noteId, int userId)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>AccountDTO</Name>
+        <Access>Public</Access>
+        <Location left="1038" top="2038" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Email { get; set; }</Member>
+        <Member type="Property">public string Password { get; set; }</Member>
+        <Member type="Property">public int? AmountOfNotes { get; set; }</Member>
+        <Member type="Property">public int? MaxAmountOfNotes { get; set; }</Member>
+        <Member type="Property">public int? MaxLengthOfNotes { get; set; }</Member>
+        <Member type="Property">public DateTime? StartPremiumDate { get; set; }</Member>
+        <Member type="Property">public DateTime? EndPremiumDate { get; set; }</Member>
+        <Member type="Property">public string AdminRole { get; set; }</Member>
+        <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Association" first="0" second="4">
-        <Label>Retrives Information About Admins</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="8">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Admin&gt; admins</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="11" second="4">
-        <Label>Retrives Notes</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="1" second="0">
         <Label>Asks to check if admin is in the system or asks to create new admin</Label>
-        <StartOrientation>Horizontal</StartOrientation>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1010</X>
+          <Y>296</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>228</X>
+          <Y>380</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="5">
+      <Relationship type="Association" first="2" second="3">
         <Label>Asks to check if account is in the system or asks to create new account</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="7" second="4">
-        <Label>Retrives Information About Users</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="3">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>401</X>
-          <Y>1510</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="7" second="3">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Realization" first="7" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="7" second="8">
+      <Relationship type="Realization" first="5" second="3">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1369</X>
-          <Y>1475</Y>
+          <X>1835</X>
+          <Y>1560</Y>
         </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>627</X>
-          <Y>1606</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="7" second="9">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1369</X>
-          <Y>1473</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1199</X>
-          <Y>1606</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="7" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1369</X>
-          <Y>1473</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>893</X>
-          <Y>1606</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;Account&gt; users</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="11" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>- List&lt;List&lt;Note&gt;&gt; notes</EndRole>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Realization" first="11" second="10">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1711</X>
-          <Y>941</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Realization" first="11" second="12">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1792</X>
-          <Y>943</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Generalization" first="9" second="14">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="8" second="14">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="8" second="10">
+        <Label>Retrives notes</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="8" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="6" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="2" second="9">
+        <Label>Asks for notes of logged Account</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>568</X>
-          <Y>1194</Y>
+          <X>2281</X>
+          <Y>285</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1931</X>
+          <Y>285</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="6" second="9">
+      <Relationship type="Realization" first="5" second="14">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1680</X>
+          <Y>1430</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="1" second="14">
+        <Label>Asks about inforation about users</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="16" second="15">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="12" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="9">
+        <Label>Asks for notes of specyfic Account</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1133</X>
+          <Y>289</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="5" second="15">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>-IAccountRepository accountRepository</EndRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="15">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>-IAccountRepository accountRepository</EndRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="8" second="17">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>-INoteRepository noteRepository</EndRole>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="5" second="11">
+        <Label>Retrives info about users</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1604</X>
+          <Y>1477</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1062</X>
+          <Y>1050</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <Label>Retrives info about admins</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="2" second="12">
-        <Label>Asks for notes of logged Account</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="1" second="10">
-        <Label>Asks for notes of specific Account</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="15" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1415</X>
-          <Y>2036</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1477</X>
-          <Y>1967</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="16" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1628</X>
-          <Y>2036</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1538</X>
-          <Y>1967</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="13" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Realization" first="7" second="17">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1380</X>
-          <Y>1255</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="1" second="17">
-        <Label>Asks about inforation about users</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>

@@ -9,10 +9,10 @@ namespace LogicLayer
 {
     public interface INoteRepository
     {
-        public void CreateNote(int userId, string title, string text);
-        public List<NoteDTO> ReadNotes(int userId);
-        public void UpdateNote(int noteId, int userId, string title, string text);
-        public void DeleteNote(int noteId, int userId);
+        void CreateNote(int userId, string title, string text);
+        List<NoteDTO> ReadNotes(int userId);
+        void UpdateNote(int noteId, int userId, string title, string text);
+        void DeleteNote(int noteId, int userId);
 
     }
 }

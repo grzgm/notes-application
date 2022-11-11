@@ -48,9 +48,5 @@ namespace LogicLayer
             get { return this.maxLengthOfNotes; }
             set { this.maxLengthOfNotes = value; }
         }
-        private void GetPremium()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -30,16 +30,6 @@ namespace LogicLayer
             this.password = password;
             this.adminRole = adminRole;
         }
-        public void ChangeUserPremiumStatus()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserInfo(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public string AdminRole
         {
             get { return this.adminRole; }

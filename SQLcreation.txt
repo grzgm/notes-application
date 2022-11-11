@@ -3,9 +3,9 @@ CREATE TABLE account
 (
 	Id int NOT NULL PRIMARY KEY IDENTITY (1, 1),
 	[Name] nchar(15) NOT NULL,
-	Email nchar(50) NOT NULL,
+	Email nchar(50) NOT NULL UNIQUE,
 	[Password] nchar(10) NOT NULL,
-	CONSTRAINT UniqueNameAndPassword_account UNIQUE ([Name], Email, [Password])
+	CONSTRAINT UniqueNameAndPassword_account UNIQUE ([Name], [Password])
 );
 
 -- User Table
@@ -39,11 +39,11 @@ CREATE TABLE premiumRequests
 );
 
 -- Mock Data
-INSERT INTO account VALUES ('grzegorz', 'g@g', 'zaq12wsx');
+INSERT INTO account VALUES ('martin', 'm@m', 'zaq12wsx');
 INSERT INTO userTable VALUES (1, 5, 100);
-INSERT INTO premiumUserTable VALUES (1, '2022-10-01 0:03:06', '2022-11-01 00:03:06');
+INSERT INTO premiumUserTable VALUES (1, '2022-11-01 0:03:06', '2022-11-29 00:03:06');
 INSERT INTO account VALUES ('jan', 'j@j', 'zaq12wsx');
-INSERT INTO userTable VALUES (2, 5, 100);
+INSERT INTO userTable VALUES (2, 15, 200);
 INSERT INTO account VALUES ('admin', 'a@a', 'zaq12wsx');
 INSERT INTO adminTable VALUES (3, 'TestRole');
 
