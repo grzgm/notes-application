@@ -34,7 +34,7 @@
             <a asp-page-handler="delete" asp-route-noteid="@Model.Notes[i].Id" class="X">X</a>
             <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-noteid="@Model.Notes[i].Id">
                 <div class="noteTextPosition">
-                    <h4 class="noteText">@Model.Notes[i].Title // NoteId @Model.Notes[i].Id</h4>
+                    <h4 class="noteText">@Model.Notes[i].Title</h4>
                     <p class="noteText">@Model.Notes[i].Text</p>
                 </div>
             </a>
