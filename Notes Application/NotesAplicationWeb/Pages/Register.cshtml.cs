@@ -40,7 +40,7 @@ namespace NotesAplicationWeb.Pages
                     return Page();
                 }
 
-                string accountJson = JsonSerializer.Serialize(account);
+                string accountJson = JsonSerializer.Serialize((User)account);
 
                 HttpContext.Session.SetString("accountJson", accountJson);
                 HttpContext.Session.SetInt32("accountId", account.Id);

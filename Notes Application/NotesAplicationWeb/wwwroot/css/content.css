@@ -78,6 +78,11 @@
     cursor: text;
 }
 
+.noteText {
+    word-break: break-all;
+    hyphens: auto;
+}
+
 .X {
     width: 40px;
     line-height: 40px;

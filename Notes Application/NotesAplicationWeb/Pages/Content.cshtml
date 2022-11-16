@@ -35,7 +35,17 @@
             <a asp-page="/NoteEditor" asp-route-title="@Model.Notes[i].Title" asp-route-text="@Model.Notes[i].Text" asp-route-noteid="@Model.Notes[i].Id">
                 <div class="noteTextPosition">
                     <h4 class="noteText">@Model.Notes[i].Title</h4>
-                    <p class="noteText">@Model.Notes[i].Text</p>
+                    @{
+                        if(100 > @Model.Notes[i].Text.Length)
+                        {
+                            <p class="noteText">@Model.Notes[i].Text</p>
+                        }
+                        else
+                        {
+                            <p class="noteText">@Model.Notes[i].Text.Substring(0, 100)</p>
+                        }
+                    }
+
                 </div>
             </a>
         </div>
@@ -47,7 +57,7 @@
             </div>
     </div>*@
     @{
-        if ((Model.account is LogicLayer.User && Model.Notes.Count <= ((LogicLayer.User)Model.account).MaxAmountOfNotes) || Model.account is LogicLayer.Admin)
+        if ((Model.account is LogicLayer.User && Model.Notes.Count < ((LogicLayer.User)Model.account).MaxAmountOfNotes) || Model.account is LogicLayer.Admin)
         {
         <div class="note">
             <a asp-page="/NoteEditor" asp-route-title="" asp-route-text="">
